@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/navepnow/Documents/Learn/CSCI544/HW1/op_spam_training_data'
+let g:netrw_dirhist_4='/Users/navepnow'
+let g:netrw_dirhist_3='/Users/navepnow/Documents/Learn/on-my-way-to-Google/twitter'
+let g:netrw_dirhist_2='/Users/navepnow/Documents/Learn/on-my-way-to-Google/lintcode'
+let g:netrw_dirhist_1='/Users/navepnow/Documents/Learn/on-my-way-to-Google/leetcode/code'
