@@ -37,6 +37,9 @@ Pictures
 .ssh/
 .swiftpm/
 .tmux.conf
+.vim/plugged/*
+.viminfo
+.vimspector.log
 .vscode/
 .wget-hsts
 .yarnrc
