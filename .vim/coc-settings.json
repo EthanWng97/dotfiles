@@ -1,7 +1,7 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": ["python", "cpp", "html", "css", "js", "json", "markdown"],
+  "coc.preferences.formatOnSaveFiletypes": ["python", "cpp", "html", "css", "javascript", "json", "markdown"],
   "diagnostic.virtualText": true, 
   "diagnostic.errorSign": "✖",
   "diagnostic.warningSign": "!",
@@ -9,7 +9,7 @@
   "diagnostic.hintSign": "•",
   // diagnostic-languageserver
   //"diagnostic.checkCurrentLine": true,
-  //"diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "email": "languagetool",
