@@ -126,6 +126,7 @@ let g:coc_global_extensions = [
 	\ 'coc-prettier',
 	\ 'coc-pairs',
 	\ 'coc-html',
+	\ 'coc-htmlhint',
 	\ 'coc-git',
 	\ 'coc-clangd',
 	\ 'coc-markdownlint',
@@ -141,6 +142,7 @@ let g:coc_global_extensions = [
 	\ 'coc-pydocstring',
 	\ 'coc-vimlsp',
 	\ 'coc-explorer',
+	\ 'coc-eslint',
 	\ ]
 
 " Give more space for displaying messages.
