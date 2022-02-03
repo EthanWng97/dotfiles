@@ -28,6 +28,7 @@ call plug#end()
 syntax on
 filetype on
 filetype plugin on
+let g:netrw_fastbrowse = 0
 
 """""" command completion """"""
 set wildmenu
