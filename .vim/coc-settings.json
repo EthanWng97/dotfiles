@@ -34,4 +34,5 @@
   "git.enableGutters": true,
   "python.pythonPath": "/opt/homebrew/bin/python3",
   "lightbulb.enableSign": true,
+  "explorer.icon.enableNerdfont": true,
 }
