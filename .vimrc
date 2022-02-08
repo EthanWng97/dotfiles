@@ -14,11 +14,24 @@ Plug 'tpope/vim-fugitive'
 Plug 'ap/vim-css-color'
 Plug 'arzg/vim-colors-xcode'
 Plug 'github/copilot.vim'
-Plug 'rhysd/git-messenger.vim'
+"Plug 'rhysd/git-messenger.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'antoinemadec/coc-fzf'
 Plug 'mbbill/undotree'
+"Plug 'preservim/tagbar'
+Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-rooter'
 "Plug 'dense-analysis/ale'
+if has("nvim")
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'folke/todo-comments.nvim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+endif
+
 "Plug 'airblade/vim-gitgutter'
 call plug#end()
 
@@ -29,7 +42,11 @@ syntax on
 filetype on
 filetype plugin on
 let g:netrw_fastbrowse = 0
-
+let g:netrw_banner=0
+let g:netrw_keepdir = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_browse_split = 4
 """""" command completion """"""
 set wildmenu
 set wildmode=longest:full,full
@@ -37,8 +54,9 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*DS
 
 """""" folding """"""
 set foldmethod=indent       " fold based on indent
-set foldnestmax=3           " deepest fold is 3 levels
+set foldnestmax=10          " deepest fold is 20 levels
 set nofoldenable            " don't fold by default
+set foldlevel=2
 
 """""" tab and indentation """"""
 set tabstop=4                   " Tab is 4 spaces
@@ -70,15 +88,12 @@ set sidescroll=1            " The minimal number of columns to scroll
 
 
 """""" UI """"""
-highlight Comment cterm=italic gui=italic
-"highlight SignColumn ctermbg=235
-autocmd ColorScheme * highlight CocHighlightText ctermbg=242 
 set termguicolors
+
+highlight Comment cterm=italic gui=italic term=italic
+autocmd ColorScheme * highlight CocHighlightText ctermbg=242 guifg=#EAC435 gui=undercurl term=undercurl
 colorscheme xcodedark
 let g:airline_theme='xcodedark'
-
-"set lines=60
-"set columns=100 
 
 "au BufRead * let &numberwidth = float2nr(log10(line("$"))) + 1
 		  "\| let &columns = &numberwidth + 100
@@ -86,27 +101,38 @@ let g:airline_theme='xcodedark'
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
-let mapleader = ','
 
 """""" remap """"""
-nmap <silent> <C-f> :Rg<CR>
-nmap <silent> <C-o> :Files<CR>
-nmap <silent> <C-p> :CocFzfList<CR>
-imap <silent> <C-p> <Esc>:CocFzfList<CR>
-nmap <C-e> <Cmd>CocCommand explorer<CR>
-"nmap <Tab>  <c-W>w
-nmap <C-s> :w<CR>
-imap <C-s> <Esc>:w<CR>
-nmap <C-Q> :q<CR>
-nmap <C-Q><C-Q> :qa!<CR>
-nmap <silent> <C-_> <Plug>NERDCommenterToggle
-vmap <silent> <C-_> <Plug>NERDCommenterToggle
+let mapleader = ','
+nmap <leader>a ggVG
+nmap <leader>f :Rg<CR>
+nmap <leader>o :Files<CR>
+nmap <leader>p :CocFzfList<CR>
+imap <leader>p <Esc>:CocFzfList<CR>
+nmap <leader>e <Cmd>CocCommand explorer<CR>
+nmap <leader>s :w<CR>
+imap <leader>s <Esc>:w<CR>
+nmap <leader>q :q<CR>
+nmap <leader>qq :qa!<CR>
+nmap <leader>/ <Plug>NERDCommenterToggle
+vmap <leader>/ <Plug>NERDCommenterToggle
 nmap <space> :
-nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-nnoremap <C-J> <C-W>w
+imap zz <Esc>
+inoremap jh <Esc>
 map <leader>d "_dd
-nnoremap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
 
+"nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+function! TabEnable()
+	let num = winnr('$')
+	if num == 1 
+		return ":bnext\<CR>"
+	else
+		return "\<C-W>w"
+	endif
+endfunction
+nmap <expr> <silent> <Tab> TabEnable()
+
+nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for ale
@@ -131,7 +157,6 @@ let g:coc_global_extensions = [
 	\ 'coc-git',
 	\ 'coc-clangd',
 	\ 'coc-markdownlint',
-	"\ 'coc-lightbulb',
 	"\ 'coc-webview',
 	"\ 'coc-markdown-preview-enhanced',
 	\ 'coc-pyright',
@@ -151,7 +176,7 @@ let g:coc_global_extensions = [
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=100
+set updatetime=50
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -235,8 +260,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fm  <Plug>(coc-format-selected)
+nmap <leader>fm  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -248,8 +273,8 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
+"nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -272,10 +297,10 @@ let g:vimspector_install_gadgets = [
 " General Setting for airline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#coc#show_coc_status = 1
-
+let g:airline_section_c= "%{get(b:,'coc_git_blame','')}"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for Prettier
@@ -286,4 +311,8 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " General Setting for coc-explorer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char_list = ['┊']
-let g:indentLine_fileTypeExclude = ['coc-explorer']
+let g:indentLine_fileTypeExclude = ['coc-explorer', 'dashboard']
+
+if has("nvim")
+	lua require('todo-comments').setup{}
+endif
