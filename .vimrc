@@ -18,7 +18,7 @@ Plug 'github/copilot.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'antoinemadec/coc-fzf'
 Plug 'mbbill/undotree'
-"Plug 'preservim/tagbar'
+Plug 'liuchengxu/vista.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
 Plug 'dense-analysis/ale'
@@ -116,6 +116,10 @@ nmap <leader>q :q<CR>
 nmap <leader>qq :qa!<CR>
 nmap <leader>/ <Plug>NERDCommenterToggle
 vmap <leader>/ <Plug>NERDCommenterToggle
+nmap <leader>w :bd<CR>
+imap <leader>w <Esc>:bd<CR>
+nmap <leader>t :Vista<CR>
+imap <leader>t <Esc>:Vista<CR>
 nmap <space> :
 imap zz <Esc>
 inoremap jh <Esc>
