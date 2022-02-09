@@ -21,7 +21,7 @@ Plug 'mbbill/undotree'
 "Plug 'preservim/tagbar'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'folke/todo-comments.nvim'
@@ -137,10 +137,9 @@ nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:ale_sign_error = '✖'
-"let g:ale_sign_warning = '⚠'
-"let g:ale_disable_lsp = 1
-"let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '!'
+let g:airline#extensions#ale#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for coc
