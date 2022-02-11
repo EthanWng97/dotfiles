@@ -6,7 +6,7 @@ Plug 'puremourning/vimspector'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -21,7 +21,11 @@ Plug 'mbbill/undotree'
 Plug 'liuchengxu/vista.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
-Plug 'dense-analysis/ale'
+Plug 'voldikss/vim-floaterm'
+Plug 'mhinz/vim-startify'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets' 
+"Plug 'dense-analysis/ale'
 if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'folke/todo-comments.nvim'
@@ -30,6 +34,10 @@ if has("nvim")
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+  Plug 'L3MON4D3/LuaSnip'
+  Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -41,12 +49,16 @@ call plug#end()
 syntax on
 filetype on
 filetype plugin on
+
+"""""" netrw """"""
 let g:netrw_fastbrowse = 0
 let g:netrw_banner=0
 let g:netrw_keepdir = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_browse_split = 4
+autocmd FileType netrw setl bufhidden=wipe
+
 """""" command completion """"""
 set wildmenu
 set wildmode=longest:full,full
@@ -118,8 +130,8 @@ nmap <leader>/ <Plug>NERDCommenterToggle
 vmap <leader>/ <Plug>NERDCommenterToggle
 nmap <leader>w :bd<CR>
 imap <leader>w <Esc>:bd<CR>
-nmap <leader>t :Vista<CR>
-imap <leader>t <Esc>:Vista<CR>
+nmap <leader>t :Vista!!<CR>
+imap <leader>t <Esc>:Vista!!<CR>
 nmap <space> :
 imap zz <Esc>
 inoremap jh <Esc>
@@ -137,6 +149,7 @@ endfunction
 nmap <expr> <silent> <Tab> TabEnable()
 
 nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
+command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "CocUpdate" | exe "PlugUpdate" 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for ale
@@ -172,6 +185,8 @@ let g:coc_global_extensions = [
 	\ 'coc-vimlsp',
 	\ 'coc-explorer',
 	\ 'coc-eslint',
+	\ 'coc-fzf-preview',
+	\ 'coc-snippets',
 	\ ]
 
 " Give more space for displaying messages.
@@ -194,9 +209,10 @@ endif
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+	  \ pumvisible() ? "\<C-n>" :
+	  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+	  \ <SID>check_back_space() ? "\<TAB>" :
+	  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -314,8 +330,44 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " General Setting for coc-explorer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char_list = ['┊']
-let g:indentLine_fileTypeExclude = ['coc-explorer', 'dashboard']
+let g:indentLine_fileTypeExclude = ['coc-explorer', 'dashboard', 'floaterm']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General Setting for startify
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd User Startified setlocal buflisted
+function! s:gitModified()
+	let files = systemlist('git ls-files -m 2>/dev/null')
+	return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+" same as above, but show untracked files, honouring .gitignore
+function! s:gitUntracked()
+	let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+	return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+let g:startify_session_persistence    = 1
+let g:startify_session_dir = '~/.vim/session'
+let g:startify_lists = [
+  \ { 'type': 'sessions',  'header': ['   Saved sessions'] },
+  \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+  \ { 'type': function('s:gitModified'),  'header': ['   Git modified']},
+  \ { 'type': function('s:gitUntracked'), 'header': ['   Git untracked']},
+  \ ]
+
+let g:startify_custom_header = []
+let g:startify_enable_special = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General Setting for floaterm
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:floaterm_keymap_toggle = '<leader>j'
+
 
 if has("nvim")
 	lua require('todo-comments').setup{}
+	lua require('nvim-treesitter-rc')
+	"lua require('nvim-cmp-rc')
+	"lua require('nvim-lspconfig-rc')
 endif
