@@ -23,14 +23,8 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'folke/todo-comments.nvim'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
   Plug 'L3MON4D3/LuaSnip'
-  Plug 'saadparwaiz1/cmp_luasnip'
-  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
@@ -368,7 +362,6 @@ if has("nvim")
 	lua require('toggleterm-rc')
 	lua require('bufferline-rc')
 	lua require('nvim-tree-rc')
-	"lua require('nvim-cmp-rc')
 	lua require'colorizer'.setup()
 	"lua require('nvim-lspconfig-rc')
 endif
