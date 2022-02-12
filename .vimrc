@@ -18,7 +18,6 @@ Plug 'mbbill/undotree'
 Plug 'liuchengxu/vista.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
-"Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
 "Plug 'dense-analysis/ale'
 if has("nvim")
@@ -39,6 +38,7 @@ if has("nvim")
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'akinsho/toggleterm.nvim'
   Plug 'akinsho/bufferline.nvim'
+  Plug 'kyazdani42/nvim-tree.lua'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -122,7 +122,8 @@ nmap <leader>f :Rg<CR>
 nmap <leader>o :Files<CR>
 nmap <leader>p :CocFzfList<CR>
 imap <leader>p <Esc>:CocFzfList<CR>
-nmap <leader>e <Cmd>CocCommand explorer<CR>
+nmap <leader>e :NvimTreeToggle<CR>
+nmap <leader>r :NvimTreeRefresh<CR>
 nmap <leader>s :w<CR>
 imap <leader>s <Esc>:w<CR>
 nmap <leader>q :q<CR>
@@ -183,7 +184,6 @@ let g:coc_global_extensions = [
 	\ 'coc-emmet',
 	\ 'coc-pydocstring',
 	\ 'coc-vimlsp',
-	\ 'coc-explorer',
 	\ 'coc-eslint',
 	\ 'coc-fzf-preview',
 	\ 'coc-snippets',
@@ -367,6 +367,7 @@ if has("nvim")
 	lua require('lualine-rc')
 	lua require('toggleterm-rc')
 	lua require('bufferline-rc')
+	lua require('nvim-tree-rc')
 	"lua require('nvim-cmp-rc')
 	"lua require('nvim-lspconfig-rc')
 endif
