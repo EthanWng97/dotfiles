@@ -15,7 +15,6 @@ Plug 'ap/vim-css-color'
 Plug 'arzg/vim-colors-xcode'
 Plug 'github/copilot.vim'
 "Plug 'rhysd/git-messenger.vim'
-Plug 'Yggdroot/indentLine'
 Plug 'antoinemadec/coc-fzf'
 Plug 'mbbill/undotree'
 Plug 'liuchengxu/vista.vim'
@@ -38,6 +37,7 @@ if has("nvim")
   Plug 'L3MON4D3/LuaSnip'
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+  Plug 'lukas-reineke/indent-blankline.nvim'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -327,12 +327,6 @@ let g:airline_section_c= "%{get(b:,'coc_git_blame','')}"
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General Setting for coc-explorer
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indentLine_char_list = ['┊']
-let g:indentLine_fileTypeExclude = ['coc-explorer', 'dashboard', 'floaterm']
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd User Startified setlocal buflisted
@@ -368,6 +362,7 @@ let g:floaterm_keymap_toggle = '<leader>j'
 if has("nvim")
 	lua require('todo-comments').setup{}
 	lua require('nvim-treesitter-rc')
+	lua require('indent-blankline-rc')
 	"lua require('nvim-cmp-rc')
 	"lua require('nvim-lspconfig-rc')
 endif
