@@ -18,10 +18,8 @@ Plug 'mbbill/undotree'
 Plug 'liuchengxu/vista.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
-Plug 'voldikss/vim-floaterm'
+"Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets' 
 "Plug 'dense-analysis/ale'
 if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
@@ -38,8 +36,9 @@ if has("nvim")
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
-    " If you want to have icons in your statusline choose one of these
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'akinsho/toggleterm.nvim'
+  Plug 'akinsho/bufferline.nvim'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -366,6 +365,8 @@ if has("nvim")
 	lua require('indent-blankline-rc')
 	lua require('gitsigns-rc')
 	lua require('lualine-rc')
+	lua require('toggleterm-rc')
+	lua require('bufferline-rc')
 	"lua require('nvim-cmp-rc')
 	"lua require('nvim-lspconfig-rc')
 endif
