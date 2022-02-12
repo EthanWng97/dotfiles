@@ -38,6 +38,7 @@ if has("nvim")
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'quangnguyen30192/cmp-nvim-ultisnips'
   Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'lewis6991/gitsigns.nvim'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -170,7 +171,6 @@ let g:coc_global_extensions = [
 	\ 'coc-pairs',
 	\ 'coc-html',
 	\ 'coc-htmlhint',
-	\ 'coc-git',
 	\ 'coc-clangd',
 	\ 'coc-markdownlint',
 	"\ 'coc-webview',
@@ -319,7 +319,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#coc#show_coc_status = 1
-let g:airline_section_c= "%{get(b:,'coc_git_blame','')}"
+let g:airline_section_c= "%{get(b:,'gitsigns_status','')}"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for Prettier
@@ -363,6 +363,7 @@ if has("nvim")
 	lua require('todo-comments').setup{}
 	lua require('nvim-treesitter-rc')
 	lua require('indent-blankline-rc')
+	lua require('gitsigns-rc')
 	"lua require('nvim-cmp-rc')
 	"lua require('nvim-lspconfig-rc')
 endif
