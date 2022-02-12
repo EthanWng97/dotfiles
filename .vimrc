@@ -11,9 +11,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'arzg/vim-colors-xcode'
 Plug 'github/copilot.vim'
-"Plug 'rhysd/git-messenger.vim'
 Plug 'antoinemadec/coc-fzf'
-Plug 'mbbill/undotree'
 Plug 'liuchengxu/vista.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
@@ -24,7 +22,6 @@ if has("nvim")
   Plug 'folke/todo-comments.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'L3MON4D3/LuaSnip'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
@@ -33,6 +30,7 @@ if has("nvim")
   Plug 'akinsho/bufferline.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'norcalli/nvim-colorizer.lua'
+  "Plug 'folke/trouble.nvim'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -44,6 +42,7 @@ call plug#end()
 syntax on
 filetype on
 filetype plugin on
+autocmd BufNewFile,BufRead *.json setl ft=jsonc
 
 """""" netrw """"""
 let g:netrw_fastbrowse = 0
@@ -362,6 +361,7 @@ if has("nvim")
 	lua require('toggleterm-rc')
 	lua require('bufferline-rc')
 	lua require('nvim-tree-rc')
-	lua require'colorizer'.setup()
+	lua require('colorizer').setup()
+	"lua require('trouble').setup{}
 	"lua require('nvim-lspconfig-rc')
 endif
