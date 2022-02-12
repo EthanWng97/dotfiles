@@ -9,7 +9,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-Plug 'ap/vim-css-color'
 Plug 'arzg/vim-colors-xcode'
 Plug 'github/copilot.vim'
 "Plug 'rhysd/git-messenger.vim'
@@ -39,6 +38,7 @@ if has("nvim")
   Plug 'akinsho/toggleterm.nvim'
   Plug 'akinsho/bufferline.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'norcalli/nvim-colorizer.lua'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -369,5 +369,6 @@ if has("nvim")
 	lua require('bufferline-rc')
 	lua require('nvim-tree-rc')
 	"lua require('nvim-cmp-rc')
+	lua require'colorizer'.setup()
 	"lua require('nvim-lspconfig-rc')
 endif
