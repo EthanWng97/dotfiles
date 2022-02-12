@@ -8,8 +8,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdcommenter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'ap/vim-css-color'
 Plug 'arzg/vim-colors-xcode'
@@ -39,6 +37,9 @@ if has("nvim")
   Plug 'quangnguyen30192/cmp-nvim-ultisnips'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'lewis6991/gitsigns.nvim'
+  Plug 'nvim-lualine/lualine.nvim'
+    " If you want to have icons in your statusline choose one of these
+  Plug 'kyazdani42/nvim-web-devicons'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -155,9 +156,9 @@ command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "CocUpdate" | exe "PlugUpdate"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '!'
-let g:airline#extensions#ale#enabled = 1
+"let g:ale_sign_error = '✖'
+"let g:ale_sign_warning = '!'
+"let g:airline#extensions#ale#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for coc
@@ -315,11 +316,11 @@ let g:vimspector_install_gadgets = [
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for airline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#coc#enabled = 1
-let g:airline#extensions#coc#show_coc_status = 1
-let g:airline_section_c= "%{get(b:,'gitsigns_status','')}"
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#coc#enabled = 1
+"let g:airline#extensions#coc#show_coc_status = 1
+"let g:airline_section_c= "%{get(b:,'gitsigns_status','')}"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for Prettier
@@ -364,6 +365,7 @@ if has("nvim")
 	lua require('nvim-treesitter-rc')
 	lua require('indent-blankline-rc')
 	lua require('gitsigns-rc')
+	lua require('lualine-rc')
 	"lua require('nvim-cmp-rc')
 	"lua require('nvim-lspconfig-rc')
 endif
