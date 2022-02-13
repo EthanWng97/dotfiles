@@ -3,25 +3,25 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'puremourning/vimspector'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'sheerun/vim-polyglot'
-Plug 'preservim/nerdcommenter'
+" Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'arzg/vim-colors-xcode'
 Plug 'github/copilot.vim'
-"Plug 'antoinemadec/coc-fzf'
 Plug 'liuchengxu/vista.vim'
 "Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
 Plug 'mhinz/vim-startify'
 "Plug 'dense-analysis/ale'
+
 if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'folke/todo-comments.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'nvim-treesitter/nvim-treesitter-refactor'
+  Plug 'nvim-treesitter/playground'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-lualine/lualine.nvim'
@@ -40,9 +40,12 @@ if has("nvim")
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'stevearc/aerial.nvim'
   Plug 'Mofiqul/vscode.nvim'
+  Plug 'numToStr/Comment.nvim'
+  Plug 'luukvbaal/stabilize.nvim'
+  Plug 'sindrets/diffview.nvim'
+  Plug 'karb94/neoscroll.nvim'
 endif
 
-"Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -91,14 +94,12 @@ set showcmd
 set autoread                " reload files if changed externally
 set ignorecase smartcase
 set hlsearch                " highlight searches
-"set spell spelllang=en_us,cjk
 
-set scrolloff=5             " Start scrolling n lines before horizontal
-                            "   border of window.
-set sidescrolloff=5         " Start scrolling n chars before end of screen.
-set sidescroll=1            " The minimal number of columns to scroll
-                            "   horizontally.
-
+" set scrolloff=5             " Start scrolling n lines before horizontal
+"                             "   border of window.
+" set sidescrolloff=5         " Start scrolling n chars before end of screen.
+" set sidescroll=1            " The minimal number of columns to scroll
+"                             "   horizontally.
 
 """""" UI """"""
 set termguicolors
@@ -109,7 +110,7 @@ autocmd colorscheme * highlight DiffDelete gui=none guifg=#FE747A guibg=None
 "autocmd colorscheme * highlight SpecialComment cterm=italic gui=italic term=italic
 autocmd colorscheme * highlight CocHighlightText gui=undercurl term=undercurl
 "colorscheme xcodedark
-let g:vscode_style = "dark" 
+let g:vscode_style = "dark"
 let g:vscode_transparency = 1
 " Enable italic comment
 let g:vscode_italic_comment = 1
@@ -134,15 +135,14 @@ nmap <leader>s :w<CR>
 imap <leader>s <Esc>:w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>qq :qa!<CR>
-nmap <leader>/ <Plug>NERDCommenterToggle
-vmap <leader>/ <Plug>NERDCommenterToggle
+nmap <leader>/ :lua require("Comment.api").toggle_current_linewise()<CR>
+vmap <leader>/ :lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>
 nmap <leader>w :bd<CR>
 imap <leader>w <Esc>:bd<CR>
 nmap <leader>t :Vista!!<CR>
 imap <leader>t <Esc>:Vista!!<CR>
 nmap <space> :
-imap zz <Esc>
-inoremap jh <Esc>
+imap mm <Esc>
 map <leader>d "_dd
 
 "nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
@@ -158,13 +158,6 @@ nmap <expr> <silent> <Tab> TabEnable()
 
 nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
 command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "CocUpdate" | exe "PlugUpdate" 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General Setting for ale
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:ale_sign_error = '✖'
-"let g:ale_sign_warning = '!'
-"let g:airline#extensions#ale#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for coc
@@ -192,6 +185,7 @@ let g:coc_global_extensions = [
 	\ 'coc-eslint',
 	\ 'coc-fzf-preview',
 	\ 'coc-snippets',
+	\ 'coc-lua',
 	\ ]
 
 " Give more space for displaying messages.
@@ -318,15 +312,6 @@ let g:vimspector_install_gadgets = [
 	\ ]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General Setting for airline
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
-"let g:airline#extensions#coc#enabled = 1
-"let g:airline#extensions#coc#show_coc_status = 1
-"let g:airline_section_c= "%{get(b:,'gitsigns_status','')}"
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for Customized Command
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -360,7 +345,7 @@ let g:startify_custom_header = []
 let g:startify_enable_special = 0
 
 if has("nvim")
-	lua require('todo-comments').setup{}
+	" lua require('todo-comments').setup{}
 	lua require('nvim-treesitter-rc')
 	lua require('indent-blankline-rc')
 	lua require('gitsigns-rc')
@@ -370,6 +355,9 @@ if has("nvim")
 	lua require('nvim-tree-rc')
 	lua require('colorizer').setup()
 	lua require('telescope-rc')
+	lua require('stabilize-rc')
+	lua require('diffview-rc')
+	lua require('neoscroll-rc')
 	"lua require('trouble').setup{}
 	"lua require('nvim-lspconfig-rc')
 endif
