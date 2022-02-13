@@ -36,17 +36,10 @@
 		"eelixir": "mix_format",
 		"lua": "lua-format",
 		"sh": "shfmt",
-		"blade": "blade-formatter",
-		"cmake": "cmake-format"
+		"blade": "blade-formatter"
 	},
-	"git.enableGutters": true,
-	"git.addedSign.text": "┃",
-	"git.changedSign.text": "┃",
-	"git.removedSign.text": "▁",
-	"git.topRemovedSign.text": "▔",
-	"git.changeRemovedSign.text": "▔",
-	"git.addGBlameToBufferVar": true,
 	"python.pythonPath": "/opt/homebrew/bin/python3",
-	"cfnlint.path": "/opt/homebrew/bin/cfn-lint",
-	"explorer.icon.enableNerdfont": true
+	"clangd.fallbackFlags": ["-std=c++17"],
+	"cSpell.allowCompoundWords": true,
+	"cSpell.userWords": ["jsonify", "clangd"]
 }

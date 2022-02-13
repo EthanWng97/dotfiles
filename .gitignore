@@ -51,3 +51,4 @@ Pictures
 .zsh_sessions/
 package-lock.json
 .lesshsQ
+.vim/session

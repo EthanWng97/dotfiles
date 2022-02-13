@@ -21,19 +21,17 @@ setlocal fdl=2
 setlocal fml=1
 setlocal fdn=10
 setlocal nofen
-let s:l = 65 - ((17 * winheight(0) + 13) / 27)
+let s:l = 42 - ((5 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 65
-normal! 014|
+keepjumps 42
+normal! 0
+lcd ~/Documents/Learn/CSCI571/HW6
 tabnext 1
-badd +65 static/css/styles.css
-badd +1 utils.py
-badd +41 static/js/utils.js
-badd +57 static/js/company.js
-badd +1 main.py
-badd +128 static/index.html
+badd +1 ~/Documents/Learn/CSCI571/HW6/main.py
+badd +1 ~/Documents/Learn/CSCI571/HW6/utils.py
+badd +42 ~/Documents/Learn/CSCI571/HW6/static/css/styles.css
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif

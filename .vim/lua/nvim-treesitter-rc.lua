@@ -13,11 +13,12 @@ require'nvim-treesitter.configs'.setup {
     "python",
 	"cpp", 
 	"comment",
-	--"css",
+	"css",
 	"vim",
 	"regex",
 	"swift",
 	"javascript",
+	"markdown"
   },
    sync_install = true,
 }

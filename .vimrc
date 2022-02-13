@@ -3,17 +3,17 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'puremourning/vimspector'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'arzg/vim-colors-xcode'
 Plug 'github/copilot.vim'
-Plug 'antoinemadec/coc-fzf'
+"Plug 'antoinemadec/coc-fzf'
 Plug 'liuchengxu/vista.vim'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
 Plug 'mhinz/vim-startify'
 "Plug 'dense-analysis/ale'
@@ -30,7 +30,16 @@ if has("nvim")
   Plug 'akinsho/bufferline.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'norcalli/nvim-colorizer.lua'
-  "Plug 'folke/trouble.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-telescope/telescope-media-files.nvim'
+  Plug 'fannheyward/telescope-coc.nvim'
+  Plug 'nvim-telescope/telescope-vimspector.nvim'
+  Plug 'fcying/telescope-ctags-outline.nvim'
+  Plug 'LinArcX/telescope-env.nvim'
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+  Plug 'stevearc/aerial.nvim'
+  Plug 'Mofiqul/vscode.nvim'
 endif
 
 "Plug 'airblade/vim-gitgutter'
@@ -75,8 +84,6 @@ set nu!					"" toggle the line numbers
 set backspace=indent,eol,start
 set autoindent smartindent
 
-
-
 set mouse=a
 set clipboard=unnamed
 set nocompatible
@@ -95,11 +102,18 @@ set sidescroll=1            " The minimal number of columns to scroll
 
 """""" UI """"""
 set termguicolors
+autocmd colorscheme * highlight DiffAdd gui=none guifg=#587C0C guibg=None
+autocmd colorscheme * highlight DiffChange gui=none guifg=#65ACD8 guibg=None
+autocmd colorscheme * highlight DiffDelete gui=none guifg=#FE747A guibg=None
 
-highlight Comment cterm=italic gui=italic term=italic
-autocmd ColorScheme * highlight CocHighlightText ctermbg=242 guifg=#EAC435 gui=undercurl term=undercurl
-colorscheme xcodedark
-let g:airline_theme='xcodedark'
+"autocmd colorscheme * highlight SpecialComment cterm=italic gui=italic term=italic
+autocmd colorscheme * highlight CocHighlightText gui=undercurl term=undercurl
+"colorscheme xcodedark
+let g:vscode_style = "dark" 
+let g:vscode_transparency = 1
+" Enable italic comment
+let g:vscode_italic_comment = 1
+colorscheme vscode
 
 "au BufRead * let &numberwidth = float2nr(log10(line("$"))) + 1
 		  "\| let &columns = &numberwidth + 100
@@ -111,10 +125,9 @@ let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 """""" remap """"""
 let mapleader = ','
 nmap <leader>a ggVG
-nmap <leader>f :Rg<CR>
-nmap <leader>o :Files<CR>
-nmap <leader>p :CocFzfList<CR>
-imap <leader>p <Esc>:CocFzfList<CR>
+nmap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
+nmap <leader>o <cmd>lua require('telescope.builtin').find_files()<cr>
+nmap <leader>p <cmd>lua require('telescope.builtin').commands()<cr>
 nmap <leader>e :NvimTreeToggle<CR>
 nmap <leader>r :NvimTreeRefresh<CR>
 nmap <leader>s :w<CR>
@@ -176,7 +189,6 @@ let g:coc_global_extensions = [
 	\ 'coc-spell-checker',
 	\ 'coc-emmet',
 	\ 'coc-pydocstring',
-	\ 'coc-vimlsp',
 	\ 'coc-eslint',
 	\ 'coc-fzf-preview',
 	\ 'coc-snippets',
@@ -315,9 +327,10 @@ let g:vimspector_install_gadgets = [
 "let g:airline_section_c= "%{get(b:,'gitsigns_status','')}"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General Setting for Prettier
+" General Setting for Customized Command
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Coc :Telescope coc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for startify
@@ -346,12 +359,6 @@ let g:startify_lists = [
 let g:startify_custom_header = []
 let g:startify_enable_special = 0
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General Setting for floaterm
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:floaterm_keymap_toggle = '<leader>j'
-
-
 if has("nvim")
 	lua require('todo-comments').setup{}
 	lua require('nvim-treesitter-rc')
@@ -362,6 +369,7 @@ if has("nvim")
 	lua require('bufferline-rc')
 	lua require('nvim-tree-rc')
 	lua require('colorizer').setup()
+	lua require('telescope-rc')
 	"lua require('trouble').setup{}
 	"lua require('nvim-lspconfig-rc')
 endif
