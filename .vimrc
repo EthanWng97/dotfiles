@@ -7,12 +7,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'sheerun/vim-polyglot'
 " Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-Plug 'arzg/vim-colors-xcode'
+" Plug 'arzg/vim-colors-xcode'
 Plug 'github/copilot.vim'
 Plug 'liuchengxu/vista.vim'
 "Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-rooter'
-Plug 'mhinz/vim-startify'
 "Plug 'dense-analysis/ale'
 
 if has("nvim")
@@ -44,6 +43,8 @@ if has("nvim")
   Plug 'luukvbaal/stabilize.nvim'
   Plug 'sindrets/diffview.nvim'
   Plug 'karb94/neoscroll.nvim'
+  Plug 'rmagatti/auto-session'
+  Plug 'rmagatti/session-lens'
 endif
 
 call plug#end()
@@ -95,24 +96,17 @@ set autoread                " reload files if changed externally
 set ignorecase smartcase
 set hlsearch                " highlight searches
 
-" set scrolloff=5             " Start scrolling n lines before horizontal
-"                             "   border of window.
-" set sidescrolloff=5         " Start scrolling n chars before end of screen.
-" set sidescroll=1            " The minimal number of columns to scroll
-"                             "   horizontally.
+set sidescrolloff=5         " Start scrolling n chars before end of screen.
 
 """""" UI """"""
 set termguicolors
 autocmd colorscheme * highlight DiffAdd gui=none guifg=#587C0C guibg=None
 autocmd colorscheme * highlight DiffChange gui=none guifg=#65ACD8 guibg=None
 autocmd colorscheme * highlight DiffDelete gui=none guifg=#FE747A guibg=None
-
-"autocmd colorscheme * highlight SpecialComment cterm=italic gui=italic term=italic
 autocmd colorscheme * highlight CocHighlightText gui=undercurl term=undercurl
-"colorscheme xcodedark
+
 let g:vscode_style = "dark"
 let g:vscode_transparency = 1
-" Enable italic comment
 let g:vscode_italic_comment = 1
 colorscheme vscode
 
@@ -126,23 +120,36 @@ let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 """""" remap """"""
 let mapleader = ','
 nmap <leader>a ggVG
+imap <leader>a <Esc>ggVG
+
 nmap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
 nmap <leader>o <cmd>lua require('telescope.builtin').find_files()<cr>
+imap <leader>o <Esc><cmd>lua require('telescope.builtin').find_files()<cr>
+
 nmap <leader>p <cmd>lua require('telescope.builtin').commands()<cr>
+imap <leader>p <Esc><cmd>lua require('telescope.builtin').commands()<cr>
+
+
 nmap <leader>e :NvimTreeToggle<CR>
+vmap <leader>e :NvimTreeToggle<CR>
+imap <leader>e <Esc>:NvimTreeToggle<CR>
 nmap <leader>r :NvimTreeRefresh<CR>
+
 nmap <leader>s :w<CR>
 imap <leader>s <Esc>:w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>qq :qa!<CR>
 nmap <leader>/ :lua require("Comment.api").toggle_current_linewise()<CR>
 vmap <leader>/ :lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>
+imap <leader>/ <Esc>:lua require("Comment.api").toggle_current_linewise()<CR>
+
 nmap <leader>w :bd<CR>
 imap <leader>w <Esc>:bd<CR>
 nmap <leader>t :Vista!!<CR>
 imap <leader>t <Esc>:Vista!!<CR>
+imap <C-r> <Esc><C-r>
+imap <leader>z <Esc>u
 nmap <space> :
-imap mm <Esc>
 map <leader>d "_dd
 
 "nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
@@ -317,35 +324,7 @@ let g:vimspector_install_gadgets = [
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 command! -nargs=0 Coc :Telescope coc
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General Setting for startify
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd User Startified setlocal buflisted
-function! s:gitModified()
-	let files = systemlist('git ls-files -m 2>/dev/null')
-	return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-
-" same as above, but show untracked files, honouring .gitignore
-function! s:gitUntracked()
-	let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-	return map(files, "{'line': v:val, 'path': v:val}")
-endfunction
-
-let g:startify_session_persistence    = 1
-let g:startify_session_dir = '~/.vim/session'
-let g:startify_lists = [
-  \ { 'type': 'sessions',  'header': ['   Saved sessions'] },
-  \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-  \ { 'type': function('s:gitModified'),  'header': ['   Git modified']},
-  \ { 'type': function('s:gitUntracked'), 'header': ['   Git untracked']},
-  \ ]
-
-let g:startify_custom_header = []
-let g:startify_enable_special = 0
-
 if has("nvim")
-	" lua require('todo-comments').setup{}
 	lua require('nvim-treesitter-rc')
 	lua require('indent-blankline-rc')
 	lua require('gitsigns-rc')
@@ -358,6 +337,7 @@ if has("nvim")
 	lua require('stabilize-rc')
 	lua require('diffview-rc')
 	lua require('neoscroll-rc')
+	lua require('auto-session-rc')
 	"lua require('trouble').setup{}
 	"lua require('nvim-lspconfig-rc')
 endif
