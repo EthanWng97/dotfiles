@@ -41,5 +41,5 @@
 	"python.pythonPath": "/opt/homebrew/bin/python3",
 	"clangd.fallbackFlags": ["-std=c++17"],
 	"cSpell.allowCompoundWords": true,
-	"cSpell.userWords": ["jsonify", "clangd"]
+	"cSpell.userWords": ["jsonify", "clangd", "emiss"]
 }
