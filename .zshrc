@@ -105,13 +105,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+export PATH=$PATH:~/.cargo/bin
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+eval "`pip3 completion --zsh`"
+eval "$(zoxide init zsh)"
 bindkey '`' autosuggest-accept
-alias update="brew update && brew upgrade && brew upgrade && brew upgrade --cask && brew cleanup && npm update -g && pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U"
+alias update="brew update && brew upgrade && brew upgrade && brew upgrade --cask --greedy && brew cleanup && npm update -g && pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U"
 alias nv="nvim"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 rga-fzf() {
 	RG_PREFIX="rga --files-with-matches"
 	local file
@@ -125,9 +128,3 @@ rga-fzf() {
 	echo "opening $file" &&
 	open "$file"
 }
-
-export PATH=$PATH:~/.cargo/bin
-eval "$(zoxide init zsh)"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-eval "`pip3 completion --zsh`"
-export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git' --exclude 'node_modules'"
