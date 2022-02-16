@@ -2,6 +2,7 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
     disable = {},
+	additional_vim_regex_highlighting = true,
   },
   indent = {
     enable = true,
@@ -21,13 +22,14 @@ require'nvim-treesitter.configs'.setup {
 	"markdown"
 	"lua",
 	"query",
+	"fish",
   },
    sync_install = true,
    refactor = {
     highlight_definitions = {
-      enable = true,
-      -- Set to false if you have an `updatetime` of ~100.
-      clear_on_cursor_move = true,
+		enable = true,
+		-- Set to false if you have an `updatetime` of ~100.
+		clear_on_cursor_move = true,
     },
 	highlight_current_scope = { enable = true },
 

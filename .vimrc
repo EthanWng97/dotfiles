@@ -45,6 +45,9 @@ if has("nvim")
   Plug 'karb94/neoscroll.nvim'
   Plug 'rmagatti/auto-session'
   Plug 'rmagatti/session-lens'
+  Plug 'lewis6991/impatient.nvim'
+  Plug 'antoinemadec/FixCursorHold.nvim'
+  Plug 'arkav/lualine-lsp-progress'
 endif
 
 call plug#end()
@@ -108,8 +111,8 @@ autocmd colorscheme * highlight CocHighlightText gui=undercurl term=undercurl
 let g:vscode_style = "dark"
 let g:vscode_transparency = 1
 let g:vscode_italic_comment = 1
+let g:vscode_disable_nvimtree_bg = v:true
 colorscheme vscode
-
 "au BufRead * let &numberwidth = float2nr(log10(line("$"))) + 1
 		  "\| let &columns = &numberwidth + 100
 
@@ -164,7 +167,7 @@ endfunction
 nmap <expr> <silent> <Tab> TabEnable()
 
 nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
-command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "CocUpdate" | exe "PlugUpdate" 
+command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "CocUpdate" | exe "PlugUpdate" | exe "PlugUpgrade"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for coc
@@ -193,6 +196,7 @@ let g:coc_global_extensions = [
 	\ 'coc-fzf-preview',
 	\ 'coc-snippets',
 	\ 'coc-lua',
+	\ 'coc-fish'
 	\ ]
 
 " Give more space for displaying messages.
@@ -201,6 +205,7 @@ let g:coc_global_extensions = [
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=50
+let g:cursorhold_updatetime = 100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -338,6 +343,7 @@ if has("nvim")
 	lua require('diffview-rc')
 	lua require('neoscroll-rc')
 	lua require('auto-session-rc')
+	lua require('impatient')
 	"lua require('trouble').setup{}
 	"lua require('nvim-lspconfig-rc')
 endif

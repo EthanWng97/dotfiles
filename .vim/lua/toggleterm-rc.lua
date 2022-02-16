@@ -7,7 +7,7 @@ require("toggleterm").setup{
       return vim.o.columns * 0.4
     end
   end,
-  open_mapping = [[<c-j>]],
+  open_mapping = [[<leader>j]],
   direction = 'horizontal',
   --| 'window' | 'float',
   close_on_exit = true, -- close the terminal window when the process exits
