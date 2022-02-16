@@ -125,12 +125,17 @@ let mapleader = ','
 nmap <leader>a ggVG
 imap <leader>a <Esc>ggVG
 
-nmap <leader>fa <cmd>lua require('telescope.builtin').live_grep()<cr>
 nmap <leader>o <cmd>lua require('telescope.builtin').find_files()<cr>
 imap <leader>o <Esc><cmd>lua require('telescope.builtin').find_files()<cr>
 
 nmap <leader>p <cmd>lua require('telescope.builtin').commands()<cr>
 imap <leader>p <Esc><cmd>lua require('telescope.builtin').commands()<cr>
+
+nmap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
+imap <leader>g <Esc><cmd>lua require('telescope.builtin').live_grep()<cr>
+
+nmap <leader>ff <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
+imap <leader>ff <Esc><cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
 
 
 nmap <leader>e :NvimTreeToggle<CR>
@@ -178,11 +183,11 @@ let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-tabnine',
 	\ 'coc-prettier',
-	\ 'coc-pairs',
 	\ 'coc-html',
 	\ 'coc-htmlhint',
 	\ 'coc-clangd',
 	\ 'coc-markdownlint',
+	\ 'coc-pairs',
 	"\ 'coc-webview',
 	"\ 'coc-markdown-preview-enhanced',
 	\ 'coc-pyright',
