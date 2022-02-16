@@ -19,7 +19,7 @@ require'nvim-treesitter.configs'.setup {
 	"regex",
 	"swift",
 	"javascript",
-	"markdown"
+	"markdown",
 	"lua",
 	"query",
 	"fish",
