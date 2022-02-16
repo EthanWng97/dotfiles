@@ -7,6 +7,8 @@ alias la "ll -a"
 bind ` accept-autosuggestion
 
 set fish_prompt_pwd_dir_length 0
+set BAT_THEME "Visual Studio Dark+"
+alias bat="bat --theme \"Visual Studio Dark+\""
 set fish_greeting
 zoxide init fish | source
 
@@ -32,5 +34,5 @@ function rga-fzf
 end
 
 fzf_configure_bindings --dir=\cf
-# set fzf_preview_dir_cmd exa --all --color=always --icons
-# set fzf_fd_opts --hidden --exclude=.git
+set fzf_preview_dir_cmd exa --all --color=always --icons
+set fzf_fd_opts --hidden --exclude=.git
