@@ -4,17 +4,10 @@
 call plug#begin('~/.vim/plugged')
 Plug 'puremourning/vimspector'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'sheerun/vim-polyglot'
-" Plug 'preservim/nerdcommenter'
-Plug 'tpope/vim-fugitive'
-" Plug 'arzg/vim-colors-xcode'
-Plug 'github/copilot.vim'
-Plug 'liuchengxu/vista.vim'
-"Plug 'dense-analysis/ale'
+" Plug 'github/copilot.vim'
 
 if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'folke/todo-comments.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -29,10 +22,8 @@ if has("nvim")
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-telescope/telescope-media-files.nvim'
   Plug 'fannheyward/telescope-coc.nvim'
   Plug 'nvim-telescope/telescope-vimspector.nvim'
-  Plug 'fcying/telescope-ctags-outline.nvim'
   Plug 'LinArcX/telescope-env.nvim'
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'stevearc/aerial.nvim'
@@ -44,7 +35,7 @@ if has("nvim")
   Plug 'rmagatti/auto-session'
   Plug 'rmagatti/session-lens'
   Plug 'lewis6991/impatient.nvim'
-  Plug 'antoinemadec/FixCursorHold.nvim'
+  " Plug 'antoinemadec/FixCursorHold.nvim'
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
   Plug 'projekt0n/github-nvim-theme'
@@ -153,8 +144,6 @@ imap <leader>/ <Esc>:lua require("Comment.api").toggle_current_linewise()<CR>
 
 nmap <leader>w :bd<CR>
 imap <leader>w <Esc>:bd<CR>
-nmap <leader>t :Vista!!<CR>
-imap <leader>t <Esc>:Vista!!<CR>
 imap <C-r> <Esc><C-r>
 imap <leader>z <Esc>u
 nmap <space> :
