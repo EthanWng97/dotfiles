@@ -9,12 +9,10 @@ local function diff_source()
   end
 end
 
-local custom_vscode = require'lualine.themes.vscode'
-custom_vscode.normal.a.bg = '#0a7aca' 
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = custom_vscode,
+    theme = 'github',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
