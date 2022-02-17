@@ -10,8 +10,6 @@ Plug 'tpope/vim-fugitive'
 " Plug 'arzg/vim-colors-xcode'
 Plug 'github/copilot.vim'
 Plug 'liuchengxu/vista.vim'
-"Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-rooter'
 "Plug 'dense-analysis/ale'
 
 if has("nvim")
@@ -48,6 +46,8 @@ if has("nvim")
   Plug 'lewis6991/impatient.nvim'
   Plug 'antoinemadec/FixCursorHold.nvim'
   Plug 'arkav/lualine-lsp-progress'
+  Plug 'ahmedkhalf/project.nvim'
+  Plug 'projekt0n/github-nvim-theme'
 endif
 
 call plug#end()
@@ -349,6 +349,7 @@ if has("nvim")
 	lua require('neoscroll-rc')
 	lua require('auto-session-rc')
 	lua require('impatient')
+	lua require("project_nvim").setup()
 	"lua require('trouble').setup{}
 	"lua require('nvim-lspconfig-rc')
 endif
