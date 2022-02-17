@@ -1,6 +1,11 @@
 
 local actions = require("telescope.actions")
 require('telescope').setup{
+	pickers = {
+		find_files = {
+		hidden = true
+		}
+	},
 	defaults = {
 		mappings = {
 			i = {
@@ -10,15 +15,6 @@ require('telescope').setup{
 	},
 
   extensions = {
-	ctags_outline = {
-        --ctags option
-        ctags = {'ctags'},
-		--ctags filetype option
-	    ft_opt = {
-			vim = '--vim-kinds=fk',
-            lua = '--lua-kinds=fk',
-        },
-    },
 	fzf = {
 		fuzzy = true,                    -- false will only do exact matching
 		override_generic_sorter = true,  -- override the generic sorter
