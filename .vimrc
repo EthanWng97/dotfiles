@@ -39,6 +39,7 @@ if has("nvim")
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
   Plug 'projekt0n/github-nvim-theme'
+  Plug 'ful1e5/onedark.nvim'
 endif
 
 call plug#end()
@@ -94,15 +95,21 @@ set sidescrolloff=5         " Start scrolling n chars before end of screen.
 
 """""" UI """"""
 set termguicolors
-autocmd colorscheme * highlight DiffAdd gui=none guifg=#587C0C guibg=None
-autocmd colorscheme * highlight DiffChange gui=none guifg=#65ACD8 guibg=None
+autocmd colorscheme * highlight DiffAdd gui=none guifg=#A1C281 guibg=None
+autocmd colorscheme * highlight DiffChange gui=none guifg=#74ADEA guibg=None
 autocmd colorscheme * highlight DiffDelete gui=none guifg=#FE747A guibg=None
 autocmd colorscheme * highlight CocHighlightText gui=undercurl term=undercurl
 
 let g:vscode_style = "dark"
-let g:vscode_transparency = 1
+" let g:vscode_transparency = 1
 let g:vscode_italic_comment = 1
 let g:vscode_disable_nvimtree_bg = v:true
+
+let g:onedark_transparent = v:true
+let g:onedark_transparent_sidebar = v:true
+let g:onedark_highlight_linenumber = v:true
+let g:onedark_dark_sidebar = v:false
+let g:onedark_dark_float = v:false
 colorscheme vscode
 "au BufRead * let &numberwidth = float2nr(log10(line("$"))) + 1
 		  "\| let &columns = &numberwidth + 100
@@ -339,6 +346,7 @@ if has("nvim")
 	lua require('auto-session-rc')
 	lua require('impatient')
 	lua require("project_nvim").setup()
+	"lua require('onedark-rc')
 	"lua require('trouble').setup{}
 	"lua require('nvim-lspconfig-rc')
 endif
