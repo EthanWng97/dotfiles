@@ -9,6 +9,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/nvim-lsp-installer'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
   Plug 'nvim-treesitter/playground'
@@ -35,10 +36,8 @@ if has("nvim")
   Plug 'rmagatti/auto-session'
   Plug 'rmagatti/session-lens'
   Plug 'lewis6991/impatient.nvim'
-  " Plug 'antoinemadec/FixCursorHold.nvim'
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
-  Plug 'projekt0n/github-nvim-theme'
   Plug 'ful1e5/onedark.nvim'
 endif
 
@@ -51,6 +50,7 @@ syntax on
 filetype on
 filetype plugin on
 autocmd BufNewFile,BufRead *.json setl ft=jsonc
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 
 """""" netrw """"""
 let g:netrw_fastbrowse = 0
@@ -79,7 +79,8 @@ set softtabstop=4				" Tab key results in # spaces
 set ai					" Tab key results in # spaces"Auto indent
 set si "Smart indent
 set smarttab
-set nu!					"" toggle the line numbers
+set expandtab           "convert tabs to spaces
+set nu!                 "toggle the line numbers
 set backspace=indent,eol,start
 set autoindent smartindent
 
@@ -90,6 +91,10 @@ set showcmd
 set autoread                " reload files if changed externally
 set ignorecase smartcase
 set hlsearch                " highlight searches
+set pumheight=10
+set noshowmode              " we don't need to see things like -- INSERT -- anymore
+set undofile                " enable persistent undo
+set nobackup nowritebackup
 
 set sidescrolloff=5         " Start scrolling n chars before end of screen.
 
@@ -111,8 +116,6 @@ let g:onedark_highlight_linenumber = v:true
 let g:onedark_dark_sidebar = v:false
 let g:onedark_dark_float = v:false
 colorscheme vscode
-"au BufRead * let &numberwidth = float2nr(log10(line("$"))) + 1
-		  "\| let &columns = &numberwidth + 100
 
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
@@ -158,12 +161,12 @@ map <leader>d "_dd
 
 "nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 function! TabEnable()
-	let num = winnr('$')
-	if num == 1 
-		return ":bnext\<CR>"
-	else
-		return "\<C-W>w"
-	endif
+    let num = winnr('$')
+    if num == 1 
+        return ":bnext\<CR>"
+    else
+        return "\<C-W>w"
+    endif
 endfunction
 nmap <expr> <silent> <Tab> TabEnable()
 
@@ -175,30 +178,30 @@ command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "CocUpdate" | exe "PlugUpdate"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions = [
-	\ 'coc-json',
-	\ 'coc-css',
-	\ 'coc-tabnine',
-	\ 'coc-prettier',
-	\ 'coc-html',
-	\ 'coc-htmlhint',
-	\ 'coc-clangd',
-	\ 'coc-markdownlint',
-	\ 'coc-pairs',
-	"\ 'coc-webview',
-	"\ 'coc-markdown-preview-enhanced',
-	\ 'coc-pyright',
-	\ 'coc-diagnostic',
-	\ 'coc-syntax',
-	\ 'coc-word',
-	\ 'coc-spell-checker',
-	\ 'coc-emmet',
-	\ 'coc-pydocstring',
-	\ 'coc-eslint',
-	\ 'coc-fzf-preview',
-	\ 'coc-snippets',
-	\ 'coc-lua',
-	\ 'coc-fish'
-	\ ]
+    \ 'coc-json',
+    \ 'coc-css',
+    \ 'coc-tabnine',
+    \ 'coc-prettier',
+    \ 'coc-html',
+    \ 'coc-htmlhint',
+    \ 'coc-clangd',
+    \ 'coc-markdownlint',
+    \ 'coc-pairs',
+    "\ 'coc-webview',
+    "\ 'coc-markdown-preview-enhanced',
+    \ 'coc-pyright',
+    \ 'coc-diagnostic',
+    \ 'coc-syntax',
+    \ 'coc-word',
+    \ 'coc-spell-checker',
+    \ 'coc-emmet',
+    \ 'coc-pydocstring',
+    \ 'coc-eslint',
+    \ 'coc-fzf-preview',
+    \ 'coc-snippets',
+    \ 'coc-lua',
+    \ 'coc-fish'
+    \ ]
 
 " Give more space for displaying messages.
 "set cmdheight=2
@@ -212,31 +215,31 @@ let g:cursorhold_updatetime = 100
 set shortmess+=c
 
 if has('nvim')
-	set signcolumn=auto:2
+    set signcolumn=auto:2
 else
-	set signcolumn=yes
+    set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-	  \ pumvisible() ? "\<C-n>" :
-	  \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-	  \ <SID>check_back_space() ? "\<TAB>" :
-	  \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+    inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
+    inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
@@ -258,7 +261,7 @@ function! EnterSelect()
 endfunction
 inoremap <silent><expr> <cr> EnterSelect()
 " inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-							  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -320,9 +323,9 @@ nmap <leader>cl  <Plug>(coc-codelens-action)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 let g:vimspector_install_gadgets = [
-	\ 'CodeLLDB',
-	\ 'debugpy',
-	\ ]
+    \ 'CodeLLDB',
+    \ 'debugpy',
+    \ ]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for Customized Command
@@ -346,6 +349,7 @@ if has("nvim")
 	lua require('auto-session-rc')
 	lua require('impatient')
 	lua require("project_nvim").setup()
+    lua require('aerial-rc')
 	"lua require('onedark-rc')
 	"lua require('trouble').setup{}
 	"lua require('nvim-lspconfig-rc')
