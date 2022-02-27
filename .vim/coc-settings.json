@@ -10,6 +10,10 @@
 		"json",
 		"markdown"
 	],
+    "suggest.selection": "recentlyUsedByPrefix",
+    "suggest.enablePreselect": true,
+    "links.tooltip": true,
+    "codeLens.enable": true,
 	"prettier.useTabs": true,
     "prettier.tabWidth": 4,
 	"diagnostic.errorSign": "✖",
@@ -18,7 +22,7 @@
 	"diagnostic.hintSign": "•",
 	// diagnostic-languageserver
 	//"diagnostic.checkCurrentLine": true,
-    "diagnostic.enableHighlightLineNumber": false,
+    // "diagnostic.enableHighlightLineNumber": false,
 	"diagnostic.virtualText": false,
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
