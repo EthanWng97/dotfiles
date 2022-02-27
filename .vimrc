@@ -9,7 +9,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
   Plug 'nvim-treesitter/playground'
@@ -38,7 +37,8 @@ if has("nvim")
   Plug 'lewis6991/impatient.nvim'
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
-  Plug 'ful1e5/onedark.nvim'
+  " Plug 'williamboman/nvim-lsp-installer'
+  " Plug 'ful1e5/onedark.nvim'
 endif
 
 call plug#end()
@@ -351,6 +351,6 @@ if has("nvim")
 	lua require("project_nvim").setup()
     lua require('aerial-rc')
 	"lua require('onedark-rc')
-	"lua require('trouble').setup{}
-	"lua require('nvim-lspconfig-rc')
+	" lua require('trouble').setup{}
+	" lua require('nvim-lspconfig-rc')
 endif
