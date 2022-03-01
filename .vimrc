@@ -200,7 +200,8 @@ let g:coc_global_extensions = [
     \ 'coc-fzf-preview',
     \ 'coc-snippets',
     \ 'coc-lua',
-    \ 'coc-fish'
+    \ 'coc-fish',
+    \ 'coc-angular',
     \ ]
 
 " Give more space for displaying messages.
