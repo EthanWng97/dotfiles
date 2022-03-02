@@ -11,6 +11,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "json",
     "html",
+    "http",
     "python",
 	"cpp",
 	"comment",
@@ -19,10 +20,12 @@ require'nvim-treesitter.configs'.setup {
 	"regex",
 	"swift",
 	"javascript",
+    "typescript",
 	"markdown",
 	"lua",
 	"query",
 	"fish",
+    "yaml",
   },
    sync_install = true,
    refactor = {
