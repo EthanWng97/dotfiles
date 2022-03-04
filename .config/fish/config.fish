@@ -13,7 +13,7 @@ alias bat="bat --theme \"Visual Studio Dark+\""
 set fish_greeting
 zoxide init fish | source
 
-alias update "brew update && brew upgrade && brew cu && brew cleanup && npm update -g && pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U | fisher update"
+alias update "brew update && brew upgrade && brew cu -a&& brew cleanup && npm update -g && pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U | fisher update"
 alias nv "nvim"
 
 
