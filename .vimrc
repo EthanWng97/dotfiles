@@ -184,6 +184,7 @@ let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-html',
     \ 'coc-htmlhint',
+    \ 'coc-tsserver',
     \ 'coc-clangd',
     \ 'coc-markdownlint',
     \ 'coc-pairs',
@@ -350,7 +351,7 @@ if has("nvim")
 	lua require('neoscroll-rc')
 	lua require('auto-session-rc')
 	lua require('impatient')
-	lua require("project_nvim").setup()
+	lua require("project-rc")
     lua require('aerial-rc')
 	"lua require('onedark-rc')
 	" lua require('trouble').setup{}

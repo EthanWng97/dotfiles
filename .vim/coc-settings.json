@@ -7,6 +7,7 @@
 		"html",
 		"css",
 		"javascript",
+        "typescript",
 		"json",
 		"markdown"
 	],
