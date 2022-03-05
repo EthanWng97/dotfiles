@@ -202,7 +202,6 @@ let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-lua',
     \ 'coc-fish',
-    \ 'coc-angular',
     \ 'coc-yaml'
     \ ]
 
