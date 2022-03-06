@@ -37,6 +37,7 @@ if has("nvim")
   Plug 'lewis6991/impatient.nvim'
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
+  Plug 'NMAC427/guess-indent.nvim'
   " Plug 'williamboman/nvim-lsp-installer'
   " Plug 'ful1e5/onedark.nvim'
 endif
@@ -352,6 +353,7 @@ if has("nvim")
 	lua require('impatient')
 	lua require("project-rc")
     lua require('aerial-rc')
+    lua require('guess-indent').setup {}
 	"lua require('onedark-rc')
 	" lua require('trouble').setup{}
 	" lua require('nvim-lspconfig-rc')
