@@ -29,13 +29,12 @@
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"email": "languagetool",
-		"markdown": ["write-good", "markdownlint"],
 		"sh": "shellcheck",
-		"elixir": ["mix_credo", "mix_credo_compile"],
-		"eelixir": ["mix_credo", "mix_credo_compile"],
+		"fish": "fish",
 		"php": ["phpstan", "psalm"],
 		"yaml": ["yamllint"],
 		"cmake": ["cmake-lint", "cmakelint"],
+		"lua": ["luacheck"],
 		"systemd": "systemd-analyze"
 	},
 	"diagnostic-languageserver.formatFiletypes": {
@@ -44,6 +43,7 @@
 		"eelixir": "mix_format",
 		"lua": "lua-format",
 		"sh": "shfmt",
+		"fish": "fish_indent",
 		"blade": "blade-formatter"
 	},
 	"python.pythonPath": "/opt/homebrew/bin/python3",

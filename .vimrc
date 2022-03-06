@@ -11,6 +11,7 @@ if has("nvim")
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'nvim-treesitter/nvim-treesitter-refactor'
+  Plug 'nvim-treesitter/nvim-treesitter-angular'
   Plug 'nvim-treesitter/playground'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'lewis6991/gitsigns.nvim'
@@ -189,6 +190,7 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-markdownlint',
     \ 'coc-pairs',
+    \ 'coc-angular',
     "\ 'coc-webview',
     "\ 'coc-markdown-preview-enhanced',
     \ 'coc-pyright',
