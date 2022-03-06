@@ -119,9 +119,8 @@ let g:onedark_dark_sidebar = v:false
 let g:onedark_dark_float = v:false
 colorscheme vscode
 
-let &t_SI.="\e[5 q" "SI = INSERT mode
-let &t_SR.="\e[4 q" "SR = REPLACE mode
-let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
+set guicursor=i:ver100-blinkon100
+            \,r:hor100
 
 """""" remap """"""
 let mapleader = ','
