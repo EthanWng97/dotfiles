@@ -1,6 +1,4 @@
 # A minimal left prompt
-# format = """
-# [\uE0B6](fg:#1C4961)[$directory](bg:#1C4961)[\uE0B0](fg:#1C4961 bg:#2F79A1)$git_branch[\uE0B0](fg:#2F79A1 bg:#3A95C7)$git_status[\uE0B0](#3A95C7 bg:#40A9E0)$time[\uE0B0](#40A9E0 bg:none) $all$character """
 
 # format = """$directory$character"""
 
@@ -15,7 +13,8 @@ format = ' [$symbol($profile)(\($region\))( $duration)]($style)'
 format = ' [$symbol($version)]($style)'
 
 [cmd_duration]
-format = ' [⏱  $duration]($style)'
+disabled = true
+format = ' [祥$duration]($style)'
 
 [cobol]
 format = ' [$symbol($version)]($style)'
@@ -32,9 +31,9 @@ symbol = " "
 format = ' [$symbol($version)]($style)'
 
 [directory]
-format = "[$path]($style)[$read_only]($read_only_style)[\uE0B0](fg:#007EC5 bg:#007EC5)[\uE0B0](fg:#007EC5)"
-
-style = "bg:#007EC5 fg:white"
+format = "[\uE0B0](fg:#007EC5 bg:#007EC5)[$path]($style)[$read_only]($read_only_style bg:#007EC5)[\uE0B0](fg:#007EC5 bg:#007EC5)[\uE0B0](fg:#007EC5)"
+# style = "fg:white bg:blue"
+style = "bg:#007EC5"
 read_only = " "
 
 [deno]
@@ -170,7 +169,7 @@ format = ' [$symbol($version)]($style)'
 format = ' [$symbol$workspace]($style)'
 
 [time]
-format = ' [$time]($style)'
+format = '[$time]($style)'
 
 [username]
 format = ' [$user]($style)'
