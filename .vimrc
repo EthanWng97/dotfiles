@@ -204,7 +204,8 @@ let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-lua',
     \ 'coc-fish',
-    \ 'coc-yaml'
+    \ 'coc-yaml',
+    \ 'coc-toml',
     \ ]
 
 " Give more space for displaying messages.

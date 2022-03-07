@@ -8,7 +8,7 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = {
         "json", "html", "http", "python", "cpp", "comment", "css", "vim",
         "regex", "swift", "javascript", "typescript", "markdown", "lua",
-        "query", "fish", "yaml"
+        "query", "fish", "yaml", "toml"
     },
     sync_install = true,
     refactor = {
