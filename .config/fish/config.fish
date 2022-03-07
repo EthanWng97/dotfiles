@@ -9,12 +9,13 @@ bind ` accept-autosuggestion
 set fish_prompt_pwd_dir_length 0
 set BAT_THEME "Visual Studio Dark+"
 set -x LS_COLORS (vivid generate jellybeans)
+set -x STARSHIP_CONFIG "$HOME/.config/starship.toml"
 alias bat="bat --theme \"Visual Studio Dark+\""
 set fish_greeting
 zoxide init fish | source
 
 alias update "brew update && brew upgrade && brew cu -a&& brew cleanup && npm update -g && pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U | fisher update"
-alias nv "nvim"
+alias nv nvim
 
 
 fish_add_path ~/.cargo/bin
@@ -31,9 +32,10 @@ function rga-fzf
                 --bind "change:reload:$RG_PREFIX {q}" \
                 --preview-window="70%:wrap"
     ) &&
-    open "$file"
+        open "$file"
 end
 
 fzf_configure_bindings --dir=\cf
 set fzf_preview_dir_cmd exa --all --color=always --icons
 set fzf_fd_opts --hidden
+starship init fish | source
