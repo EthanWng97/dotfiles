@@ -4,7 +4,6 @@ end
 
 alias ll "exa -l -g --icons"
 alias la "ll -a"
-bind ` accept-autosuggestion
 
 set fish_prompt_pwd_dir_length 0
 set BAT_THEME "Visual Studio Dark+"
@@ -35,7 +34,8 @@ function rga-fzf
         open "$file"
 end
 
+bind ` accept-autosuggestion
 fzf_configure_bindings --dir=\cf
 set fzf_preview_dir_cmd exa --all --color=always --icons
 set fzf_fd_opts --hidden
-starship init fish | source
+starship init fish --print-full-init | source
