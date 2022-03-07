@@ -29,6 +29,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
   Plug 'stevearc/aerial.nvim'
   Plug 'Mofiqul/vscode.nvim'
+  Plug 'catppuccin/nvim', {'as': 'catppuccin'}
   Plug 'numToStr/Comment.nvim'
   Plug 'luukvbaal/stabilize.nvim'
   Plug 'sindrets/diffview.nvim'
@@ -39,6 +40,7 @@ if has("nvim")
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
   Plug 'NMAC427/guess-indent.nvim'
+  Plug 'abecodes/tabout.nvim'
   " Plug 'williamboman/nvim-lsp-installer'
   " Plug 'ful1e5/onedark.nvim'
 endif
@@ -356,6 +358,7 @@ if has("nvim")
 	lua require("project-rc")
     lua require('aerial-rc')
     lua require('guess-indent').setup {}
+    lua require('tabout').setup{}
 	"lua require('onedark-rc')
 	" lua require('trouble').setup{}
 	" lua require('nvim-lspconfig-rc')
