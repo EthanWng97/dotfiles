@@ -354,7 +354,7 @@ if has("nvim")
 	lua require('diffview-rc')
 	lua require('neoscroll-rc')
 	lua require('auto-session-rc')
-	lua require('impatient')
+	" lua require('impatient')
 	lua require("project-rc")
     lua require('aerial-rc')
     lua require('guess-indent').setup {}

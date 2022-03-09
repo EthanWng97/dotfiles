@@ -24,7 +24,7 @@
 	"diagnostic.hintSign": "•",
 	// diagnostic-languageserver
 	//"diagnostic.checkCurrentLine": true,
-	// "diagnostic.enableHighlightLineNumber": false,
+	"diagnostic.enableHighlightLineNumber": false,
 	"diagnostic.virtualText": false,
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
