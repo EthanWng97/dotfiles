@@ -173,6 +173,12 @@ function! TabEnable()
 endfunction
 nmap <expr> <silent> <Tab> TabEnable()
 
+nmap <silent> <leader>] :BufferLineCycleNext<CR>
+imap <silent> <leader>] :BufferLineCycleNext<CR>
+
+nnoremap <silent><leader>[ :BufferLineCyclePrev<CR>
+inoremap <silent><leader>[ :BufferLineCyclePrev<CR>
+
 nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
 command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "CocUpdate" | exe "PlugUpdate" | exe "PlugUpgrade"
 
