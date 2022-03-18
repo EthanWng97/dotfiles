@@ -35,7 +35,7 @@ function rga-fzf
 end
 
 bind ` accept-autosuggestion
-fzf_configure_bindings --dir=\cf
+# fzf_configure_bindings --dir=\cf
 set fzf_preview_dir_cmd exa --all --color=always --icons
 set fzf_fd_opts --hidden
 starship init fish --print-full-init | source
