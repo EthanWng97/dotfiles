@@ -36,10 +36,8 @@ if has("nvim")
   Plug 'karb94/neoscroll.nvim'
   Plug 'rmagatti/auto-session'
   Plug 'rmagatti/session-lens'
-  Plug 'lewis6991/impatient.nvim'
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
-  Plug 'NMAC427/guess-indent.nvim'
   Plug 'abecodes/tabout.nvim'
   " Plug 'williamboman/nvim-lsp-installer'
   " Plug 'ful1e5/onedark.nvim'
@@ -360,10 +358,8 @@ if has("nvim")
 	lua require('diffview-rc')
 	lua require('neoscroll-rc')
 	lua require('auto-session-rc')
-	" lua require('impatient')
 	lua require("project-rc")
     lua require('aerial-rc')
-    lua require('guess-indent').setup {}
     lua require('tabout').setup{}
 	"lua require('onedark-rc')
 	" lua require('trouble').setup{}
