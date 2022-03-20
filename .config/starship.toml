@@ -10,11 +10,16 @@ command_timeout = 5000
 symbol = "  "
 format = ' [$symbol($profile)(\($region\))( $duration)]($style)'
 
+# [character]
+# error_symbol = "[❯](bold #ff5555)"
+# success_symbol = "[❯](bold #f8f8f2)"
+
 [cmake]
 format = ' [$symbol($version)]($style)'
 
 [cmd_duration]
 disabled = true
+style = "bold #f1fa8c"
 format = ' [祥$duration]($style)'
 
 [cobol]
@@ -65,9 +70,11 @@ disabled = true
 [git_branch]
 symbol = " "
 format = ' [$symbol$branch]($style)'
+style = "bold #ff79c6"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
+style = "bold #ff5555"
 
 [golang]
 symbol = " "
@@ -175,6 +182,7 @@ format = '[$time]($style)'
 
 [username]
 format = ' [$user]($style)'
+style_user = "bold #bd93f9"
 
 [vagrant]
 format = ' [$symbol($version)]($style)'
