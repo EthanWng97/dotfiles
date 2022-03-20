@@ -6,8 +6,8 @@ alias ll "exa -l -g --icons"
 alias la "ll -a"
 
 set fish_prompt_pwd_dir_length 0
-set BAT_THEME "Visual Studio Dark+"
-set -x LS_COLORS (vivid generate jellybeans)
+set BAT_THEME Dracula
+set -x LS_COLORS (vivid generate dracula)
 set -x STARSHIP_CONFIG "$HOME/.config/starship.toml"
 alias bat="bat --theme \"Visual Studio Dark+\""
 set fish_greeting
@@ -36,6 +36,8 @@ end
 
 bind ` accept-autosuggestion
 # fzf_configure_bindings --dir=\cf
+fzf_configure_bindings --git_status=\cg --history=\cr --variables=\cv --directory=\cf --git_log
 set fzf_preview_dir_cmd exa --all --color=always --icons
 set fzf_fd_opts --hidden
 starship init fish --print-full-init | source
+set -gx EDITOR nvim
