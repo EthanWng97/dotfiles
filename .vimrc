@@ -39,6 +39,8 @@ if has("nvim")
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
   Plug 'abecodes/tabout.nvim'
+  Plug 'aserowy/tmux.nvim'
+  Plug 'Mofiqul/dracula.nvim'
   " Plug 'williamboman/nvim-lsp-installer'
   " Plug 'ful1e5/onedark.nvim'
 endif
@@ -361,7 +363,7 @@ if has("nvim")
 	lua require("project-rc")
     lua require('aerial-rc')
     lua require('tabout').setup{}
-	"lua require('onedark-rc')
+    lua require('tmux-rc')
 	" lua require('trouble').setup{}
 	" lua require('nvim-lspconfig-rc')
 endif
