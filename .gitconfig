@@ -10,7 +10,7 @@
 [delta]
     navigate = true  # use n and N to move between diff sections
 	line-numbers = true
-	syntax-theme = "Visual Studio Dark+"
+	syntax-theme = "Dracula"
 
 
 
