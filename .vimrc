@@ -4,7 +4,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'puremourning/vimspector'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 
 if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
