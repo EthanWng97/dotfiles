@@ -17,10 +17,11 @@ cmp.setup {
         format = lspkind.cmp_format({
             mode = "symbol_text",
             menu = ({
-                buffer = "[Buffer]",
+                buffer = "[BUFFER]",
                 nvim_lsp = "[LSP]",
-                luasnip = "[LuaSnip]",
-                cmp_tabnine = "[TN]"
+                luasnip = "[SNIPPET]",
+                cmp_tabnine = "[TN]",
+                copilot = "[PILOT]"
             })
         })
     },
@@ -56,7 +57,7 @@ cmp.setup {
     },
     sources = {
         {name = 'nvim_lsp'}, {name = 'nvim_lsp_signature_help'},
-        {name = 'copilot'}, {name = 'treesitter'}, {name = 'cmp_tabnine'},
-        {name = 'buffer'}
+        {name = 'spell'}, {name = 'copilot'}, {name = 'treesitter'},
+        {name = 'cmp_tabnine'}, {name = 'buffer'}
     }
 }
