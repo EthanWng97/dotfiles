@@ -24,9 +24,7 @@ require('telescope').setup{
     },
   }
 }
-require('telescope').load_extension('coc')
 require("telescope").load_extension("vimspector")
-require('telescope').load_extension('env')
 require('telescope').load_extension('aerial')
 require('telescope').load_extension('fzf')
 require("telescope").load_extension("session-lens")
