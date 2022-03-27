@@ -35,7 +35,6 @@ Pictures
 .redhat/
 .ssh/
 .swiftpm/
-.tmux.conf
 .vim/plugged/*
 .viminfo
 .vimspector.log
