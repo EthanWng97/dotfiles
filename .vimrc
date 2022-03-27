@@ -3,14 +3,13 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'puremourning/vimspector'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim'
 
 if has("nvim")
+  Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-lualine/lualine.nvim'
-  Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
@@ -34,7 +33,7 @@ if has("nvim")
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'akinsho/toggleterm.nvim'
+  " Plug 'akinsho/toggleterm.nvim'
   Plug 'akinsho/bufferline.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'norcalli/nvim-colorizer.lua'
@@ -46,15 +45,15 @@ if has("nvim")
   Plug 'numToStr/Comment.nvim'
   Plug 'luukvbaal/stabilize.nvim'
   Plug 'sindrets/diffview.nvim'
-  Plug 'karb94/neoscroll.nvim'
+  " Plug 'karb94/neoscroll.nvim'
+  Plug 'ggandor/lightspeed.nvim'
   Plug 'rmagatti/auto-session'
-  Plug 'rmagatti/session-lens'
+  " Plug 'rmagatti/session-lens'
   Plug 'arkav/lualine-lsp-progress'
   Plug 'ahmedkhalf/project.nvim'
   Plug 'abecodes/tabout.nvim'
   Plug 'aserowy/tmux.nvim'
   Plug 'Mofiqul/dracula.nvim'
-  " Plug 'dracula/vim', { 'as': 'dracula' }
 endif
 
 call plug#end()
@@ -221,22 +220,19 @@ let g:vimspector_install_gadgets = [
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for Customized Command
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-command! -nargs=0 Coc :Telescope coc
-
 if has("nvim")
 	lua require('nvim-treesitter-rc')
 	lua require('indent-blankline-rc')
 	lua require('gitsigns-rc')
 	lua require('lualine-rc')
-	lua require('toggleterm-rc')
+	" lua require('toggleterm-rc')
 	lua require('bufferline-rc')
 	lua require('nvim-tree-rc')
 	lua require('colorizer').setup()
 	lua require('telescope-rc')
 	lua require('stabilize-rc')
 	lua require('diffview-rc')
-	lua require('neoscroll-rc')
+	" lua require('neoscroll-rc')
 	lua require('auto-session-rc')
 	lua require("project-rc")
     lua require('aerial-rc')
