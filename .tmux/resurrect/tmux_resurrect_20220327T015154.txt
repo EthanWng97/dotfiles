@@ -1,0 +1,6 @@
+pane	config	1	1	:*	1	:/Users/navepnow	1	fish	:
+pane	config	2	0	:-	1	:/Users/navepnow	1	nvim	:(fish)
+nvim /Users/navepnow/.tmux.conf
+window	config	1	:fish navepnow	1	:*	c07f,100x55,0,0,2	:
+window	config	2	:nvim navepnow	0	:-	c07d,100x55,0,0,0	:
+state	config	
