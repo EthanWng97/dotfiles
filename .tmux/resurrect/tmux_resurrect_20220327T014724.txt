@@ -1,3 +1,0 @@
-pane	csci571-hw8	1	1	:*	1	:/Users/navepnow	1	nvim	:nvim /Users/navepnow/.tmux.conf
-window	csci571-hw8	1	:nvim navepnow	1	:*	c07e,100x55,0,0,1	:
-state	csci571-hw8	

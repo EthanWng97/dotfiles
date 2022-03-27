@@ -56,3 +56,4 @@ package-lock.json
 .config/iterm2
 .config/configstore/update-notifier-nodemon.json
 .config/configstore/update-notifier-npm-check-updates.json
+.tmux/resurrect

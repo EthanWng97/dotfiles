@@ -1,5 +1,0 @@
-pane	config	1	1	:*	1	:/Users/navepnow	1	nvim	:nvim /Users/navepnow/.tmux.conf
-pane	csci571-hw8	1	1	:*	1	:/Users/navepnow/Documents/Learn/CSCI571/HW8.nosync/server/client	1	fish	:
-window	config	1	:nvim navepnow	1	:*	ccdd,214x29,0,0,0	:
-window	csci571-hw8	1	:fish client	1	:*	c07e,100x55,0,0,1	:
-state	config	
