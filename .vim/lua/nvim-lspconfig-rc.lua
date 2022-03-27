@@ -133,5 +133,5 @@ require"lspconfig".efm.setup {
 
         }
     },
-    filetypes = {'lua', 'css', 'yaml'}
+    filetypes = {'lua', 'css', 'yaml', 'markdown'}
 }
