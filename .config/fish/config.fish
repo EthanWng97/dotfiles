@@ -4,6 +4,9 @@ end
 
 alias ll "exa -l -g --icons"
 alias la "ll -a"
+alias tn "tmux -CC new -s"
+alias ta "tmux -CC attach -t"
+alias tl 'tmux list-sessions'
 
 set fish_prompt_pwd_dir_length 0
 set BAT_THEME Dracula
