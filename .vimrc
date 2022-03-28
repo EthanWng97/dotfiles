@@ -62,6 +62,7 @@ call plug#end()
 " General Setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 set spelllang=en_us
+set spelllang+=cjk
 set spell
 syntax on
 filetype on
@@ -177,7 +178,7 @@ map <leader>d "_dd
 "nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 function! TabEnable()
     let num = winnr('$')
-    if num == 1 
+    if num == 1
         return ":bnext\<CR>"
     else
         return "\<C-W>w"
