@@ -1,3 +1,7 @@
+-- config for copilot
+vim.g['copilot_no_tab_map'] = true
+vim.g['copilot_assume_mapped'] = true
+vim.g.copilot_tab_fallback = ""
 -- load snippets
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
@@ -40,6 +44,12 @@ cmp.setup {
             if cmp.visible() then
                 cmp.select_next_item()
             else
+                -- local copilot_keys = vim.fn["copilot#Accept"]()
+                -- if copilot_keys ~= "" then
+                --     vim.api.nvim_feedkeys(copilot_keys, "i", true)
+                -- else
+                --     fallback()
+                -- end
                 fallback()
             end
         end,
@@ -50,10 +60,24 @@ cmp.setup {
                 fallback()
             end
         end
+        -- ["<leader>j"] = cmp.mapping(function(fallback)
+        --     cmp.mapping.abort()
+        --     local copilot_keys = vim.fn["copilot#Accept"]()
+        --     if copilot_keys ~= "" then
+        --         vim.api.nvim_feedkeys(copilot_keys, "i", true)
+        --     else
+        --         fallback()
+        --     end
+        -- end)
     },
     sources = {
         {name = 'nvim_lsp'}, {name = 'nvim_lsp_signature_help'},
-        {name = 'spell'}, {name = 'luasnip'}, {name = 'copilot'},
+        {name = 'copilot'}, {name = 'spell'}, {name = 'luasnip'},
         {name = 'treesitter'}, {name = 'cmp_tabnine'}, {name = 'buffer'}
-    }
+    },
+    documentation = {
+        border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
+    },
+    experimental = {ghost_text = true, native_menu = false}
+
 }
