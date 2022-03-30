@@ -139,41 +139,40 @@ set guicursor=i:ver100-blinkon100
 
 """""" remap """"""
 let mapleader = ','
-nmap <leader>a ggVG
-imap <leader>a <Esc>ggVG
+nmap <A-a> ggVG
+imap <A-a> <Esc>ggVG
 
-nmap <leader>o <cmd>lua require('telescope.builtin').find_files()<cr>
-imap <leader>o <Esc><cmd>lua require('telescope.builtin').find_files()<cr>
+nmap <A-o> <cmd>lua require('telescope.builtin').find_files()<cr>
+imap <A-o> <Esc><cmd>lua require('telescope.builtin').find_files()<cr>
 
-nmap <leader>p <cmd>lua require('telescope.builtin').commands()<cr>
-imap <leader>p <Esc><cmd>lua require('telescope.builtin').commands()<cr>
+nmap <A-p> <cmd>lua require('telescope.builtin').commands()<cr>
+imap <A-p> <Esc><cmd>lua require('telescope.builtin').commands()<cr>
 
-nmap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
-imap <leader>g <Esc><cmd>lua require('telescope.builtin').live_grep()<cr>
+nmap <A-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
+imap <A-g> <Esc><cmd>lua require('telescope.builtin').live_grep()<cr>
 
-nmap <leader>ff <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
-imap <leader>ff <Esc><cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
+nmap <A-f> <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
+imap <A-f> <Esc><cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
 
 
-nmap <leader>e :NvimTreeToggle<CR>
-vmap <leader>e :NvimTreeToggle<CR>
-imap <leader>e <Esc>:NvimTreeToggle<CR>
-nmap <leader>r :NvimTreeRefresh<CR>
+nmap <A-e> :NvimTreeToggle<CR>
+imap <A-e> <Esc>:NvimTreeToggle<CR>
+nmap <A-r> :NvimTreeRefresh<CR>
 
-nmap <leader>s :w<CR>
-imap <leader>s <Esc>:w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>qq :qa!<CR>
-nmap <leader>/ :lua require("Comment.api").toggle_current_linewise()<CR>
-vmap <leader>/ :lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>
-imap <leader>/ <Esc>:lua require("Comment.api").toggle_current_linewise()<CR>
+nmap <A-s> :w<CR>
+imap <A-s> <Esc>:w<CR>
+nmap <A-q> :q<CR>
+nmap <A-S-q> :qa!<CR>
+nmap <A-/> :lua require("Comment.api").toggle_current_linewise()<CR>
+vmap <A-/> :lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>
+imap <A-/> <Esc>:lua require("Comment.api").toggle_current_linewise()<CR>
 
-nmap <leader>w :bd<CR>
-imap <leader>w <Esc>:bd<CR>
+nmap <A-w> :bd<CR>
+imap <A-w> <Esc>:bd<CR>
 imap <C-r> <Esc><C-r>
 imap <leader>z <Esc>u
 nmap <space> :
-map <leader>d "_dd
+map <A-d> "_dd
 
 "nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 function! TabEnable()
