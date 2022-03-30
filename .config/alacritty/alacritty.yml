@@ -1,0 +1,146 @@
+#
+# modified 2021-06-28
+#
+
+env:
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: xterm-256color
+
+window:
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+  # Remove buttons
+  decorations: none
+  # Open in full screen 
+  startup_mode: Maximized
+  # Dimensions if not SimpleFullscreen
+  dimensions:
+    columns: 140
+    lines: 38
+
+# Make background slightly transparent
+window.opacity: 0.92
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+cursor:
+  # Block Underline or Beam
+  style: Block
+
+font:
+  normal:
+    # Needs to be powerline font if using zsh theme with powerline
+    family: JetBrainsMono Nerd Font
+    style: Bold
+  # Font size
+  size: 14
+
+  # Better font rendering for mac
+  use_thin_strokes: true
+
+draw_bold_text_with_bright_colors: true
+
+colors:
+  primary:
+    background: '#282a36'
+    foreground: '#f8f8f2'
+    bright_foreground: '#ffffff'
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: '#44475a'
+      background: '#50fa7b'
+    focused_match:
+      foreground: '#44475a'
+      background: '#ffb86c'
+    bar:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+  hints:
+    start:
+      foreground: '#282a36'
+      background: '#f1fa8c'
+    end:
+      foreground: '#f1fa8c'
+      background: '#282a36'
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellForeground
+    background: '#44475a'
+  normal:
+    black: '#21222c'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#bd93f9'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#f8f8f2'
+  bright:
+    black: '#6272a4'
+    red: '#ff6e6e'
+    green: '#69ff94'
+    yellow: '#ffffa5'
+    blue: '#d6acff'
+    magenta: '#ff92df'
+    cyan: '#a4ffff'
+    white: '#ffffff'
+
+bell:
+  animation: EaseOutExpo
+  duration: 0
+
+selection:
+  # This string contains all characters that are used as separators for
+  # "semantic words" in Alacritty.
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+
+  # When true, selected text will be copied to the primary clipboard
+  save_to_clipboard: true
+
+# Login shell with arguments
+# shell:
+#   program: /bin/zsh
+#   args:
+#     - --login
+
+# Enable clickable URLs
+mouse:
+  hints:
+    launcher:
+      program: open
+    modifiers: Command
+
+# Startup directory, unset or None for home directory
+working_directory: None
+
+key_bindings:
+ - { key: Comma,     mods: Command,      command: {program: "sh", args: ["-c","open ~/.config/alacritty/alacritty.yml"]}     }
+ - { key: N,         mods: Command,      action: SpawnNewInstance       }
+ - { key: Back, mods: Super, chars: "\x15" } # delete word/line
+ - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
+ - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
+ - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
+ - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
+ - { key: Key0,   mods: Command, action: ResetFontSize    }
+ - { key: Equals, mods: Command, action: IncreaseFontSize }
+ - { key: Minus,  mods: Command, action: DecreaseFontSize }
+ - { key: K,      mods: Command, action: ClearHistory     }
+ - { key: K,      mods: Command, chars: "\x0c"            }
+ - { key: V,      mods: Command, action: Paste            }
+ - { key: C,      mods: Command, action: Copy             }
+ - { key: H,      mods: Command, action: Hide             }
+ - { key: Q,      mods: Command, action: Quit             }
