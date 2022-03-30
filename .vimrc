@@ -37,9 +37,14 @@ if has("nvim")
   Plug 'akinsho/bufferline.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'norcalli/nvim-colorizer.lua'
+
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-vimspector.nvim'
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+  Plug 'tami5/sqlite.lua'
+  Plug 'nvim-telescope/telescope-frecency.nvim'
+  Plug 'nvim-telescope/telescope-file-browser.nvim'
+
   Plug 'stevearc/aerial.nvim'
   Plug 'Mofiqul/vscode.nvim'
   Plug 'numToStr/Comment.nvim'
@@ -147,6 +152,8 @@ imap <A-o> <Esc><cmd>lua require('telescope.builtin').find_files()<cr>
 
 nmap <A-p> <cmd>lua require('telescope.builtin').commands()<cr>
 imap <A-p> <Esc><cmd>lua require('telescope.builtin').commands()<cr>
+nmap <A-S-p> <cmd>lua require('telescope.builtin').builtin()<cr>
+imap <A-S-p> <Esc><cmd>lua require('telescope.builtin').builtin()<cr>
 
 nmap <A-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
 imap <A-g> <Esc><cmd>lua require('telescope.builtin').live_grep()<cr>
@@ -241,4 +248,5 @@ if has("nvim")
     lua require('nvim-cmp-rc')
 	lua require('nvim-lspconfig-rc')
     lua require('autopairs-rc')
+    lua require('sqlite')
 endif
