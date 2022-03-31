@@ -1,69 +1,4 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General Setting for vim-plug
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
-Plug 'puremourning/vimspector'
-Plug 'github/copilot.vim'
-
-if has("nvim")
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-lualine/lualine.nvim'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/cmp-cmdline'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-copilot'
-  Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-  Plug 'onsails/lspkind-nvim'
-  Plug 'saadparwaiz1/cmp_luasnip'
-  Plug 'L3MON4D3/LuaSnip'
-  Plug 'f3fora/cmp-spell'
-
-
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  Plug 'nvim-treesitter/nvim-treesitter-refactor'
-  Plug 'nvim-treesitter/nvim-treesitter-angular'
-  Plug 'nvim-treesitter/playground'
-  Plug 'lewis6991/spellsitter.nvim'
-  Plug 'windwp/nvim-autopairs'
-  Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'lewis6991/gitsigns.nvim'
-  Plug 'kyazdani42/nvim-web-devicons'
-  " Plug 'akinsho/toggleterm.nvim'
-  Plug 'akinsho/bufferline.nvim'
-  Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'norcalli/nvim-colorizer.lua'
-
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-vimspector.nvim'
-  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-  Plug 'tami5/sqlite.lua'
-  Plug 'nvim-telescope/telescope-frecency.nvim'
-  Plug 'nvim-telescope/telescope-file-browser.nvim'
-
-  Plug 'stevearc/aerial.nvim'
-  Plug 'Mofiqul/vscode.nvim'
-  Plug 'numToStr/Comment.nvim'
-  Plug 'luukvbaal/stabilize.nvim'
-  Plug 'sindrets/diffview.nvim'
-  " Plug 'karb94/neoscroll.nvim'
-  Plug 'ggandor/lightspeed.nvim'
-  Plug 'rmagatti/auto-session'
-  " Plug 'rmagatti/session-lens'
-  Plug 'arkav/lualine-lsp-progress'
-  Plug 'ahmedkhalf/project.nvim'
-  Plug 'abecodes/tabout.nvim'
-  Plug 'aserowy/tmux.nvim'
-  Plug 'Mofiqul/dracula.nvim'
-endif
-
-call plug#end()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 set spelllang=en_us
@@ -126,18 +61,6 @@ set termguicolors
 autocmd colorscheme * highlight DiffAdd gui=none guifg=#A1C281 guibg=None
 autocmd colorscheme * highlight DiffChange gui=none guifg=#74ADEA guibg=None
 autocmd colorscheme * highlight DiffDelete gui=none guifg=#FE747A guibg=None
-
-let g:vscode_style = "dark"
-" let g:vscode_transparency = 1
-let g:vscode_italic_comment = 1
-let g:vscode_disable_nvimtree_bg = v:true
-
-let g:onedark_transparent = v:true
-let g:onedark_transparent_sidebar = v:true
-let g:onedark_highlight_linenumber = v:true
-let g:onedark_dark_sidebar = v:false
-let g:onedark_dark_float = v:false
-colorscheme vscode
 
 set guicursor=i:ver100-blinkon100
             \,r:hor100
@@ -224,29 +147,3 @@ let g:vimspector_install_gadgets = [
     \ 'debugpy',
     \ ]
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General Setting for Customized Command
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("nvim")
-	lua require('nvim-treesitter-rc')
-	lua require('indent-blankline-rc')
-	lua require('gitsigns-rc')
-	lua require('lualine-rc')
-	" lua require('toggleterm-rc')
-	lua require('bufferline-rc')
-	lua require('nvim-tree-rc')
-	lua require('colorizer').setup()
-	lua require('telescope-rc')
-	lua require('stabilize-rc')
-	lua require('diffview-rc')
-	" lua require('neoscroll-rc')
-	lua require('auto-session-rc')
-	lua require("project-rc")
-    lua require('aerial-rc')
-    lua require('tabout').setup{}
-    lua require('tmux-rc')
-    lua require('nvim-cmp-rc')
-	lua require('nvim-lspconfig-rc')
-    lua require('autopairs-rc')
-    lua require('sqlite')
-endif

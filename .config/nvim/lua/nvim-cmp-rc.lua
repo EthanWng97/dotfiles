@@ -1,6 +1,6 @@
 -- config for copilot
-vim.g['copilot_no_tab_map'] = true
-vim.g['copilot_assume_mapped'] = true
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
 -- load snippets
 local luasnip = require("luasnip")
@@ -59,16 +59,16 @@ cmp.setup {
             else
                 fallback()
             end
-        end
-        -- ["<leader>j"] = cmp.mapping(function(fallback)
-        --     cmp.mapping.abort()
-        --     local copilot_keys = vim.fn["copilot#Accept"]()
-        --     if copilot_keys ~= "" then
-        --         vim.api.nvim_feedkeys(copilot_keys, "i", true)
-        --     else
-        --         fallback()
-        --     end
-        -- end)
+        end,
+        ["<A-j>"] = cmp.mapping(function(fallback)
+            cmp.mapping.abort()
+            local copilot_keys = vim.fn["copilot#Accept"]()
+            if copilot_keys ~= "" then
+                vim.api.nvim_feedkeys(copilot_keys, "i", true)
+            else
+                fallback()
+            end
+        end)
     },
     sources = {
         {name = 'nvim_lsp'}, {name = 'nvim_lsp_signature_help'},
