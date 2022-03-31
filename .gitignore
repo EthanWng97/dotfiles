@@ -58,3 +58,4 @@ package-lock.json
 .config/configstore/update-notifier-npm-check-updates.json
 .config/github-copilot
 .tmux/resurrect
+.config/nvim/vimspector-config/gadgets
