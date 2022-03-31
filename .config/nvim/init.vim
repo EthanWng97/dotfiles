@@ -7,8 +7,6 @@
 " General Setting for vim-plug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'puremourning/vimspector'
-Plug 'github/copilot.vim'
 
 if has("nvim")
    " nvimlsp plugins
@@ -29,6 +27,7 @@ if has("nvim")
    Plug 'saadparwaiz1/cmp_luasnip'
    Plug 'L3MON4D3/LuaSnip'
    Plug 'f3fora/cmp-spell'
+   Plug 'github/copilot.vim'
   
   " highlight plugins
    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -50,7 +49,10 @@ if has("nvim")
    Plug 'arkav/lualine-lsp-progress'
 
    " debug plugins
-   Plug 'mfussenegger/nvim-dap'
+   Plug 'puremourning/vimspector'
+   " Plug 'mfussenegger/nvim-dap'
+   " Plug 'rcarriga/nvim-dap-ui'
+
    Plug 'windwp/nvim-autopairs'
    Plug 'lukas-reineke/indent-blankline.nvim'
    Plug 'lewis6991/gitsigns.nvim'
@@ -62,7 +64,6 @@ if has("nvim")
    Plug 'Mofiqul/vscode.nvim'
    Plug 'numToStr/Comment.nvim'
    Plug 'luukvbaal/stabilize.nvim'
-   " Plug 'sindrets/diffview.nvim'
    " Plug 'karb94/neoscroll.nvim'
    Plug 'ggandor/lightspeed.nvim'
    Plug 'rmagatti/auto-session'
@@ -233,7 +234,7 @@ else
     set signcolumn=yes
 endif
 
-" nnoremap  <F5> :lua require'dap'.continue()<CR>
+" nnoremap  <A-d> :lua require'dap'.continue()<CR>
 " nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
 " nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
 " nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
@@ -248,7 +249,8 @@ let g:vimspector_install_gadgets = [
     \ ]
 nmap <A-d> <Plug>VimspectorContinue
 nmap <A-S-d> <Plug>VimspectorRestart
-" autocmd! CursorHold,CursorHoldI * <Plug>VimspectorBalloonEval
+nmap <A-i> <Plug>VimspectorBalloonEval
+xmap <A-i> <Plug>VimspectorBalloonEval
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for Customized Command
@@ -263,7 +265,6 @@ if has("nvim")
 	lua require('colorizer').setup()
 	lua require('telescope-rc')
 	lua require('stabilize-rc')
-	" lua require('diffview-rc')
 	" lua require('neoscroll-rc')
 	lua require('auto-session-rc')
 	lua require("project-rc")
@@ -274,6 +275,6 @@ if has("nvim")
 	lua require('nvim-lspconfig-rc')
     lua require('autopairs-rc')
     lua require('sqlite')
-    lua require('dap-rc')
+    " lua require('dap-rc')
 endif
 
