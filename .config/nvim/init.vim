@@ -45,7 +45,12 @@ if has("nvim")
    Plug 'nvim-telescope/telescope-frecency.nvim'
    Plug 'nvim-telescope/telescope-file-browser.nvim'
   
+   " statusline plugins
    Plug 'nvim-lualine/lualine.nvim'
+   Plug 'arkav/lualine-lsp-progress'
+
+   " debug plugins
+   Plug 'mfussenegger/nvim-dap'
    Plug 'windwp/nvim-autopairs'
    Plug 'lukas-reineke/indent-blankline.nvim'
    Plug 'lewis6991/gitsigns.nvim'
@@ -62,7 +67,6 @@ if has("nvim")
    Plug 'ggandor/lightspeed.nvim'
    Plug 'rmagatti/auto-session'
    " Plug 'rmagatti/session-lens'
-   Plug 'arkav/lualine-lsp-progress'
    Plug 'ahmedkhalf/project.nvim'
    Plug 'abecodes/tabout.nvim'
    Plug 'aserowy/tmux.nvim'
@@ -193,7 +197,7 @@ nmap <A-w> :bd<CR>
 imap <A-w> <Esc>:bd<CR>
 imap <leader>z <Esc>u
 nmap <space> :
-map <A-d> "_dd
+" map <A-d> "_dd
 
 "nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 function! TabEnable()
@@ -229,6 +233,11 @@ else
     set signcolumn=yes
 endif
 
+" nnoremap  <F5> :lua require'dap'.continue()<CR>
+" nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+" nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+" nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+" nnoremap <silent> <F9> :lua require'dap'.toggle_breakpoint()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for vimspector
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -237,6 +246,9 @@ let g:vimspector_install_gadgets = [
     \ 'CodeLLDB',
     \ 'debugpy',
     \ ]
+nmap <A-d> <Plug>VimspectorContinue
+nmap <A-S-d> <Plug>VimspectorRestart
+" autocmd! CursorHold,CursorHoldI * <Plug>VimspectorBalloonEval
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for Customized Command
@@ -262,5 +274,6 @@ if has("nvim")
 	lua require('nvim-lspconfig-rc')
     lua require('autopairs-rc')
     lua require('sqlite')
+    lua require('dap-rc')
 endif
 
