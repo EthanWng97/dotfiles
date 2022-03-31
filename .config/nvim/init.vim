@@ -11,11 +11,12 @@ Plug 'puremourning/vimspector'
 Plug 'github/copilot.vim'
 
 if has("nvim")
-
+   " nvimlsp plugins
    Plug 'neovim/nvim-lspconfig'
    Plug 'nvim-lua/popup.nvim'
    Plug 'nvim-lua/plenary.nvim'
-   Plug 'nvim-lualine/lualine.nvim'
+
+   " autocomplete plugins
    Plug 'hrsh7th/nvim-cmp'
    Plug 'hrsh7th/cmp-nvim-lsp'
    Plug 'hrsh7th/cmp-buffer'
@@ -29,20 +30,14 @@ if has("nvim")
    Plug 'L3MON4D3/LuaSnip'
    Plug 'f3fora/cmp-spell'
   
-  
+  " highlight plugins
    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
    Plug 'nvim-treesitter/nvim-treesitter-refactor'
    Plug 'nvim-treesitter/nvim-treesitter-angular'
    Plug 'nvim-treesitter/playground'
    Plug 'lewis6991/spellsitter.nvim'
-   Plug 'windwp/nvim-autopairs'
-   Plug 'lukas-reineke/indent-blankline.nvim'
-   Plug 'lewis6991/gitsigns.nvim'
-   Plug 'kyazdani42/nvim-web-devicons'
-   Plug 'akinsho/bufferline.nvim'
-   Plug 'kyazdani42/nvim-tree.lua'
-   Plug 'norcalli/nvim-colorizer.lua'
   
+   " telescope plugins
    Plug 'nvim-telescope/telescope.nvim'
    Plug 'nvim-telescope/telescope-vimspector.nvim'
    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -50,11 +45,19 @@ if has("nvim")
    Plug 'nvim-telescope/telescope-frecency.nvim'
    Plug 'nvim-telescope/telescope-file-browser.nvim'
   
+   Plug 'nvim-lualine/lualine.nvim'
+   Plug 'windwp/nvim-autopairs'
+   Plug 'lukas-reineke/indent-blankline.nvim'
+   Plug 'lewis6991/gitsigns.nvim'
+   Plug 'kyazdani42/nvim-web-devicons'
+   Plug 'akinsho/bufferline.nvim'
+   Plug 'kyazdani42/nvim-tree.lua'
+   Plug 'norcalli/nvim-colorizer.lua'
    Plug 'stevearc/aerial.nvim'
    Plug 'Mofiqul/vscode.nvim'
    Plug 'numToStr/Comment.nvim'
    Plug 'luukvbaal/stabilize.nvim'
-   Plug 'sindrets/diffview.nvim'
+   " Plug 'sindrets/diffview.nvim'
    " Plug 'karb94/neoscroll.nvim'
    Plug 'ggandor/lightspeed.nvim'
    Plug 'rmagatti/auto-session'
@@ -63,7 +66,7 @@ if has("nvim")
    Plug 'ahmedkhalf/project.nvim'
    Plug 'abecodes/tabout.nvim'
    Plug 'aserowy/tmux.nvim'
-   Plug 'Mofiqul/dracula.nvim'
+   " Plug 'Mofiqul/dracula.nvim'
 endif
 
 call plug#end()
@@ -109,6 +112,13 @@ set si "Smart indent
 set smarttab
 set expandtab           "convert tabs to spaces
 set nu!                 "toggle the line numbers
+" relative line numbers
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
 set backspace=indent,eol,start
 set autoindent smartindent
 
@@ -241,7 +251,7 @@ if has("nvim")
 	lua require('colorizer').setup()
 	lua require('telescope-rc')
 	lua require('stabilize-rc')
-	lua require('diffview-rc')
+	" lua require('diffview-rc')
 	" lua require('neoscroll-rc')
 	lua require('auto-session-rc')
 	lua require("project-rc")
