@@ -1,4 +1,4 @@
- " set runtimepath+=~/.vim runtimepath+=~/.vim/after
+ "Plug 'projekt0n/github-nvim-theme' set runtimepath+=~/.vim runtimepath+=~/.vim/after
 	" let &packpath = &runtimepath
 	" source ~/.vimrc
 
@@ -71,7 +71,6 @@ if has("nvim")
    Plug 'ahmedkhalf/project.nvim'
    Plug 'abecodes/tabout.nvim'
    Plug 'aserowy/tmux.nvim'
-   Plug 'dracula/vim', { 'as': 'dracula' }
 endif
 
 call plug#end()
@@ -148,7 +147,7 @@ autocmd colorscheme * highlight DiffChange gui=none guifg=#74ADEA guibg=None
 autocmd colorscheme * highlight DiffDelete gui=none guifg=#FE747A guibg=None
 
 let g:vscode_style = "dark"
-" let g:vscode_transparency = 1
+let g:vscode_transparency = 1
 let g:vscode_italic_comment = 1
 let g:vscode_disable_nvimtree_bg = v:true
 
