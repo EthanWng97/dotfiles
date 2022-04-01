@@ -19,7 +19,7 @@ zoxide init fish | source
 
 alias update "brew update && brew upgrade && brew cu -a&& brew cleanup && npm update -g && pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U | fisher update"
 alias nv nvim
-
+alias lg lazygit
 
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/bin
