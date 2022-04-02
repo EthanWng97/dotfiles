@@ -81,14 +81,14 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D',
                                 '<cmd>lua vim.lsp.buf.type_definition()<CR>',
                                 opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-S-r>',
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-A-r>',
                                 '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-S-a>',
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-A-a>',
                                 '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr',
                                 '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-S-f>',
-                                '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-S-f>',
+    --                             '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
     if client.resolved_capabilities.document_highlight then
         vim.cmd [[
         hi! LspReferenceRead cterm=bold ctermbg=red guibg=#49494A

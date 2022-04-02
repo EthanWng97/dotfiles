@@ -121,23 +121,6 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
-set backspace=indent,eol,start
-set autoindent smartindent
-
-" set mouse=a
-" set clipboard=unnamed
-set nocompatible
-set showcmd
-set autoread                " reload files if changed externally
-" set ignorecase smartcase
-" set hlsearch                " highlight searches
-" set pumheight=10
-set noshowmode              " we don't need to see things like -- INSERT -- anymore
-" set undofile                " enable persistent undo
-" set nobackup nowritebackup
-
-set sidescrolloff=5         " Start scrolling n chars before end of screen.
-
 """""" UI """"""
 set termguicolors
 autocmd colorscheme * highlight DiffAdd gui=none guifg=#A1C281 guibg=None
@@ -219,7 +202,7 @@ let g:vimspector_base_dir = expand('$HOME/.config/nvim/vimspector-config')
 " General Setting for Customized Command
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("nvim")
-    lua require('utils')
+    lua require('keymaps')
     lua require('globals')
 	lua require('plugins.treesitter')
 	lua require('plugins.indent-blankline')
