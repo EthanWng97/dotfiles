@@ -60,3 +60,4 @@ package-lock.json
 .tmux/resurrect
 .config/nvim/vimspector-config/gadgets
 Google Drive
+.config/configstore/nodemon.json
