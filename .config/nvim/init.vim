@@ -125,17 +125,17 @@ augroup END
 set backspace=indent,eol,start
 set autoindent smartindent
 
-set mouse=a
-set clipboard=unnamed
+" set mouse=a
+" set clipboard=unnamed
 set nocompatible
 set showcmd
 set autoread                " reload files if changed externally
-set ignorecase smartcase
-set hlsearch                " highlight searches
-set pumheight=10
+" set ignorecase smartcase
+" set hlsearch                " highlight searches
+" set pumheight=10
 set noshowmode              " we don't need to see things like -- INSERT -- anymore
-set undofile                " enable persistent undo
-set nobackup nowritebackup
+" set undofile                " enable persistent undo
+" set nobackup nowritebackup
 
 set sidescrolloff=5         " Start scrolling n chars before end of screen.
 
@@ -162,16 +162,6 @@ set guicursor=i:ver100-blinkon100
 
 """""" remap """"""
 let mapleader = ','
-nmap <A-a> ggVG
-imap <A-a> <Esc>ggVG
-
-nmap <A-o> <cmd>lua require('telescope.builtin').find_files()<cr>
-imap <A-o> <Esc><cmd>lua require('telescope.builtin').find_files()<cr>
-
-nmap <A-p> <cmd>lua require('telescope.builtin').commands()<cr>
-imap <A-p> <Esc><cmd>lua require('telescope.builtin').commands()<cr>
-nmap <A-S-p> <cmd>lua require('telescope.builtin').builtin()<cr>
-imap <A-S-p> <Esc><cmd>lua require('telescope.builtin').builtin()<cr>
 
 nmap <A-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
 imap <A-g> <Esc><cmd>lua require('telescope.builtin').live_grep()<cr>
@@ -180,8 +170,6 @@ nmap <A-f> <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
 imap <A-f> <Esc><cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
 
 
-nmap <A-e> :NvimTreeToggle<CR>
-imap <A-e> <Esc>:NvimTreeToggle<CR>
 nmap <A-r> :NvimTreeRefresh<CR>
 
 nmap <A-s> :w<CR>
@@ -209,11 +197,6 @@ function! TabEnable()
 endfunction
 nmap <expr> <silent> <Tab> TabEnable()
 
-nmap <silent> <leader>] :BufferLineCycleNext<CR>
-imap <silent> <leader>] :BufferLineCycleNext<CR>
-
-nnoremap <silent><leader>[ :BufferLineCyclePrev<CR>
-inoremap <silent><leader>[ :BufferLineCyclePrev<CR>
 
 nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
 command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "PlugUpdate" | exe "PlugUpgrade"
@@ -261,6 +244,8 @@ let g:vimspector_base_dir = expand('$HOME/.config/nvim/vimspector-config')
 " General Setting for Customized Command
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("nvim")
+    lua require('utils')
+    lua require('globals')
 	lua require('plugins.treesitter')
 	lua require('plugins.indent-blankline')
 	lua require('plugins.gitsigns')
