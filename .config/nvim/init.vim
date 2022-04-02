@@ -84,7 +84,6 @@ syntax on
 filetype on
 filetype plugin on
 autocmd BufNewFile,BufRead *.json setl ft=jsonc
-autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 
 """""" netrw """"""
 let g:netrw_fastbrowse = 0
@@ -161,41 +160,17 @@ set guicursor=i:ver100-blinkon100
             \,r:hor100
 
 """""" remap """"""
-let mapleader = ','
-
-nmap <A-g> <cmd>lua require('telescope.builtin').live_grep()<cr>
-imap <A-g> <Esc><cmd>lua require('telescope.builtin').live_grep()<cr>
-
-nmap <A-f> <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
-imap <A-f> <Esc><cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
-
-
-nmap <A-r> :NvimTreeRefresh<CR>
-
-nmap <A-s> :w<CR>
-imap <A-s> <Esc>:w<CR>
-nmap <A-q> :q<CR>
-nmap <A-S-q> :qa!<CR>
-nmap <A-/> :lua require("Comment.api").toggle_current_linewise()<CR>
-vmap <A-/> :lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>
-imap <A-/> <Esc>:lua require("Comment.api").toggle_current_linewise()<CR>
-
-nmap <A-w> :bd<CR>
-imap <A-w> <Esc>:bd<CR>
-imap <leader>z <Esc>u
-nmap <space> :
-" map <A-d> "_dd
 
 "nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-function! TabEnable()
-    let num = winnr('$')
-    if num == 1
-        return ":bnext\<CR>"
-    else
-        return "\<C-W>w"
-    endif
-endfunction
-nmap <expr> <silent> <Tab> TabEnable()
+" function! TabEnable()
+"     let num = winnr('$')
+"     if num == 1
+"         return ":bnext\<CR>"
+"     else
+"         return "\<C-W>w"
+"     endif
+" endfunction
+" nmap <expr> <silent> <Tab> TabEnable()
 
 
 nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"

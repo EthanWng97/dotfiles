@@ -10,8 +10,7 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
---   normal_mode = "n",
+-- Modes normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
 --   visual_block_mode = "x",
@@ -34,9 +33,24 @@ keymap("n", "<leader>P", "<cmd>lua require('telescope.builtin').builtin()<cr>",
 
 keymap("n", "<leader>g",
        "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+keymap("n", "<leader>f",
+       "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>",
+       opts)
 keymap("n", "<leader>q", ":q<cr>", opts)
--- nmap <A-e> :NvimTreeToggle<CR>
--- imap <A-e> <Esc>:NvimTreeToggle<CR>
+keymap("n", "<leader>Q", ":qa!<cr>", opts)
+keymap("n", "<leader>w", ":bd<cr>", opts)
+
+keymap("n", "<leader>s", ":w<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+
+-- comment
+keymap("n", "<leader>/",
+       ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
+keymap("v", "<leader>/",
+       ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>",
+       opts)
+keymap("i", "<leader>/",
+       "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
