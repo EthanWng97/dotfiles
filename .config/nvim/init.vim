@@ -69,7 +69,6 @@ if has("nvim")
    Plug 'rmagatti/auto-session'
    " Plug 'rmagatti/session-lens'
    Plug 'ahmedkhalf/project.nvim'
-   Plug 'abecodes/tabout.nvim'
    Plug 'aserowy/tmux.nvim'
 endif
 
@@ -262,25 +261,24 @@ let g:vimspector_base_dir = expand('$HOME/.config/nvim/vimspector-config')
 " General Setting for Customized Command
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("nvim")
-	lua require('nvim-treesitter-rc')
-	lua require('indent-blankline-rc')
-	lua require('gitsigns-rc')
-	lua require('lualine-rc')
-	lua require('bufferline-rc')
-	lua require('nvim-tree-rc')
-	lua require('colorizer').setup()
-	lua require('telescope-rc')
-	lua require('stabilize-rc')
-	" lua require('neoscroll-rc')
-	lua require('auto-session-rc')
-	lua require("project-rc")
-    lua require('aerial-rc')
-    lua require('tabout').setup{}
-    lua require('tmux-rc')
-    lua require('nvim-cmp-rc')
-	lua require('nvim-lspconfig-rc')
-    lua require('autopairs-rc')
+	lua require('plugins.nvim-treesitter-rc')
+	lua require('plugins.indent-blankline-rc')
+	lua require('plugins.gitsigns-rc')
+	lua require('plugins.lualine-rc')
+	lua require('plugins.bufferline-rc')
+	lua require('plugins.nvim-tree-rc')
+	lua require('plugins.colorizer')
+	lua require('plugins.telescope-rc')
+	lua require('plugins.stabilize-rc')
+	lua require('plugins.auto-session-rc')
+	lua require("plugins.project-rc")
+    lua require('plugins.aerial-rc')
+    lua require('plugins.tmux-rc')
+    lua require('plugins.nvim-cmp-rc')
+	lua require('plugins.nvim-lspconfig-rc')
+    lua require('plugins.autopairs-rc')
     lua require('sqlite')
     " lua require('dap-rc')
+	" lua require('neoscroll-rc')
 endif
 
