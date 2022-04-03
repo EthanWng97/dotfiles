@@ -8,6 +8,8 @@ require'nvim-treesitter.configs'.setup {
         disable = {},
         additional_vim_regex_highlighting = false
     },
+    autopairs = {enable = true},
+    autotag = {enable = true},
     indent = {enable = true, disable = {}},
     ensure_installed = "maintained",
     sync_install = true,

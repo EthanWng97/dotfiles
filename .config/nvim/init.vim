@@ -30,11 +30,12 @@ if has("nvim")
    Plug 'f3fora/cmp-spell'
    Plug 'github/copilot.vim'
   
-  " highlight plugins
+  " treesitter plugins
    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
    Plug 'nvim-treesitter/nvim-treesitter-refactor'
    Plug 'nvim-treesitter/nvim-treesitter-angular'
    Plug 'lewis6991/spellsitter.nvim'
+   Plug 'windwp/nvim-ts-autotag'
   
    " telescope plugins
    Plug 'nvim-telescope/telescope.nvim'
@@ -123,9 +124,9 @@ augroup END
 
 """""" UI """"""
 set termguicolors
-autocmd colorscheme * highlight DiffAdd gui=none guifg=#A1C281 guibg=None
-autocmd colorscheme * highlight DiffChange gui=none guifg=#74ADEA guibg=None
-autocmd colorscheme * highlight DiffDelete gui=none guifg=#FE747A guibg=None
+autocmd colorscheme * highlight GitSignsAdd gui=none guifg=#A1C281 guibg=None
+autocmd colorscheme * highlight GitSignsChange gui=none guifg=#74ADEA guibg=None
+autocmd colorscheme * highlight GitSignsDelete gui=none guifg=#FE747A guibg=None
 
 let g:vscode_style = "dark"
 let g:vscode_transparency = 1
