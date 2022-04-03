@@ -21,6 +21,7 @@ dashboard.section.buttons.val = {
     dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
     dashboard.button("l", "  > List session",
                      ":SessionManager load_session<CR>"),
+    dashboard.button("u", "  > Update plugins", ":UpdateAll<CR>"),
     dashboard.button("q", "  > Quit NVIM", ":qa<CR>")
 }
 
