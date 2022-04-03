@@ -1,5 +1,8 @@
-require('nvim-autopairs').setup({disable_filetype = {"TelescopePrompt"}})
-require('nvim-autopairs').remove_rule('`')
+local npairs = require("nvim-autopairs")
+npairs.setup({check_ts = true}, {disable_filetype = {"TelescopePrompt"}})
+npairs.remove_rule('`')
+
+--- setup for cmp
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 cmp.event:on('confirm_done',
