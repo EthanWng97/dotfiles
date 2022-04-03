@@ -21,7 +21,7 @@ keymap("n", "<space>", ":", opts)
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 
-keymap("n", "<C-e>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<C-A-t>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<C-a>", "ggVG<CR>", opts)
 
 keymap("n", "<C-A-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>",

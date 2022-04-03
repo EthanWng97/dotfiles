@@ -6,8 +6,7 @@ require('telescope').setup {
     },
     defaults = {
         mappings = {i = {["<esc>"] = actions.close}},
-        file_ignore_patterns = {"node_modules", ".git"},
-        path_display = "smart"
+        file_ignore_patterns = {"node_modules", ".git"}
     },
 
     extensions = {
