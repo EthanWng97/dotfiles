@@ -1,8 +1,3 @@
- "Plug 'projekt0n/github-nvim-theme' set runtimepath+=~/.vim runtimepath+=~/.vim/after
-	" let &packpath = &runtimepath
-	" source ~/.vimrc
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Setting for vim-plug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -44,6 +39,7 @@ if has("nvim")
    Plug 'tami5/sqlite.lua'
    Plug 'nvim-telescope/telescope-frecency.nvim'
    Plug 'nvim-telescope/telescope-file-browser.nvim'
+   Plug 'nvim-telescope/telescope-ui-select.nvim'
   
    " statusline plugins
    Plug 'nvim-lualine/lualine.nvim'
@@ -54,21 +50,24 @@ if has("nvim")
    " Plug 'mfussenegger/nvim-dap'
    " Plug 'rcarriga/nvim-dap-ui'
 
-   Plug 'windwp/nvim-autopairs'
+   " UI
+   Plug 'rcarriga/nvim-notify'
    Plug 'lukas-reineke/indent-blankline.nvim'
-   Plug 'lewis6991/gitsigns.nvim'
    Plug 'kyazdani42/nvim-web-devicons'
    Plug 'akinsho/bufferline.nvim'
-   Plug 'kyazdani42/nvim-tree.lua'
    Plug 'norcalli/nvim-colorizer.lua'
-   Plug 'stevearc/aerial.nvim'
    Plug 'Mofiqul/vscode.nvim'
+   Plug 'goolord/alpha-nvim'
+
+   " Utilities
+   Plug 'windwp/nvim-autopairs'
+   Plug 'lewis6991/gitsigns.nvim'
+   Plug 'kyazdani42/nvim-tree.lua'
+   Plug 'simrat39/symbols-outline.nvim'
    Plug 'numToStr/Comment.nvim'
    Plug 'luukvbaal/stabilize.nvim'
-   " Plug 'karb94/neoscroll.nvim'
    Plug 'ggandor/lightspeed.nvim'
-   Plug 'rmagatti/auto-session'
-   " Plug 'rmagatti/session-lens'
+   Plug 'Shatur/neovim-session-manager'
    Plug 'ahmedkhalf/project.nvim'
    Plug 'aserowy/tmux.nvim'
 endif
@@ -214,15 +213,14 @@ if has("nvim")
 	lua require('plugins.colorizer')
 	lua require('plugins.telescope')
 	lua require('plugins.stabilize')
-	lua require('plugins.auto-session')
+    lua require('plugins.session-manager')
 	lua require("plugins.project")
-    lua require('plugins.aerial')
     lua require('plugins.tmux')
     lua require('plugins.nvim-cmp')
 	lua require('plugins.nvim-lspconfig')
     lua require('plugins.autopairs')
     lua require('sqlite')
-    " lua require('dap-rc')
-	" lua require('neoscroll-rc')
+    lua require('plugins.alpha')
+    lua require('plugins.notify')
 endif
 
