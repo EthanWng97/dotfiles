@@ -18,8 +18,8 @@ keymap("n", "<space>", ":", opts)
 --   command_mode = "c",
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<C-A-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<C-A-h>", ":BufferLineCyclePrev<CR>", opts)
 
 keymap("n", "<C-A-t>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<C-a>", "ggVG<CR>", opts)
@@ -59,3 +59,6 @@ keymap("v", ">", ">gv", opts)
 
 -- paste without replace clipboard
 keymap("v", "p", '"_dP', opts)
+
+keymap("x", "<C-A-j>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<C-A-k>", ":move '<-2<CR>gv-gv", opts)
