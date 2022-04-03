@@ -8,6 +8,7 @@ local keymap = vim.api.nvim_set_keymap
 -- Remap space as leader key
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
+keymap("n", "<space>", ":", opts)
 
 -- Modes normal_mode = "n",
 --   insert_mode = "i",

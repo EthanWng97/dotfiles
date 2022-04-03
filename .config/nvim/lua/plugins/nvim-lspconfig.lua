@@ -1,41 +1,34 @@
------ Borders
-vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
-vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-local border = {
-    {"╭", "FloatBorder"}, {"─", "FloatBorder"}, {"╮", "FloatBorder"},
-    {"│", "FloatBorder"}, {"╯", "FloatBorder"}, {"─", "FloatBorder"},
-    {"╰", "FloatBorder"}, {"│", "FloatBorder"}
-}
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or border
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 ----- Completion kinds
-
 local servers = {
     'angularls', 'clangd', 'eslint', 'tsserver', 'pyright', 'sumneko_lua',
     'jsonls', 'cssls', 'html', 'yamlls'
 }
+
+---- float window
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 vim.diagnostic.config({
     virtual_text = false,
     float = {
-        source = "always" -- Or "if_many"
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = ""
+
     },
     signs = true,
     underline = true,
     update_in_insert = true,
     severity_sort = false
 })
+
+---- sign column
 local signs = {Error = "✖ ", Warn = "! ", Hint = " ", Info = " "}
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
 end
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = {noremap = true, silent = true}

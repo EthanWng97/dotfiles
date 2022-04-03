@@ -22,6 +22,7 @@ if has("nvim")
    Plug 'hrsh7th/cmp-cmdline'
    Plug 'hrsh7th/nvim-cmp'
    Plug 'hrsh7th/cmp-copilot'
+   Plug 'hrsh7th/cmp-nvim-lua'
    Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
    Plug 'onsails/lspkind-nvim'
    Plug 'saadparwaiz1/cmp_luasnip'
@@ -33,7 +34,6 @@ if has("nvim")
    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
    Plug 'nvim-treesitter/nvim-treesitter-refactor'
    Plug 'nvim-treesitter/nvim-treesitter-angular'
-   Plug 'nvim-treesitter/playground'
    Plug 'lewis6991/spellsitter.nvim'
   
    " telescope plugins
