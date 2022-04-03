@@ -15,3 +15,5 @@ vim.opt.showcmd = true -- show the command in the status bar
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.wo.fillchars = 'eob: '
+vim.o.sessionoptions =
+    "buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal"
