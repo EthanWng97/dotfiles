@@ -135,3 +135,4 @@ vim.notify = function(msg, log_level, _opts)
         vim.api.nvim_echo({{msg}}, true, {})
     end
 end
+
