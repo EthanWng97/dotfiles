@@ -1,7 +1,7 @@
 ----- Completion kinds
 local servers = {
     'angularls', 'clangd', 'eslint', 'tsserver', 'pyright', 'sumneko_lua',
-    'jsonls', 'cssls', 'html', 'yamlls'
+    'jsonls', 'cssls', 'html', 'yamlls', 'sourcekit'
 }
 
 ---- float window
