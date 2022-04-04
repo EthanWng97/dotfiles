@@ -28,7 +28,8 @@ keymap("n", "<C-A-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>",
        opts)
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>",
        opts)
-keymap("n", "<C-A-p>", "<cmd>lua require('telescope.builtin').builtin()<cr>",
+keymap("n", "<C-A-p>",
+       "<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",
        opts)
 
 keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').live_grep()<cr>",
