@@ -61,3 +61,4 @@ package-lock.json
 .config/nvim/vimspector-config/gadgets
 Google Drive
 .config/configstore/nodemon.json
+.tldrc
