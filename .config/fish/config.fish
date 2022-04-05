@@ -2,6 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+alias ls "exa"
 alias ll "exa -l -g --icons"
 alias la "ll -a"
 alias tn "tmux new -s"
