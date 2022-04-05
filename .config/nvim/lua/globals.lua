@@ -72,6 +72,6 @@ vim.cmd([[
 ]])
 
 vim.cmd [[
-    command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "PlugUpdate" | exe "PlugUpgrade"
+    command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "PackerSync"
 ]]
 
