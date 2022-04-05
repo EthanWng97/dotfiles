@@ -1,4 +1,8 @@
------ Completion kinds
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- Completion kinds
 local servers = {
     'angularls', 'clangd', 'eslint', 'tsserver', 'pyright', 'sumneko_lua',
     'jsonls', 'cssls', 'html', 'yamlls', 'sourcekit', 'efm'
@@ -41,6 +45,13 @@ vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>',
 -- vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 vim.cmd [[autocmd! BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+
+vim.lsp.handlers["textDocument/hover"] =
+    vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"})
+
+vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, {border = "rounded"})
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
