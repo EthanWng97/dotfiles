@@ -62,3 +62,4 @@ package-lock.json
 Google Drive
 .config/configstore/nodemon.json
 .tldrc
+.config/nvim/plugin/packer_compiled.lua
