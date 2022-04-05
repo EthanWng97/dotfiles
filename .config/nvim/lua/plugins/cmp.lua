@@ -1,19 +1,16 @@
+local status_ok, cmp = pcall(require, "cmp")
+if not status_ok then return end
+
 -- config for copilot
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
+
 -- load snippets
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
 
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-local lspconfig = require('lspconfig')
-
 -- nvim-cmp setup
-local cmp = require 'cmp'
 local lspkind = require('lspkind')
 cmp.setup {
     snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
