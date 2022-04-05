@@ -25,7 +25,7 @@ cmp.setup {
                 nvim_lsp = "[LSP]",
                 luasnip = "[SNIPPET]",
                 cmp_tabnine = "[TN]",
-                copilot = "[PILOT]",
+                copilot = "[COPILOT]",
                 path = "[PATH]"
             })
         })
@@ -66,8 +66,8 @@ cmp.setup {
         end)
     },
     sources = {
-        {name = 'nvim_lsp'}, {name = 'nvim_lsp_signature_help'},
-        {name = 'copilot'}, {name = 'spell'}, {name = "path"},
+        {name = 'copilot'}, {name = 'nvim_lsp'},
+        {name = 'nvim_lsp_signature_help'}, {name = 'spell'}, {name = "path"},
         {name = 'luasnip'}, {name = 'treesitter'}, {name = 'cmp_tabnine'},
         {name = 'buffer'}, {name = 'nvim_lua'}
     },
