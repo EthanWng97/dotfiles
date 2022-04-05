@@ -5,7 +5,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Completion kinds
 local servers = {
     'angularls', 'clangd', 'eslint', 'tsserver', 'pyright', 'sumneko_lua',
-    'jsonls', 'cssls', 'html', 'yamlls', 'sourcekit', 'efm', 'vimls'
+    'jsonls', 'cssls', 'html', 'yamlls', 'sourcekit', 'efm', 'vimls', 'taplo'
 }
 
 ---- float window
@@ -132,8 +132,8 @@ require"lspconfig".efm.setup {
                     formatCommand = "prettier --tab-width=4 --parser css",
                     formatStdin = true
                 }
-            }
-
+            },
+            cpp = {{formatStdin = false}}
         }
     },
     filetypes = {'lua', 'css', 'yaml', 'markdown'}
