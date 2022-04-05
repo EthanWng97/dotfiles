@@ -18,8 +18,7 @@ dapui.setup {
             -- Provide as ID strings or tables with "id" and "size" keys
             {
                 id = "scopes",
-                size = 0.25 -- Can be float or integer > 1
-            }, {id = "breakpoints", size = 0.25}
+                size = 0.25 -- Can be float or integer > 1 }, {id = "breakpoints", size = 0.25}
             -- { id = "stacks", size = 0.25 },
             -- { id = "watches", size = 00.25 },
         },
@@ -68,3 +67,12 @@ dap.listeners.after.event_initialized["dapui_config"] =
 dap.listeners.before.event_terminated["dapui_config"] =
     function() dapui.close() end
 dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
+
+
+vim.cmd[[
+    " nnoremap  <A-d> :lua require'dap'.continue()<CR>
+    " nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+    " nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+    " nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+    " nnoremap <silent> <F9> :lua require'dap'.toggle_breakpoint()<CR>
+]]
