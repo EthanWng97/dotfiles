@@ -39,7 +39,6 @@ keymap("n", "<C-f>",
        opts)
 keymap("n", "<C-q>", ":q<cr>", opts)
 keymap("n", "<C-A-q>", ":qa!<cr>", opts)
-keymap("n", "<C-w>", ":bd<cr>", opts)
 
 keymap("n", "<C-s>", ":w<cr>", opts)
 keymap("i", "<C-s>", "<Esc>:w<cr>", opts)

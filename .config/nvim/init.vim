@@ -145,15 +145,15 @@ set guicursor=i:ver100-blinkon100
 """""" remap """"""
 
 "nmap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-" function! TabEnable()
-"     let num = winnr('$')
-"     if num == 1
-"         return ":bnext\<CR>"
-"     else
-"         return "\<C-W>w"
-"     endif
-" endfunction
-" nmap <expr> <silent> <Tab> TabEnable()
+function! TabEnable()
+    let num = winnr('$')
+    if num == 1
+        return ":BufferLineCycleNext\<CR>"
+    else
+        return "\<C-W>w"
+    endif
+endfunction
+nmap <expr> <silent> <Tab> TabEnable()
 
 
 nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
