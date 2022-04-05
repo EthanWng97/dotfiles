@@ -63,7 +63,7 @@ return packer.startup(function(use)
         "zbirenbaum/copilot.lua",
         event = "InsertEnter",
         config = function()
-            vim.schedule(function() require("copilot") end)
+            vim.schedule(function() require("copilot").setup() end)
         end
     }
     use {"zbirenbaum/copilot-cmp", after = {"copilot.lua", "nvim-cmp"}}
