@@ -15,3 +15,93 @@ vim.opt.showcmd = true -- show the command in the status bar
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.fillchars:append{eob = " "}
+
+vim.cmd [[
+    " general
+    set spelllang=en_us
+    set spelllang+=cjk
+    set spell
+    syntax on
+    filetype on
+    filetype plugin on
+    set updatetime=50
+    let g:cursorhold_updatetime = 50
+]]
+
+vim.cmd [[
+"""""" netrw """"""
+    let g:netrw_fastbrowse = 0
+    let g:netrw_banner=0
+    let g:netrw_keepdir = 0
+    let g:netrw_liststyle = 3
+    let g:netrw_altv = 1
+    let g:netrw_browse_split = 4
+    autocmd FileType netrw setl bufhidden=wipe
+]]
+
+vim.cmd [[
+    """""" command completion """"""
+    set wildmenu
+    set wildmode=longest:full,full
+    set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*DS_STORE,*.db
+]]
+
+vim.cmd [[
+    """""" folding """"""
+    set foldmethod=indent       " fold based on indent
+    set foldnestmax=10          " deepest fold is 20 levels
+    set nofoldenable            " don't fold by default
+    set foldlevel=2
+]]
+vim.cmd([[ 
+    """""" tab and indentation """"""
+    set tabstop=4                   " Tab is 4 spaces
+    set shiftwidth=4                " The # of spaces for indenting.
+    set softtabstop=4               " Tab key results in # spaces
+    set ai                          " Tab key results in # spaces"Auto indent
+    set si "Smart indent
+    set smarttab
+    set expandtab           "convert tabs to spaces
+    set number                 "toggle the line numbers
+    " relative line numbers
+    augroup numbertoggle
+      autocmd!
+      autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+      autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+    augroup END
+]])
+
+vim.cmd [[
+    """""" UI """"""
+    " set termguicolors
+    autocmd colorscheme * highlight GitSignsAdd gui=none guifg=#A1C281 guibg=None
+    autocmd colorscheme * highlight GitSignsChange gui=none guifg=#74ADEA guibg=None
+    autocmd colorscheme * highlight GitSignsDelete gui=none guifg=#FE747A guibg=None
+
+    let g:vscode_style = "dark"
+    let g:vscode_transparency = 1
+    let g:vscode_italic_comment = 1
+    let g:vscode_disable_nvimtree_bg = v:true
+
+    let g:onedark_transparent = v:true
+    let g:onedark_transparent_sidebar = v:true
+    let g:onedark_highlight_linenumber = v:true
+    let g:onedark_dark_sidebar = v:false
+    let g:onedark_dark_float = v:false
+    colorscheme vscode
+
+    set guicursor=i:ver100-blinkon100
+                \,r:hor100
+
+    if has('nvim')
+    set signcolumn=yes:1
+    else
+        set signcolumn=yes
+    endif
+
+]]
+
+vim.cmd [[
+    command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "PlugUpdate" | exe "PlugUpgrade"
+]]
+
