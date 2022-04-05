@@ -37,9 +37,10 @@ symbol = " "
 format = ' [$symbol($version)]($style)'
 
 [directory]
-format = "[\uE0B0](fg:#007EC5 bg:#007EC5)[$path]($style)[$read_only]($read_only_style bg:#007EC5)[\uE0B0](fg:#007EC5 bg:#007EC5)[\uE0B0](fg:#007EC5)"
-# style = "fg:white bg:blue"
-style = "bg:#007EC5"
+# format = "[\uE0B0](fg:#007EC5 bg:#007EC5)[$path]($style)[$read_only]($read_only_style bg:#007EC5)[\uE0B0](fg:#007EC5 bg:#007EC5)[\uE0B0](fg:#007EC5)"
+# style = "bg:#007EC5"
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold cyan"
 read_only = " "
 
 [deno]
