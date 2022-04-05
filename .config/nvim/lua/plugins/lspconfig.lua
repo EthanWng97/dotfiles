@@ -18,7 +18,7 @@ vim.diagnostic.config({
     },
     signs = true,
     underline = true,
-    update_in_insert = true,
+    update_in_insert = false,
     severity_sort = false
 })
 
@@ -127,6 +127,10 @@ require"lspconfig".efm.setup {
     },
     filetypes = {'lua', 'css', 'yaml', 'markdown'}
 }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = {"utf-16"}
+require("lspconfig").clangd.setup({capabilities = capabilities})
+
 vim.notify = function(msg, log_level, _opts)
     if msg:match("exit code") then return end
     if log_level == vim.log.levels.ERROR then
