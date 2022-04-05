@@ -5,7 +5,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Completion kinds
 local servers = {
     'angularls', 'clangd', 'eslint', 'tsserver', 'pyright', 'sumneko_lua',
-    'jsonls', 'cssls', 'html', 'yamlls', 'sourcekit', 'efm'
+    'jsonls', 'cssls', 'html', 'yamlls', 'sourcekit', 'efm', 'vimls'
 }
 
 ---- float window
