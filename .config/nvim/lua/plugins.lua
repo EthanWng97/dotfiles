@@ -58,7 +58,7 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip"
     use "L3MON4D3/LuaSnip"
     use "f3fora/cmp-spell"
-    use "github/copilot.vim"
+    -- use "github/copilot.vim"
     use {
         "zbirenbaum/copilot.lua",
         event = "InsertEnter",
