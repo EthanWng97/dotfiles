@@ -86,7 +86,7 @@ local on_attach = function(client, bufnr)
                                 opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-A-r>',
                                 '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-A-a>',
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-S-a>',
                                 '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr',
                                 '<cmd>lua vim.lsp.buf.references()<CR>', opts)
