@@ -70,7 +70,7 @@ disabled = true
 
 [git_branch]
 symbol = " "
-format = ' [$symbol$branch]($style)'
+format = '[$symbol$branch]($style)'
 style = "bold #ff79c6"
 
 [git_status]
