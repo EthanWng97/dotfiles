@@ -61,9 +61,9 @@ return packer.startup(function(use)
     -- use "github/copilot.vim"
     use {
         "zbirenbaum/copilot.lua",
-        event = "InsertEnter",
+        event = {"VimEnter"},
         config = function()
-            vim.schedule(function() require("copilot").setup() end)
+            vim.defer_fn(function() require("copilot").setup() end, 100)
         end
     }
     use {"zbirenbaum/copilot-cmp", after = {"copilot.lua", "nvim-cmp"}}
@@ -95,6 +95,7 @@ return packer.startup(function(use)
     use "puremourning/vimspector"
     -- use "mfussenegger/nvim-dap"
     -- use "rcarriga/nvim-dap-ui"
+
     -- UI
     use "rcarriga/nvim-notify"
     use "lukas-reineke/indent-blankline.nvim"
@@ -103,6 +104,7 @@ return packer.startup(function(use)
     use "norcalli/nvim-colorizer.lua"
     use "Mofiqul/vscode.nvim"
     use "goolord/alpha-nvim"
+
     -- Utilities
     use "windwp/nvim-autopairs"
     use "lewis6991/gitsigns.nvim"
