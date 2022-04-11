@@ -19,7 +19,6 @@ format = ' [$symbol($version)]($style)'
 
 [cmd_duration]
 disabled = true
-style = "bold #f1fa8c"
 format = ' [祥$duration]($style)'
 
 [cobol]
@@ -37,10 +36,7 @@ symbol = " "
 format = ' [$symbol($version)]($style)'
 
 [directory]
-# format = "[\uE0B0](fg:#007EC5 bg:#007EC5)[$path]($style)[$read_only]($read_only_style bg:#007EC5)[\uE0B0](fg:#007EC5 bg:#007EC5)[\uE0B0](fg:#007EC5)"
-# style = "bg:#007EC5"
 format = "[$path]($style)[$read_only]($read_only_style) "
-style = "bold cyan"
 read_only = " "
 
 [deno]
@@ -71,11 +67,9 @@ disabled = true
 [git_branch]
 symbol = " "
 format = '[$symbol$branch]($style)'
-style = "bold #ff79c6"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
-style = "bold #ff5555"
 
 [golang]
 symbol = " "
@@ -183,7 +177,6 @@ format = '[$time]($style)'
 
 [username]
 format = ' [$user]($style)'
-style_user = "bold #bd93f9"
 
 [vagrant]
 format = ' [$symbol($version)]($style)'
