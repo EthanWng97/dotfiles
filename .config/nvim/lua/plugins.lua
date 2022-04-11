@@ -92,9 +92,9 @@ return packer.startup(function(use)
     use "arkav/lualine-lsp-progress"
 
     -- debug plugins
-    use "puremourning/vimspector"
-    -- use "mfussenegger/nvim-dap"
-    -- use "rcarriga/nvim-dap-ui"
+    -- use "puremourning/vimspector"
+    use "mfussenegger/nvim-dap"
+    use "rcarriga/nvim-dap-ui"
 
     -- UI
     use "rcarriga/nvim-notify"
