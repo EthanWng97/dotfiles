@@ -7,11 +7,11 @@ vim.cmd [[
         \ 'CodeLLDB',
         \ 'debugpy',
         \ ]
-    nmap <A-d> <Plug>VimspectorContinue
-    nmap <A-S-d> <Plug>VimspectorRestart
-    nmap <A-i> <Plug>VimspectorBalloonEval
-    xmap <A-i> <Plug>VimspectorBalloonEval
-    nmap <A-i> :call AddToWatch()<CR>
+    nmap <leader>d <Plug>VimspectorContinue
+    nmap <leader>D <Plug>VimspectorRestart
+    " nmap <A-i> <Plug>VimspectorBalloonEval
+    " xmap <A-i> <Plug>VimspectorBalloonEval
+    nmap <leader>i :call AddToWatch()<CR>
 
     func! AddToWatch()
         let word = expand("<cexpr>")
