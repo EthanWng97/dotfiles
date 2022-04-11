@@ -13,7 +13,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 -- nvim-cmp setup
 local lspkind = require('lspkind')
 cmp.setup {
-    snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
+    snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
     formatting = {
         format = lspkind.cmp_format({
             mode = "symbol_text",
@@ -21,7 +21,7 @@ cmp.setup {
                 buffer = "[BUFFER]",
                 nvim_lsp = "[LSP]",
                 luasnip = "[SNIPPET]",
-                cmp_tabnine = "[TN]",
+                -- cmp_tabnine = "[TN]",
                 copilot = "[COPILOT]",
                 path = "[PATH]"
             })
@@ -63,14 +63,14 @@ cmp.setup {
         -- end)
     },
     sources = {
-        {name = 'copilot'}, {name = 'nvim_lsp'},
-        {name = 'nvim_lsp_signature_help'}, {name = 'spell'}, {name = "path"},
-        {name = 'luasnip'}, {name = 'treesitter'}, {name = 'cmp_tabnine'},
-        {name = 'buffer'}, {name = 'nvim_lua'}
+        { name = 'copilot' }, { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' }, { name = 'spell' }, { name = "path" },
+        { name = 'luasnip' }, { name = 'treesitter' },
+        { name = 'buffer' }, { name = 'nvim_lua' }
     },
     documentation = {
-        border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
+        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
     },
-    experimental = {ghost_text = false}
+    experimental = { ghost_text = false }
 
 }
