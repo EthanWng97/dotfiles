@@ -1,5 +1,5 @@
 require("project_nvim").setup {
-    exclude_dirs = { "~/Downloads" },
-    detection_methods = { "lsp", "pattern" },
+    exclude_dirs = { "~/Downloads", "~/Desktop" },
+    detection_methods = { "pattern", "lsp" },
     silent_chdir = false
 }
