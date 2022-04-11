@@ -27,4 +27,3 @@ vim.cmd [[
     endif
 
 ]]
-

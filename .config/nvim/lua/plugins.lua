@@ -27,7 +27,7 @@ if not status_ok then return end
 packer.init {
     display = {
         open_fn = function()
-            return require("packer.util").float {border = "rounded"}
+            return require("packer.util").float { border = "rounded" }
         end
     }
 }
@@ -61,15 +61,15 @@ return packer.startup(function(use)
     -- use "github/copilot.vim"
     use {
         "zbirenbaum/copilot.lua",
-        event = {"VimEnter"},
+        event = { "VimEnter" },
         config = function()
             vim.defer_fn(function() require("copilot").setup() end, 100)
         end
     }
-    use {"zbirenbaum/copilot-cmp", after = {"copilot.lua", "nvim-cmp"}}
+    use { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" } }
 
     -- treesitter plugins
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use "nvim-treesitter/nvim-treesitter-refactor"
     use "nvim-treesitter/nvim-treesitter-angular"
     use "lewis6991/spellsitter.nvim"
@@ -78,10 +78,10 @@ return packer.startup(function(use)
     -- telescope plugins
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/plenary.nvim'}}
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use "nvim-telescope/telescope-vimspector.nvim"
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use "tami5/sqlite.lua"
     use "nvim-telescope/telescope-frecency.nvim"
     use "nvim-telescope/telescope-file-browser.nvim"
