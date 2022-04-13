@@ -68,8 +68,16 @@ cmp.setup {
         { name = 'luasnip' }, { name = 'treesitter' },
         { name = 'buffer' }, { name = 'nvim_lua' }
     },
-    documentation = {
-        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+    window = {
+        documentation = {
+            border = 'rounded',
+            scrollbar = '║',
+        },
+
+        completion = {
+            border = 'rounded',
+            scrollbar = '║',
+        },
     },
     experimental = { ghost_text = false }
 
