@@ -64,3 +64,4 @@ Google Drive
 .tldrc
 .config/nvim/plugin/packer_compiled.lua
 .degit
+.ipython
