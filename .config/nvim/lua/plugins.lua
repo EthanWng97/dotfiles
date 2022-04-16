@@ -74,6 +74,10 @@ return packer.startup(function(use)
     use "nvim-treesitter/nvim-treesitter-angular"
     use "lewis6991/spellsitter.nvim"
     use "windwp/nvim-ts-autotag"
+    use {
+        "SmiteshP/nvim-gps",
+        requires = "nvim-treesitter/nvim-treesitter"
+    }
 
     -- telescope plugins
     use {
