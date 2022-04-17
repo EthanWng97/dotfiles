@@ -104,10 +104,10 @@ return packer.startup(function(use)
     use "rcarriga/nvim-notify"
     use "lukas-reineke/indent-blankline.nvim"
     use "kyazdani42/nvim-web-devicons"
-    use "akinsho/bufferline.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "Mofiqul/vscode.nvim"
     use "goolord/alpha-nvim"
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons' }
 
     -- Utilities
     use "windwp/nvim-autopairs"

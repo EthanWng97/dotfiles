@@ -14,7 +14,7 @@ vim.opt.autoread = true -- reload files if changed externally
 vim.opt.showcmd = true -- show the command in the status bar
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.fillchars:append{eob = " "}
+vim.opt.fillchars:append { eob = " " }
 
 vim.cmd [[
     " general
@@ -75,3 +75,4 @@ vim.cmd [[
     command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "PackerSync"
 ]]
 
+vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal,globals"
