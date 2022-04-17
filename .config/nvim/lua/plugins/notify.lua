@@ -46,7 +46,7 @@ local function get_notif_data(client_id, token)
     return client_notifs[client_id][token]
 end
 
-local spinner_frames = {"⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷"}
+local spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
 
 local function update_spinner(client_id, token)
     local notif_data = get_notif_data(client_id, token)
@@ -87,7 +87,7 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 
         notif_data.notification = vim.notify(message, "info", {
             title = format_title(val.title,
-                                 vim.lsp.get_client_by_id(client_id).name),
+                vim.lsp.get_client_by_id(client_id).name),
             icon = spinner_frames[1],
             timeout = false,
             hide_from_history = false
@@ -97,15 +97,15 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
         update_spinner(client_id, result.token)
     elseif val.kind == "report" and notif_data then
         notif_data.notification = vim.notify(
-                                      format_message(val.message, val.percentage),
-                                      "info", {
+            format_message(val.message, val.percentage),
+            "info", {
                 replace = notif_data.notification,
                 hide_from_history = false
             })
     elseif val.kind == "end" and notif_data then
         notif_data.notification = vim.notify(val.message and
-                                                 format_message(val.message) or
-                                                 "Complete", "info", {
+        format_message(val.message) or
+        "Complete", "info", {
             icon = "",
             replace = notif_data.notification,
             timeout = 3000
@@ -114,14 +114,3 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
         notif_data.spinner = nil
     end
 end
-
-vim.lsp.handlers['window/showMessage'] =
-    function(_, result, ctx)
-        local client = vim.lsp.get_client_by_id(ctx.client_id)
-        local lvl = ({'ERROR', 'WARN', 'INFO', 'DEBUG'})[result.type]
-        notify({result.message}, lvl, {
-            title = 'LSP | ' .. client.name,
-            timeout = 10000,
-            keep = function() return lvl == 'ERROR' or lvl == 'WARN' end
-        })
-    end
