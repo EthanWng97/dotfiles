@@ -13,6 +13,7 @@ vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {
 vim.diagnostic.config({
     virtual_text = false,
     float = {
+        focusable = false,
         style = "minimal",
         border = "rounded",
         source = "always",
