@@ -57,7 +57,7 @@ return packer.startup(function(use)
     use "onsails/lspkind-nvim"
     use "saadparwaiz1/cmp_luasnip"
     use "L3MON4D3/LuaSnip"
-    use "f3fora/cmp-spell"
+    -- use "f3fora/cmp-spell"
     -- use "github/copilot.vim"
     use {
         "zbirenbaum/copilot.lua",

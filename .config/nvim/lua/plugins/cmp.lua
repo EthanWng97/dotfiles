@@ -64,7 +64,7 @@ cmp.setup {
     },
     sources = {
         { name = 'copilot' }, { name = 'nvim_lsp' },
-        { name = 'nvim_lsp_signature_help' }, { name = 'spell' }, { name = "path" },
+        { name = 'nvim_lsp_signature_help' }, { name = "path" },
         { name = 'luasnip' }, { name = 'treesitter' },
         { name = 'buffer' }, { name = 'nvim_lua' }
     },
