@@ -31,7 +31,7 @@ cmp.setup {
             })
         })
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -77,5 +77,5 @@ cmp.setup {
             border = 'rounded',
         },
     },
-    experimental = { ghost_text = false }
+    experimental = { ghost_text = true }
 }
