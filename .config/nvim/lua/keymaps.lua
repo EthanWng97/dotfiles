@@ -1,6 +1,6 @@
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
-local term_opts = {silent = true}
+local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -25,18 +25,18 @@ keymap("n", "<C-S-t>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<C-a>", "ggVG<CR>", opts)
 
 keymap("n", "<C-S-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>",
-       opts)
+    opts)
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>",
-       opts)
+    opts)
 keymap("n", "<C-S-p>",
-       "<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",
-       opts)
+    "<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",
+    opts)
 
 keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').live_grep()<cr>",
-       opts)
+    opts)
 keymap("n", "<C-f>",
-       "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>",
-       opts)
+    "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>",
+    opts)
 keymap("n", "<C-q>", ":q<cr>", opts)
 keymap("n", "<C-S-q>", ":qa!<cr>", opts)
 
@@ -45,12 +45,12 @@ keymap("i", "<C-s>", "<Esc>:w<cr>", opts)
 
 -- comment
 keymap("n", "<C-/>",
-       ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
+    ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
 keymap("v", "<C-/>",
-       ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>",
-       opts)
+    ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>",
+    opts)
 keymap("i", "<C-/>",
-       "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
+    "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
