@@ -18,8 +18,8 @@ vim.opt.fillchars:append { eob = " " }
 
 vim.cmd [[
     " general
-    set spelllang=en_us
-    set spelllang+=cjk
+    " set spelllang=en_us
+    " set spelllang+=cjk
     set spell
     syntax on
     filetype on

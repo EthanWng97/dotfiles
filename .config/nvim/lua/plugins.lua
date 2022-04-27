@@ -72,8 +72,6 @@ return packer.startup(function(use)
     -- treesitter plugins
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use "nvim-treesitter/nvim-treesitter-refactor"
-    use "nvim-treesitter/nvim-treesitter-angular"
-    use "lewis6991/spellsitter.nvim"
     use "windwp/nvim-ts-autotag"
     use {
         "SmiteshP/nvim-gps",
