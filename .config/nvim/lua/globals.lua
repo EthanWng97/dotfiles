@@ -20,7 +20,7 @@ vim.cmd [[
     " general
     " set spelllang=en_us
     " set spelllang+=cjk
-    set spell
+    " set spell
     syntax on
     filetype on
     filetype plugin on
