@@ -8,8 +8,6 @@ local servers = {
     'jsonls', 'cssls', 'html', 'yamlls', 'sourcekit', 'vimls', 'taplo'
 }
 
----- float window
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 vim.diagnostic.config({
     virtual_text = false,
     float = {
@@ -45,7 +43,6 @@ vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>',
     opts)
 -- vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
-vim.cmd [[autocmd! BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 

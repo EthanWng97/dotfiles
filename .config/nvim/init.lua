@@ -1,4 +1,5 @@
 require('plugins')
+require('autocmd')
 require('globals')
 require('keymaps')
 require('colorscheme')
