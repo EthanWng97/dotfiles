@@ -25,6 +25,7 @@ vim.diagnostic.config({
     severity_sort = false
 })
 
+
 ---- sign column
 local signs = { Error = "✖ ", Warn = "! ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -88,18 +89,18 @@ local on_attach = function(client, bufnr)
         '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-S-f>',
     --                             '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    if client.server_capabilities.document_highlight then
-        vim.cmd [[
-        hi! LspReferenceRead cterm=bold ctermbg=red guibg=#49494A
-        hi! LspReferenceText cterm=bold ctermbg=red guibg=#49494A
-        hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#49494A
-        augroup lsp_document_highlight
-          autocmd! * <buffer>
-          autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-          autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        augroup END
-      ]]
-    end
+    -- if client.server_capabilities.document_highlight then
+    --     vim.cmd [[
+    --     hi! LspReferenceRead cterm=bold ctermbg=red guibg=#49494A
+    --     hi! LspReferenceText cterm=bold ctermbg=red guibg=#49494A
+    --     hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#49494A
+    --     augroup lsp_document_highlight
+    --       autocmd! * <buffer>
+    --       autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+    --       autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    --     augroup END
+    --   ]]
+    -- end
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and

@@ -20,15 +20,10 @@ dashboard.section.buttons.val = {
     dashboard.button("g", "  > Find Text   ", ":Telescope live_grep<CR>"),
     dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
     dashboard.button("l", "  > List session",
-                     ":SessionManager load_session<CR>"),
+        ":SessionManager load_session<CR>"),
     dashboard.button("u", "  > Update plugins", ":UpdateAll<CR>"),
     dashboard.button("q", "  > Quit NVIM", ":qa<CR>")
 }
 
 -- Send config to alpha
 alpha.setup(dashboard.opts)
-
--- Disable folding on alpha buffer
-vim.cmd([[
-    autocmd FileType alpha setlocal nofoldenable
-]])
