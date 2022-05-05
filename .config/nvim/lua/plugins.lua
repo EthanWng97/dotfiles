@@ -106,7 +106,7 @@ return packer.startup(function(use)
     use "norcalli/nvim-colorizer.lua"
     use "Mofiqul/vscode.nvim"
     use "goolord/alpha-nvim"
-    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons' }
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
     -- Utilities
     use "windwp/nvim-autopairs"

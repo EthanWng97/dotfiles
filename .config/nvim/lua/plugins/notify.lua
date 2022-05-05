@@ -89,7 +89,7 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
             title = format_title(val.title,
                 vim.lsp.get_client_by_id(client_id).name),
             icon = spinner_frames[1],
-            timeout = false,
+            timeout = 100,
             hide_from_history = false
         })
 
@@ -108,7 +108,7 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
             "Complete", "info", {
             icon = "",
             replace = notif_data.notification,
-            timeout = false
+            timeout = 100,
         })
 
         notif_data.spinner = nil

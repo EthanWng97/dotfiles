@@ -65,3 +65,4 @@ Google Drive
 .config/nvim/plugin/packer_compiled.lua
 .degit
 .ipython
+.config/fish/conf.d
