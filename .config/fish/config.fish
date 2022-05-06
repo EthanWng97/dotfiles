@@ -24,7 +24,6 @@ alias lg lazygit
 
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/bin
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 function rga-fzf
     set -x RG_PREFIX rga --files-with-matches
