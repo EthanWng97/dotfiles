@@ -1,11 +1,16 @@
+-- require nvim-lsp-installer
+require("nvim-lsp-installer").setup {
+    automatic_installation = false,
+}
+
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Completion kinds
 local servers = {
-    'angularls', 'clangd', 'eslint', 'tsserver', 'pyright', 'sumneko_lua',
-    'jsonls', 'cssls', 'html', 'yamlls', 'sourcekit', 'vimls', 'taplo'
+    'clangd', 'tsserver', 'pyright', 'sumneko_lua',
+    'jsonls', 'cssls', 'html', 'yamlls', 'diagnosticls'
 }
 
 vim.diagnostic.config({
@@ -106,15 +111,36 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 for _, lsp in pairs(servers) do
+    if lsp == "clangd" then
+        capabilities.offsetEncoding = { "utf-16" }
+
+    end
     require('lspconfig')[lsp].setup {
         on_attach = on_attach,
         capabilities = capabilities,
     }
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.offsetEncoding = { "utf-16" }
-require("lspconfig").clangd.setup({ capabilities = capabilities })
+require('lspconfig')['diagnosticls'].setup {
+    on_attach = on_attach,
+    filetypes = { 'css' },
+    init_options = {
+        formatters = {
+            prettier = {
+                command = './node_modules/.bin/prettier',
+                rootPatterns = { '.git' },
+                -- requiredFiles: { 'prettier.config.js' },
+                args = { '--tab-width 4', '--stdin', '--stdin-filepath', '%filename' }
+            }
+        },
+        formatFiletypes = {
+            css = 'prettier',
+        }
+    }
+}
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.offsetEncoding = { "utf-16" }
+-- require("lspconfig").clangd.setup({ capabilities = capabilities })
 
 vim.notify = function(msg, log_level, _opts)
     if msg:match("exit code") then return end
