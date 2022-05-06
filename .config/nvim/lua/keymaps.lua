@@ -78,3 +78,5 @@ vim.cmd [[
 vim.cmd [[
     nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
 ]]
+
+keymap("n", "<leader>nf", ":lua require('neogen').generate()<CR>", opts)

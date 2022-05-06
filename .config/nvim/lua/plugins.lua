@@ -77,6 +77,13 @@ return packer.startup(function(use)
         "SmiteshP/nvim-gps",
         requires = "nvim-treesitter/nvim-treesitter"
     }
+    use {
+        "danymat/neogen",
+        config = function()
+            require('neogen').setup({ snippet_engine = "luasnip" })
+        end,
+        requires = "nvim-treesitter/nvim-treesitter",
+    }
 
     -- telescope plugins
     use {
