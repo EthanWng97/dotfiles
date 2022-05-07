@@ -44,7 +44,7 @@ dapui.setup {
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = '/Users/navepnow/.vscode/extensions/ms-vscode.cpptools-1.9.7/debugAdapters/bin/OpenDebugAD7'
+    command = '/Users/navepnow/.vscode/extensions/ms-vscode.cpptools-1.10.0-darwin-arm64/debugAdapters/bin/OpenDebugAD7'
 }
 
 dap.configurations.cpp = {
@@ -53,7 +53,7 @@ dap.configurations.cpp = {
         type = "cppdbg",
         request = "launch",
         MIMode = 'lldb',
-        miDebuggerPath = '/Users/navepnow/.vscode/extensions/ms-vscode.cpptools-1.9.7/debugAdapters/lldb-mi/bin/lldb-mi',
+        miDebuggerPath = '/Users/navepnow/.vscode/extensions/ms-vscode.cpptools-1.10.0-darwin-arm64/debugAdapters/lldb-mi/bin/lldb-mi',
         cwd = '${workspaceFolder}',
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/',
