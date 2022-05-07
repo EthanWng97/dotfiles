@@ -10,7 +10,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Completion kinds
 local servers = {
     'clangd', 'tsserver', 'pyright', 'sumneko_lua', 'eslint',
-    'jsonls', 'cssls', 'html', 'yamlls', 'diagnosticls'
+    'jsonls', 'cssls', 'html', 'yamlls', 'diagnosticls', 'graphql'
 }
 
 vim.diagnostic.config({
