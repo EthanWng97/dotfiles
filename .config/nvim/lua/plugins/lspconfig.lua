@@ -94,18 +94,38 @@ local on_attach = function(client, bufnr)
         '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<A-S-f>',
     --                             '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    -- if client.server_capabilities.document_highlight then
-    --     vim.cmd [[
-    --     hi! LspReferenceRead cterm=bold ctermbg=red guibg=#49494A
-    --     hi! LspReferenceText cterm=bold ctermbg=red guibg=#49494A
-    --     hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#49494A
-    --     augroup lsp_document_highlight
-    --       autocmd! * <buffer>
-    --       autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    --       autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    --     augroup END
-    --   ]]
-    -- end
+    if client.server_capabilities.document_highlight then
+        vim.cmd [[
+            hi! LspReferenceRead cterm=bold ctermbg=red guibg=#49494A
+            hi! LspReferenceText cterm=bold ctermbg=red guibg=#49494A
+            hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#49494A
+        ]]
+        vim.api.nvim_create_augroup('lsp_document_highlight', {})
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            group = 'lsp_document_highlight',
+            buffer = 0,
+            callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd('CursorMoved', {
+            group = 'lsp_document_highlight',
+            buffer = 0,
+            callback = vim.lsp.buf.clear_references,
+        })
+    end
+    vim.api.nvim_create_autocmd("CursorHold", {
+        buffer = bufnr,
+        callback = function()
+            local opts = {
+                focusable = false,
+                close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+                border = 'rounded',
+                source = 'always',
+                prefix = ' ',
+                scope = 'cursor',
+            }
+            vim.diagnostic.open_float(nil, opts)
+        end
+    })
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
