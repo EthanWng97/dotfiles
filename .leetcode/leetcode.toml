@@ -1,0 +1,57 @@
+[sys]
+categories = [
+    'algorithms',
+    'concurrency',
+    'database',
+    'shell',
+]
+langs = [
+    'bash',
+    'c',
+    'cpp',
+    'csharp',
+    'golang',
+    'java',
+    'javascript',
+    'kotlin',
+    'mysql',
+    'php',
+    'python',
+    'python3',
+    'ruby',
+    'rust',
+    'scala',
+    'swift',
+]
+
+[sys.urls]
+base = 'https://leetcode.com'
+submissions = 'https://leetcode.com/api/submissions/$slug'
+submit = 'https://leetcode.com/problems/$slug/submit/'
+favorites = 'https://leetcode.com/list/api/questions'
+problem = 'https://leetcode.com/problems/$slug/description/'
+favorite_delete = 'https://leetcode.com/list/api/questions/$hash/$id'
+graphql = 'https://leetcode.com/graphql'
+test = 'https://leetcode.com/problems/$slug/interpret_solution/'
+submission = 'https://leetcode.com/submissions/detail/$id/'
+tag = 'https://leetcode.com/tag/$slug/'
+verify = 'https://leetcode.com/submissions/detail/$id/check/'
+login = 'https://leetcode.com/accounts/login/'
+problems = 'https://leetcode.com/api/problems/$category/'
+session = 'https://leetcode.com/session/'
+
+[code]
+editor = 'nvim'
+lang = 'cpp'
+pick = '${fid}.${slug}'
+submission = '${fid}.${slug}.${sid}.${ac}'
+
+[cookies]
+csrf = ''
+session = ''
+
+[storage]
+cache = 'Problems'
+code = 'code'
+root = '~/Documents/Learn/on-my-way-to-Google/leetcode'
+scripts = 'scripts'

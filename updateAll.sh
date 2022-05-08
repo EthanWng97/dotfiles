@@ -19,6 +19,12 @@ echo "- Updaing Pip Packages         -"
 echo "--------------------------------"
 pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
 
+# update python packages
+echo "--------------------------------"
+echo "- Updaing Rust Packages         -"
+echo "--------------------------------"
+cargo install-update -a
+
 # update fish packages
 echo "--------------------------------"
 echo "- Updaing Fish Packages        -"
