@@ -126,7 +126,13 @@ return packer.startup(function(use)
     use "simrat39/symbols-outline.nvim"
     use "numToStr/Comment.nvim"
     use "luukvbaal/stabilize.nvim"
-    use "ggandor/lightspeed.nvim"
+    -- use "ggandor/lightspeed.nvim"
+    use {
+        "ggandor/leap.nvim",
+        config = function()
+            require('leap').set_default_keymaps()
+        end,
+    }
     use "Shatur/neovim-session-manager"
     use "ahmedkhalf/project.nvim"
     use "aserowy/tmux.nvim"
