@@ -9,6 +9,10 @@ brew "bat"
 brew "cmake"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Platform built on V8 to build network applications
+brew "node"
+# AST-based pattern checker for JavaScript
+brew "eslint"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -23,10 +27,12 @@ brew "fzf"
 brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Mac App Store command-line interface
+brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim", args: ["HEAD"]
-# Platform built on V8 to build network applications
-brew "node"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Wrapper around ripgrep that adds multiple rich file types
@@ -37,8 +43,8 @@ brew "ruby"
 brew "rust"
 # Cross-shell prompt for astronauts
 brew "starship"
-# Simplified and community-driven man pages
-brew "tldr"
+# Very fast implementation of tldr in Rust
+brew "tealdeer"
 # Terminal multiplexer
 brew "tmux"
 # Generator for LS_COLORS with support for multiple color themes
@@ -76,6 +82,8 @@ cask "permute"
 cask "rectangle"
 # Sound and audio controller
 cask "soundsource"
+# Messaging app with a focus on speed and security
+cask "telegram"
 # File transfer application
 cask "transmit"
 # Open-source code editor
@@ -84,3 +92,19 @@ cask "visual-studio-code"
 cask "wechat"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Craft", id: 1487937127
+mas "Endel", id: 1484348796
+mas "Infuse", id: 1136220934
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
+mas "Mela", id: 1568924476
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Paste", id: 967805235
+mas "Peek", id: 1554235898
+mas "Pixelmator Pro", id: 1289583905
+mas "Reeder", id: 1529448980
+mas "Tampermonkey", id: 1482490089
+mas "Things", id: 904280696
+mas "WeChat", id: 836500024
+mas "Xcode", id: 497799835
