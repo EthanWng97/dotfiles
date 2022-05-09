@@ -65,7 +65,10 @@ return packer.startup(function(use)
         "zbirenbaum/copilot.lua",
         event = { "VimEnter" },
         config = function()
-            vim.defer_fn(function() require("copilot").setup() end, 100)
+            vim.defer_fn(function() require("copilot").setup {
+                    ft_disable = { "markdown", "terraform", "cpp" },
+                }
+            end, 100)
         end
     }
     use { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" } }
