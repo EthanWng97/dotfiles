@@ -53,30 +53,28 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 
-local on_attach_local = require('plugins.lsp-handlers').on_attach
-local capabilities_local = require('plugins.lsp-handlers').capabilities
+local on_attach = require('plugins.lsp-handlers').on_attach
+local capabilities = require('plugins.lsp-handlers').capabilities
 
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 for _, lsp in pairs(servers) do
-    opts = {
-        on_attach = on_attach_local,
-        capabilities = capabilities_local,
-    }
-
-    if lsp == "clangd" then
-        opts.capabilities.offsetEncoding = { "utf-16" }
-
-    end
     require('lspconfig')[lsp].setup {
-        opts
+        on_attach = on_attach,
+        capabilities = capabilities,
     }
 end
 
+local capabilities_cpp = capabilities
+capabilities_cpp.offsetEncoding = { "uts-16" }
+require('lspconfig')['clangd'].setup {
+    capabilities = capabilities_cpp
+}
+
 require('lspconfig')['diagnosticls'].setup {
-    on_attach = on_attach_local,
-    capabilities = capabilities_local,
+    on_attach = on_attach,
+    capabilities = capabilities,
     filetypes = { 'css' },
     init_options = {
         formatters = {
