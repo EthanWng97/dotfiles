@@ -1,7 +1,7 @@
--- require nvim-lsp-installer
-require("nvim-lsp-installer").setup {
-    automatic_installation = false,
-}
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok then
+    return
+end
 
 -- Completion kinds
 local servers = {
@@ -9,8 +9,14 @@ local servers = {
     'jsonls', 'cssls', 'html', 'yamlls', 'diagnosticls', 'graphql'
 }
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
+lsp_installer.setup({
+    ensure_installed = servers,
+})
+
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+    return
+end
 
 local on_attach = require('plugins.lsp.lsp-handlers').on_attach
 local capabilities = require('plugins.lsp.lsp-handlers').capabilities
@@ -19,7 +25,7 @@ local capabilities = require('plugins.lsp.lsp-handlers').capabilities
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 for _, lsp in pairs(servers) do
-    require('lspconfig')[lsp].setup {
+    lspconfig[lsp].setup {
         on_attach = on_attach,
         capabilities = capabilities,
     }
@@ -27,11 +33,11 @@ end
 
 local capabilities_cpp = capabilities
 capabilities_cpp.offsetEncoding = { "uts-16" }
-require('lspconfig')['clangd'].setup {
+lspconfig['clangd'].setup {
     capabilities = capabilities_cpp
 }
 
-require('lspconfig')['diagnosticls'].setup {
+lspconfig['diagnosticls'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { 'css' },
@@ -40,7 +46,6 @@ require('lspconfig')['diagnosticls'].setup {
             prettier = {
                 command = './node_modules/.bin/prettier',
                 rootPatterns = { '.git' },
-                -- requiredFiles: { 'prettier.config.js' },
                 args = { '--tab-width 4', '--stdin', '--stdin-filepath', '%filename' }
             }
         },
