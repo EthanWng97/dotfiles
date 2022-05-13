@@ -90,15 +90,21 @@ M.on_attach = function(client, bufnr)
             hi! LspReferenceText cterm=bold ctermbg=red guibg=#49494A
             hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#49494A
         ]]
-        vim.api.nvim_create_augroup('lsp_document_highlight', {})
+        vim.api.nvim_create_augroup('lsp_document_highlight', {
+            clear = false
+        })
+        vim.api.nvim_clear_autocmds({
+            buffer = bufnr,
+            group = 'lsp_document_highlight',
+        })
         vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             group = 'lsp_document_highlight',
-            buffer = 0,
+            buffer = bufnr,
             callback = vim.lsp.buf.document_highlight,
         })
         vim.api.nvim_create_autocmd('CursorMoved', {
             group = 'lsp_document_highlight',
-            buffer = 0,
+            buffer = bufnr,
             callback = vim.lsp.buf.clear_references,
         })
     end
