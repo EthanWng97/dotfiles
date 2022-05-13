@@ -53,8 +53,8 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 
-local on_attach = require('plugins.lsp-handlers').on_attach
-local capabilities = require('plugins.lsp-handlers').capabilities
+local on_attach = require('plugins.lsp.lsp-handlers').on_attach
+local capabilities = require('plugins.lsp.lsp-handlers').capabilities
 
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
