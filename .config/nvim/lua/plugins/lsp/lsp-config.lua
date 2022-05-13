@@ -46,7 +46,7 @@ lspconfig['diagnosticls'].setup {
             prettier = {
                 command = './node_modules/.bin/prettier',
                 rootPatterns = { '.git' },
-                args = { '--tab-width 4', '--stdin', '--stdin-filepath', '%filename' }
+                args = { '--tab-width', '4', '--stdin', '--stdin-filepath', '%filename' }
             }
         },
         formatFiletypes = {
