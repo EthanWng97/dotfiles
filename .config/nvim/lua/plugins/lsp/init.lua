@@ -4,4 +4,4 @@ if not status_ok then
 end
 
 require("plugins.lsp.lsp-handlers").setup()
-require("plugins.lsp.lspconfig")
+require("plugins.lsp.lsp-config")
