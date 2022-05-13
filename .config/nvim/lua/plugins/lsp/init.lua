@@ -1,7 +1,7 @@
 local status_ok, _ = pcall(require, "lspconfig")
 if not status_ok then
-  return
+    return
 end
 
+require("plugins.lsp.lsp-handlers").setup()
 require("plugins.lsp.lspconfig")
-require("plugins.lsp.lsp-handlers")
