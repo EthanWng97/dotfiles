@@ -14,6 +14,7 @@ set BAT_THEME Dracula
 set -x LS_COLORS (vivid generate dracula)
 set -x STARSHIP_CONFIG "$HOME/.config/starship.toml"
 set -x HDF5_DIR /opt/homebrew/Cellar/hdf5/1.13.0
+set -x LG_CONFIG_FILE "/Users/navepnow/.config/lazygit/config.yml"
 alias bat="bat --theme \"Visual Studio Dark+\""
 set fish_greeting
 zoxide init fish | source
