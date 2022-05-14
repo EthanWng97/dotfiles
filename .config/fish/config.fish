@@ -5,8 +5,8 @@ end
 alias ls "exa"
 alias ll "exa -l -g --icons"
 alias la "ll -a"
-alias tn "tmux -CC new -s"
-abbr ta "tmux -CC attach -t"
+alias tn "tmux new -s"
+abbr ta "tmux attach -t"
 alias tl 'tmux list-sessions'
 
 set fish_prompt_pwd_dir_length 0
