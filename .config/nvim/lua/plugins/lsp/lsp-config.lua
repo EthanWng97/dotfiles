@@ -34,7 +34,8 @@ end
 local capabilities_cpp = capabilities
 capabilities_cpp.offsetEncoding = { "uts-16" }
 lspconfig['clangd'].setup {
-    capabilities = capabilities_cpp
+    on_attach = on_attach,
+    capabilities = capabilities_cpp,
 }
 
 lspconfig['diagnosticls'].setup {
