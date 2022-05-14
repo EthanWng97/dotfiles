@@ -1,5 +1,12 @@
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+    return
+end
+
 local actions = require("telescope.actions")
-require('telescope').setup {
+local theme = require("telescope.themes")
+
+telescope.setup {
     pickers = {
         find_files = { hidden = true },
         live_grep = { additional_args = function(opts) return { "--hidden" } end }
@@ -18,15 +25,14 @@ require('telescope').setup {
             -- the default case_mode is "smart_case"
         },
         ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
+            theme.get_dropdown {
                 -- even more opts
             }
         }
     }
 }
-require("telescope").load_extension("vimspector")
-require('telescope').load_extension('fzf')
-require "telescope".load_extension("frecency")
-require("telescope").load_extension("file_browser")
--- require("telescope").load_extension("session-lens")
-require("telescope").load_extension("ui-select")
+telescope.load_extension("vimspector")
+telescope.load_extension('fzf')
+telescope.load_extension("frecency")
+telescope.load_extension("file_browser")
+telescope.load_extension("ui-select")

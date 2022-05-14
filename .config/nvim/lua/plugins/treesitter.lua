@@ -1,4 +1,8 @@
-require 'nvim-treesitter.configs'.setup {
+local status_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+    return
+end
+treesitter_configs.setup {
     highlight = {
         enable = true,
         disable = {},
@@ -18,5 +22,8 @@ require 'nvim-treesitter.configs'.setup {
         },
         highlight_current_scope = { enable = false }
 
-    }
+    },
+    playground = {
+        enable = true,
+    },
 }
