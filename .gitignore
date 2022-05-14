@@ -68,3 +68,4 @@ Google Drive
 .config/fish/.config.fish.un~
 .leetcode/leetcode.toml
 .config/gh
+.tmux/plugins
