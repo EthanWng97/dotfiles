@@ -18,17 +18,17 @@ keymap("n", "<space>", ":", opts)
 --   command_mode = "c",
 
 -- Navigate buffers
-keymap("n", "<C-S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<C-S-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<C-M-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<C-M-h>", ":BufferLineCyclePrev<CR>", opts)
 
-keymap("n", "<C-S-t>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<C-M-t>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<C-a>", "ggVG<CR>", opts)
 
-keymap("n", "<C-S-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>",
+keymap("n", "<C-M-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>",
     opts)
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>",
     opts)
-keymap("n", "<C-S-p>",
+keymap("n", "<C-M-p>",
     "<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",
     opts)
 
@@ -38,7 +38,7 @@ keymap("n", "<C-f>",
     "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>",
     opts)
 keymap("n", "<C-q>", ":q<cr>", opts)
-keymap("n", "<C-S-q>", ":qa!<cr>", opts)
+keymap("n", "<C-M-q>", ":qa!<cr>", opts)
 
 keymap("n", "<C-s>", ":w<cr>", opts)
 keymap("i", "<C-s>", "<Esc>:w<cr>", opts)
@@ -60,8 +60,8 @@ keymap("v", ">", ">gv", opts)
 -- paste without replace clipboard
 keymap("v", "p", '"_dP', opts)
 
-keymap("x", "<C-S-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<C-S-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<C-M-j>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<C-M-k>", ":move '<-2<CR>gv-gv", opts)
 
 vim.cmd [[
     function! TabEnable()
