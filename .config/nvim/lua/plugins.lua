@@ -100,6 +100,7 @@ return packer.startup(function(use)
     use "nvim-telescope/telescope-frecency.nvim"
     use "nvim-telescope/telescope-file-browser.nvim"
     use "nvim-telescope/telescope-ui-select.nvim"
+    use "nvim-telescope/telescope-project.nvim"
 
     -- statusline plugins
     use "nvim-lualine/lualine.nvim"

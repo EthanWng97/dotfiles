@@ -28,6 +28,10 @@ telescope.setup {
             theme.get_dropdown {
                 -- even more opts
             }
+        },
+        project = {
+            hidden_files = true,
+            theme = "dropdown"
         }
     }
 }
@@ -36,3 +40,4 @@ telescope.load_extension('fzf')
 telescope.load_extension("frecency")
 telescope.load_extension("file_browser")
 telescope.load_extension("ui-select")
+telescope.load_extension('project')
