@@ -5,7 +5,7 @@ end
 
 -- Completion kinds
 local servers = {
-    'clangd', 'tsserver', 'pyright', 'sumneko_lua', 'eslint',
+    'clangd', 'tsserver', 'pyright', 'sumneko_lua', 'eslint', 'bashls', 'yamlls',
     'jsonls', 'cssls', 'html', 'yamlls', 'diagnosticls', 'graphql'
 }
 
@@ -41,17 +41,22 @@ lspconfig['clangd'].setup {
 lspconfig['diagnosticls'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { 'css' },
+    filetypes = { 'css', 'sh' },
     init_options = {
         formatters = {
             prettier = {
                 command = './node_modules/.bin/prettier',
                 rootPatterns = { '.git' },
                 args = { '--tab-width', '4', '--stdin', '--stdin-filepath', '%filename' }
+            },
+            shfmt = {
+                command = 'shfmt',
+                args = { "-filename", "%filepath" }
             }
         },
         formatFiletypes = {
             css = 'prettier',
+            sh = 'shfmt'
         }
     }
 }
