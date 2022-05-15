@@ -41,7 +41,7 @@ lspconfig['clangd'].setup {
 lspconfig['diagnosticls'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { 'css', 'sh' },
+    filetypes = { 'css', 'sh', 'fish' },
     init_options = {
         formatters = {
             prettier = {
@@ -52,11 +52,15 @@ lspconfig['diagnosticls'].setup {
             shfmt = {
                 command = 'shfmt',
                 args = { "-filename", "%filepath" }
-            }
+            },
+            fish_indent = {
+                command = "fish_indent"
+            },
         },
         formatFiletypes = {
             css = 'prettier',
-            sh = 'shfmt'
+            sh = 'shfmt',
+            fish = 'fish_indent'
         }
     }
 }
