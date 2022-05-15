@@ -2,6 +2,7 @@ tap "buo/cask-upgrade"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
@@ -23,6 +24,8 @@ brew "fish"
 brew "fisher"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
@@ -57,6 +60,8 @@ brew "zoxide"
 cask "calibre"
 # API documentation browser and code snippet manager
 cask "dash"
+# Voice and text chat software
+cask "discord"
 # Downloads videos from different websites
 cask "downie"
 # Download manager with a torrent client
@@ -80,6 +85,8 @@ cask "paw"
 cask "permute"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Team communication and collaboration software
+cask "slack"
 # Sound and audio controller
 cask "soundsource"
 # Messaging app with a focus on speed and security
