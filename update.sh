@@ -36,3 +36,15 @@ echo "--------------------------------"
 echo "- Updaing Mac Apps             -"
 echo "--------------------------------"
 mas upgrade
+
+# update tmux plugins
+echo "--------------------------------"
+echo "- Updaing Tmux Plugins         -"
+echo "--------------------------------"
+~/.tmux/plugins/tpm/bin/update_plugins all
+
+# update nvim plugins
+echo "--------------------------------"
+echo "- Updaing Neovim Plugins       -"
+echo "--------------------------------"
+nvim -c 'UpdateAll'
