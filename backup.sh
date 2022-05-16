@@ -1,0 +1,49 @@
+BREWFILE=~/Backup/Brewfile
+CARGOFILE=~/Backup/Cargofile
+FISHFILE=~/Backup/Fishfile
+NPMFILE=~/Backup/Npmfile
+PIPFILE=~/Backup/Pipfile
+
+echo "---------------------------------"
+echo "- Deleting old Backup Files     -"
+echo "---------------------------------"
+if [ -f "$BREWFILE" ]; then
+	rm $BREWFILE
+fi
+if [ -f "$CARGOFILE" ]; then
+	rm $CARGOFILE
+fi
+if [ -f "$FISHFILE" ]; then
+	rm $FISHFILE
+fi
+if [ -f "$NPMFILE" ]; then
+	rm $NPMFILE
+fi
+if [ -f "$PIPFILE" ]; then
+	rm $PIPFILE
+fi
+
+echo "---------------------------------"
+echo "- Dumping BREW and MAS packages -"
+echo "---------------------------------"
+brew bundle dump --describe --file=~/Backup/Brewfile
+
+echo "---------------------------------"
+echo "- Dumping NPM packages          -"
+echo "---------------------------------"
+npm list --global --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' >~/Backup/Npmfile
+
+echo "---------------------------------"
+echo "- Dumping PIP packages          -"
+echo "---------------------------------"
+pip freeze >~/backup/Pipfile
+
+echo "---------------------------------"
+echo "- Dumping CARGO packages          -"
+echo "---------------------------------"
+cargo install --list | grep -v '    ' | sed 's/ .*://' >>~/Backup/Cargofile
+
+echo "---------------------------------"
+echo "- Dumping FISH packages          -"
+echo "---------------------------------"
+cp ~/.config/fish/fish_plugins ~/Backup/FISHFILE

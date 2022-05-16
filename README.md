@@ -31,6 +31,12 @@ pip freeze > ~/backup/Pipfile
 cargo install --list | grep -v '    ' | sed 's/ .*://' >> ~/Backup/Cargofile
 ```
 
+5. dump fish plugins
+
+```bash
+cp ~/.config/fish/fish_plugins ~/Backup/FISHFILE
+```
+
 ### Installation
 
 1. install brew and mas packages
