@@ -44,12 +44,12 @@ keymap("n", "<C-s>", ":w<cr>", opts)
 keymap("i", "<C-s>", "<Esc>:w<cr>", opts)
 
 -- comment
-keymap("n", "<C-m>",
+keymap("n", "<C-M-m>",
     ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
-keymap("v", "<C-m>",
+keymap("v", "<C-M-m>",
     ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>",
     opts)
-keymap("i", "<C-m>",
+keymap("i", "<C-M-m>",
     "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
 
 -- Visual --
