@@ -63,17 +63,7 @@ keymap("v", "p", '"_dP', opts)
 keymap("x", "<C-M-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<C-M-k>", ":move '<-2<CR>gv-gv", opts)
 
-vim.cmd [[
-    function! TabEnable()
-        let num = winnr('$')
-        if num == 1
-            return ":BufferLineCycleNext\<CR>"
-        else
-            return "\<C-W>w"
-        endif
-    endfunction
-    nmap <expr> <silent> <Tab> TabEnable()
-]]
+keymap("n", "<Tab>", ":BufferLineCycleNext<cr>", opts)
 
 vim.cmd [[
     nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
