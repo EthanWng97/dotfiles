@@ -44,6 +44,8 @@ brew "ripgrep-all"
 brew "ruby"
 # Safe, concurrent, practical language
 brew "rust"
+# Autoformat shell script source code
+brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Very fast implementation of tldr in Rust
