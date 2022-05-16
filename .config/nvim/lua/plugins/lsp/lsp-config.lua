@@ -5,7 +5,7 @@ end
 
 -- Completion kinds
 local servers = {
-    'clangd', 'tsserver', 'pyright', 'sumneko_lua', 'eslint', 'bashls', 'yamlls',
+    'clangd', 'tsserver', 'pyright', 'sumneko_lua', 'eslint', 'bashls', 'yamlls', 'ltex',
     'jsonls', 'cssls', 'html', 'yamlls', 'diagnosticls', 'graphql'
 }
 
