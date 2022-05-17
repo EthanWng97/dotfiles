@@ -1,5 +1,3 @@
-#!/opt/homebrew/bin/fish
-
 # update brew
 echo "--------------------------------"
 echo "- Updaing Brew Packages        -"
@@ -30,6 +28,7 @@ echo "--------------------------------"
 echo "- Updaing Fish Packages        -"
 echo "--------------------------------"
 fisher update
+fish -c "fisher update"
 
 # update mac apps
 echo "--------------------------------"

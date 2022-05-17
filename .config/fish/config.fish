@@ -25,7 +25,9 @@ alias lg lazygit
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/bin
 
-alias update '~/./update.sh'
+alias update '~/shell-scripts/./update.sh'
+alias backup '~/shell-scripts/./backup.sh'
+alias install '~/shell-scripts/./install.sh'
 
 function rga-fzf
     set -x RG_PREFIX rga --files-with-matches

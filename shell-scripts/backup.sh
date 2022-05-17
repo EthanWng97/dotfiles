@@ -46,4 +46,4 @@ cargo install --list | grep -v '    ' | sed 's/ .*://' >>~/Backup/Cargofile
 echo "---------------------------------"
 echo "- Dumping FISH packages          -"
 echo "---------------------------------"
-cp ~/.config/fish/fish_plugins ~/Backup/FISHFILE
+cp ~/.config/fish/fish_plugins ~/Backup/Fishfile
