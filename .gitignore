@@ -70,3 +70,4 @@ Google Drive
 .config/gh
 .tmux/plugins
 .config/glab-cli
+.config/configstore
