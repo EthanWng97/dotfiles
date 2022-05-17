@@ -6,7 +6,7 @@ end
 -- Completion kinds
 local servers = {
     'clangd', 'tsserver', 'pyright', 'sumneko_lua', 'eslint', 'bashls', 'yamlls', 'ltex',
-    'jsonls', 'cssls', 'html', 'yamlls', 'diagnosticls', 'graphql'
+    'jsonls', 'cssls', 'html', 'yamlls', 'graphql'
 }
 
 lsp_installer.setup({
@@ -36,31 +36,4 @@ capabilities_cpp.offsetEncoding = { "uts-16" }
 lspconfig['clangd'].setup {
     on_attach = on_attach,
     capabilities = capabilities_cpp,
-}
-
-lspconfig['diagnosticls'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { 'css', 'sh', 'fish' },
-    init_options = {
-        formatters = {
-            prettier = {
-                command = './node_modules/.bin/prettier',
-                rootPatterns = { '.git' },
-                args = { '--tab-width', '4', '--stdin', '--stdin-filepath', '%filename' }
-            },
-            shfmt = {
-                command = 'shfmt',
-                args = { "-filename", "%filepath" }
-            },
-            fish_indent = {
-                command = "fish_indent"
-            },
-        },
-        formatFiletypes = {
-            css = 'prettier',
-            sh = 'shfmt',
-            fish = 'fish_indent'
-        }
-    }
 }
