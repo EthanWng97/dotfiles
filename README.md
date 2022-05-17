@@ -4,86 +4,24 @@
 ![Image](https://user-images.githubusercontent.com/39482599/168496790-cd12b404-9c22-4d21-9b34-a04da5b380b6.png)
 
 ## Initial Setup and Installation
+> all shell commands are based on **GLOBAL INSTALLED PACKAGES**
 
 ### Backup
 
-1. dump brew and mas packages
-
 ```bash
-brew bundle dump --describe --file=~/Backup/Brewfile
-```
-
-2. dump NPM packages
-
-```bash
-npm list --global --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1); print}' > ~/Backup/Npmfile
-```
-
-3. dump pip packages
-
-```bash
-pip freeze > ~/backup/Pipfile
-```
-
-4. dump cargo packages
-
-```bash
-cargo install --list | grep -v '    ' | sed 's/ .*://' >> ~/Backup/Cargofile
-```
-
-5. dump fish plugins
-
-```bash
-cp ~/.config/fish/fish_plugins ~/Backup/FISHFILE
+shell-scripts/backup.sh
 ```
 
 ### Installation
 
-1. install brew and mas packages
-
 ```bash
-brew bundle install --file=~/Backup/Brewfile
-```
-
-2. install NPM packages
-
-```bash
-xargs npm install --global < ~/Backup/Npmfile
-```
-
-3. install pip packages
-
-```bash
-pip install -r ~/Backup/Pipfile
-```
-
-4. install cargo packages
-
-```bash
-xargs cargo install < ~/Backup/Cargofile
-```
-
-5. install TPM(tmux) packages
-
-```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-~/.tmux/plugins/tpm/bin/install_plugins
-```
-
-6. install packer(Neovim) packages
-
-```bash
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-nvim -c 'PackerSync'
+shell-scripts/install.sh
 ```
 
 ### Update
 
-```
-./update.sh
+```bash
+shell-scripts/update.sh
 ```
 
 ## Local Settings
