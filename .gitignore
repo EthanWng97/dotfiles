@@ -69,3 +69,4 @@ Google Drive
 .leetcode/leetcode.toml
 .config/gh
 .tmux/plugins
+.config/glab-cli
