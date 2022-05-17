@@ -10,6 +10,7 @@ null_ls.setup({
     sources = {
         formatting.shfmt,
         formatting.lua_format,
+        formatting.prettier,
     },
     -- you can reuse a shared lspconfig on_attach callback here
     on_attach = function(client, bufnr)
