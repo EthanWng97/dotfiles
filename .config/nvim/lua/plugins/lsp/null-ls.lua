@@ -1,28 +1,28 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-    return
+	return
 end
 local formatting = null_ls.builtins.formatting
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
-    debug = true,
-    sources = {
-        formatting.shfmt,
-        formatting.lua_format,
-        formatting.prettier,
-    },
-    -- you can reuse a shared lspconfig on_attach callback here
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({ async = false })
-                end,
-            })
-        end
-    end,
+	debug = true,
+	sources = {
+		formatting.shfmt,
+		formatting.stylua,
+		formatting.prettier,
+	},
+	-- you can reuse a shared lspconfig on_attach callback here
+	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format({ async = false })
+				end,
+			})
+		end
+	end,
 })
