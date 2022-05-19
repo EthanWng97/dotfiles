@@ -14,6 +14,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.prettier,
 		formatting.clang_format,
+		diagnostics.cspell,
 	},
 	-- you can reuse a shared lspconfig on_attach callback here
 	on_attach = function(client, bufnr)
