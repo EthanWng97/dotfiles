@@ -17,6 +17,7 @@ local servers = {
 	"html",
 	"yamlls",
 	"graphql",
+	"tailwindcss",
 }
 
 lsp_installer.setup({
