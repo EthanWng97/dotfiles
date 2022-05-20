@@ -1,0 +1,16 @@
+{
+  "dictionaries": ["cpp", "python", "bash", "fonts"],
+  "words": [
+    "nvim",
+    "autocmds",
+    "autocmd",
+    "augroup",
+    "lspconfig",
+    "bufnr",
+    "visualstudio",
+    "stylua",
+    "tailwindcss",
+    "kissyvape",
+    "kissy"
+  ]
+}
