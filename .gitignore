@@ -71,3 +71,4 @@ Google Drive
 .tmux/plugins
 .config/glab-cli
 .config/configstore
+.cspell.json
