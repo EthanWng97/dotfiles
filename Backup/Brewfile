@@ -6,6 +6,8 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+brew "clang-format"
 # Cross-platform make
 brew "cmake"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -26,10 +28,16 @@ brew "fisher"
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Open-source GitLab command-line tool
+brew "glab"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
+# CLI for Node.js style checker and lint tool for Markdown files
+brew "markdownlint-cli"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -48,10 +56,14 @@ brew "rust"
 brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Opinionated Lua code formatter
+brew "stylua"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
 # Terminal multiplexer
 brew "tmux"
+# Command-line interface for Vercel
+brew "vercel-cli"
 # Generator for LS_COLORS with support for multiple color themes
 brew "vivid"
 # Internet file retriever
@@ -76,7 +88,7 @@ cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
 # Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
+cask "iterm2-beta"
 # Spot and merge differences in text and image files or folders
 cask "kaleidoscope"
 # Media player
