@@ -21,22 +21,20 @@ keymap("n", "<space>", ":", opts)
 keymap("n", "<C-M-l>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<C-M-h>", ":BufferLineCyclePrev<CR>", opts)
 
-keymap("n", "<C-M-t>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<C-M-e>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<C-a>", "ggVG<CR>", opts)
 
-keymap("n", "<C-M-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>",
-    opts)
-keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>",
-    opts)
-keymap("n", "<C-M-p>",
-    "<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",
-    opts)
+keymap("n", "<C-M-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>", opts)
+keymap(
+	"n",
+	"<C-M-p>",
+	"<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",
+	opts
+)
 
-keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').live_grep()<cr>",
-    opts)
-keymap("n", "<C-f>",
-    "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>",
-    opts)
+keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
 keymap("n", "<C-q>", ":q<cr>", opts)
 keymap("n", "<C-M-q>", ":qa!<cr>", opts)
 
@@ -44,13 +42,9 @@ keymap("n", "<C-s>", ":w<cr>", opts)
 keymap("i", "<C-s>", "<Esc>:w<cr>", opts)
 
 -- comment
-keymap("n", "<C-M-m>",
-    ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
-keymap("v", "<C-M-m>",
-    ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>",
-    opts)
-keymap("i", "<C-M-m>",
-    "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
+keymap("n", "<C-M-m>", ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
+keymap("v", "<C-M-m>", ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>", opts)
+keymap("i", "<C-M-m>", "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -65,8 +59,8 @@ keymap("x", "<C-M-k>", ":move '<-2<CR>gv-gv", opts)
 
 keymap("n", "<Tab>", ":BufferLineCycleNext<cr>", opts)
 
-vim.cmd [[
+vim.cmd([[
     nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
-]]
+]])
 
 keymap("n", "<leader>nf", ":lua require('neogen').generate()<CR>", opts)
