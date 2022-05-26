@@ -2,14 +2,13 @@
 echo "--------------------------------"
 echo "- Updaing Brew Packages        -"
 echo "--------------------------------"
-
 brew update && brew upgrade && brew cu -a -y --cleanup && brew cleanup
 
 # update npm packages
 echo "--------------------------------"
 echo "- Updaing NPM Packages         -"
 echo "--------------------------------"
-npm update -g
+npm update --location=global
 
 # update python packages
 echo "--------------------------------"
