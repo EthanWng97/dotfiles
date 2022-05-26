@@ -4,6 +4,7 @@
 ![Image](https://user-images.githubusercontent.com/39482599/168496790-cd12b404-9c22-4d21-9b34-a04da5b380b6.png)
 
 ## Initial Setup and Installation
+
 > all shell commands are based on **GLOBAL INSTALLED PACKAGES**
 
 ### Backup
@@ -65,4 +66,3 @@ Give a ⭐️ if this project helped you!
 <a href="https://www.patreon.com/NavePnow">
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
-

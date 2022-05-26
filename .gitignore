@@ -14,7 +14,6 @@ Pictures
 .CFUserTextEncoding
 .cache
 .cargo
-.czrc
 .docker/
 .fig.dotfiles.bak/
 .fzf.bash
