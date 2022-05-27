@@ -20,3 +20,7 @@
 vim.cmd([[
     autocmd filetype alpha setlocal nofoldenable
 ]])
+
+vim.cmd [[
+    command! Format execute 'lua vim.lsp.buf.format({async = false})'
+]]

@@ -15,7 +15,6 @@ local servers = {
 	"jsonls",
 	"cssls",
 	"html",
-	"yamlls",
 	"graphql",
 	"tailwindcss",
 }
