@@ -15,6 +15,8 @@ vim.opt.showcmd = true -- show the command in the status bar
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.fillchars:append { eob = " " }
+vim.opt.signcolumn = "yes"
+vim.opt.guicursor = "i:ver100,r:hor100"
 
 vim.cmd [[
     " general

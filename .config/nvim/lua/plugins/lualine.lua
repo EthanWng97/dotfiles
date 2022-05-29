@@ -25,7 +25,7 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { "branch" },
 		lualine_b = { { "diff", source = diff_source }, "diagnostics" },
-		lualine_c = { "filename", "lsp_progress", { gps.get_location, cond = gps.is_available } },
+		lualine_c = { "filename", { gps.get_location, cond = gps.is_available } },
 		lualine_x = { "encoding", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { location },
