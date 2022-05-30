@@ -1,29 +1,41 @@
-vim.cmd [[
+vim.cmd([[
     """""" UI """"""
-    " set termguicolors
+    set termguicolors
     autocmd colorscheme * highlight GitSignsAdd gui=none guifg=#A1C281 guibg=None
     autocmd colorscheme * highlight GitSignsChange gui=none guifg=#74ADEA guibg=None
     autocmd colorscheme * highlight GitSignsDelete gui=none guifg=#FE747A guibg=None
 
-    let g:vscode_style = "dark"
-    let g:vscode_transparency = 1
     let g:vscode_italic_comment = 1
-    let g:vscode_disable_nvimtree_bg = v:true
 
-    let g:onedark_transparent = v:true
-    let g:onedark_transparent_sidebar = v:true
-    let g:onedark_highlight_linenumber = v:true
-    let g:onedark_dark_sidebar = v:false
-    let g:onedark_dark_float = v:false
-    colorscheme vscode
+]])
 
-    set guicursor=i:ver100-blinkon100
-                \,r:hor100
+local catppuccin = require("catppuccin")
 
-    if has('nvim')
-    set signcolumn=yes:1
-    else
-        set signcolumn=yes
-    endif
+-- configure it
+catppuccin.setup({
+	transparent_background = false,
+	integrations = {
+		indent_blankline = {
+			enabled = true,
+			colored_indent_levels = true,
+		},
+		underline = {
+			errors = "underline",
+			hints = "underline",
+			warnings = "underline",
+			information = "underline",
+		},
+	},
+})
 
-]]
+local onedark = require("onedark")
+onedark.setup({
+	style = "darker",
+})
+
+local colorscheme = "vscode"
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not status_ok then
+	vim.notify("colorscheme " .. colorscheme .. " not found!")
+	return
+end
