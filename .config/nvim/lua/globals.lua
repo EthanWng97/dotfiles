@@ -17,6 +17,7 @@ vim.opt.smartindent = true
 vim.opt.fillchars:append { eob = " " }
 vim.opt.signcolumn = "yes"
 vim.opt.guicursor = "i:ver100,r:hor100"
+vim.opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal,globals"
 
 vim.cmd [[
     " general
@@ -77,4 +78,6 @@ vim.cmd [[
     command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "PackerSync"
 ]]
 
-vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal,globals"
+vim.cmd [[
+    command! Format execute 'lua vim.lsp.buf.format({async = false})'
+]]
