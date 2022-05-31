@@ -19,7 +19,6 @@ Pictures
 .fzf.bash
 .fzf.zsh
 .hammerspoon/
-.lc/
 .lemminx/
 .lesshst
 .lldb/
@@ -45,7 +44,6 @@ Pictures
 .zprofile
 .zsh_history
 .zsh_sessions/
-package-lock.json
 .lesshsQ
 .vim/session
 .config/coc/*
