@@ -8,12 +8,12 @@ local theme = require("telescope.themes")
 
 telescope.setup {
     pickers = {
-        find_files = { hidden = true },
+        find_files = { hidden = true, no_ignore=true },
         live_grep = { additional_args = function(opts) return { "--hidden" } end }
     },
     defaults = {
         mappings = { i = { ["<esc>"] = actions.close } },
-        file_ignore_patterns = { "node_modules", ".git" }
+        file_ignore_patterns = { "node_modules", ".git", "cache" }
     },
 
     extensions = {
