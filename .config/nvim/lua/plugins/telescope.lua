@@ -13,7 +13,7 @@ telescope.setup {
     },
     defaults = {
         mappings = { i = { ["<esc>"] = actions.close } },
-        file_ignore_patterns = { "node_modules", ".git", "cache" }
+        file_ignore_patterns = { "node_modules", ".git", "cache", "vscode", "Documents" }
     },
 
     extensions = {

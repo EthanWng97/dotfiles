@@ -59,8 +59,7 @@ keymap("x", "<C-M-k>", ":move '<-2<CR>gv-gv", opts)
 
 keymap("n", "<Tab>", ":BufferLineCycleNext<cr>", opts)
 
-vim.cmd([[
-    nmap <silent><expr> <f2> ':set wrap! go'.'-+'[&wrap]."=b\r"
-]])
+keymap("n", "<leader>ww", ":set wrap!<CR>", opts)
 
 keymap("n", "<leader>nf", ":lua require('neogen').generate()<CR>", opts)
+keymap("n", "<leader>fm", ":lua vim.lsp.buf.format({async = false})<CR>", opts)
