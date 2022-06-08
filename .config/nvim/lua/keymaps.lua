@@ -63,3 +63,5 @@ keymap("n", "<leader>ww", ":set wrap!<CR>", opts)
 
 keymap("n", "<leader>nf", ":lua require('neogen').generate()<CR>", opts)
 keymap("n", "<leader>fm", ":lua vim.lsp.buf.format({async = false})<CR>", opts)
+
+keymap("n", "<C-w>", ":bd<cr>", opts)
