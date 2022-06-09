@@ -39,7 +39,8 @@ keymap("n", "<C-q>", ":q<cr>", opts)
 keymap("n", "<C-M-q>", ":qa!<cr>", opts)
 
 keymap("n", "<C-s>", ":w<cr>", opts)
-keymap("i", "<C-s>", "<Esc>:w<cr>", opts)
+keymap("i", "<C-s>", "<esc>:w<cr>", opts)
+keymap("n", "<esc>", ":noh<cr>", opts)
 
 -- comment
 keymap("n", "<C-M-m>", ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
@@ -65,3 +66,4 @@ keymap("n", "<leader>nf", ":lua require('neogen').generate()<CR>", opts)
 keymap("n", "<leader>fm", ":lua vim.lsp.buf.format({async = false})<CR>", opts)
 
 keymap("n", "<C-w>", ":bd<cr>", opts)
+keymap("i", "<C-w>", "<esc>:bd<cr>", opts)
