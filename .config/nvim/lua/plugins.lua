@@ -48,7 +48,10 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("jose-elias-alvarez/null-ls.nvim")
-
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
 	--  autocomplete plugins
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
@@ -67,7 +70,7 @@ return packer.startup(function(use)
 		config = function()
 			vim.defer_fn(function()
 				require("copilot").setup({
-                    cmp_method = "getPanelCompletions",
+					cmp_method = "getPanelCompletions",
 					ft_disable = { "markdown", "terraform", "cpp" },
 				})
 			end, 100)
@@ -79,10 +82,6 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-refactor")
 	use("windwp/nvim-ts-autotag")
-	use({
-		"SmiteshP/nvim-gps",
-		requires = "nvim-treesitter/nvim-treesitter",
-	})
 	use({
 		"danymat/neogen",
 		config = function()

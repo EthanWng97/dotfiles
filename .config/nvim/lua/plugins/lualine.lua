@@ -1,5 +1,4 @@
-require("nvim-gps").setup()
-local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 local function diff_source()
 	local gitsigns = vim.b.gitsigns_status_dict
 	if gitsigns then
@@ -25,7 +24,7 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { "branch" },
 		lualine_b = { { "diff", source = diff_source }, "diagnostics" },
-		lualine_c = { "filename", { gps.get_location, cond = gps.is_available } },
+		lualine_c = { "filename", { navic.get_location, cond = navic.is_available } },
 		lualine_x = { "encoding", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { location },

@@ -1,6 +1,7 @@
 local M = {}
 
 local opts = { noremap = true, silent = true }
+local navic = require("nvim-navic")
 
 M.setup = function()
     vim.diagnostic.config({
@@ -122,6 +123,7 @@ M.on_attach = function(client, bufnr)
             vim.diagnostic.open_float(nil, opts)
         end
     })
+    navic.attach(client, bufnr)
 end
 
 
