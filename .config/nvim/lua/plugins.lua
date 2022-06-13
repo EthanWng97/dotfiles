@@ -67,6 +67,7 @@ return packer.startup(function(use)
 		config = function()
 			vim.defer_fn(function()
 				require("copilot").setup({
+                    cmp_method = "getPanelCompletions",
 					ft_disable = { "markdown", "terraform", "cpp" },
 				})
 			end, 100)
