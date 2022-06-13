@@ -18,6 +18,7 @@ vim.opt.fillchars:append { eob = " " }
 vim.opt.signcolumn = "yes"
 vim.opt.guicursor = "i:ver100,r:hor100"
 vim.opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal,globals"
+vim.opt.cmdheight = 0
 
 vim.cmd [[
     " general
