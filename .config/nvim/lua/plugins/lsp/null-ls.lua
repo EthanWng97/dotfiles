@@ -14,9 +14,9 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.prettier,
 		formatting.clang_format,
-		diagnostics.cspell.with({
-            disabled_filetypes = {"NvimTree"}
-        }),
+		-- diagnostics.cspell.with({
+  --           disabled_filetypes = {"NvimTree"}
+  --       }),
 	},
 	-- you can reuse a shared lspconfig on_attach callback here
 	-- on_attach = function(client, bufnr)
