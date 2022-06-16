@@ -69,14 +69,14 @@ return packer.startup(function(use)
 		event = { "VimEnter" },
 		config = function()
 			vim.defer_fn(function()
-				require("copilot").setup({
-					cmp_method = "getPanelCompletions",
-					ft_disable = { "markdown", "terraform", "cpp" },
-				})
+				require('plugins.copilot')
 			end, 100)
 		end,
 	})
-	use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" } })
+	use({
+		"zbirenbaum/copilot-cmp",
+		module = "copilot_cmp",
+	})
 
 	-- treesitter plugins
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
