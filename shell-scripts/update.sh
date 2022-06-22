@@ -26,7 +26,6 @@ cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1
 echo "--------------------------------"
 echo "- Updaing Fish Packages        -"
 echo "--------------------------------"
-fisher update
 fish -c "fisher update"
 
 # update mac apps
