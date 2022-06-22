@@ -20,7 +20,7 @@ pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n
 echo "--------------------------------"
 echo "- Updaing Rust Packages         -"
 echo "--------------------------------"
-cargo install-update -a
+cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
 
 # update fish packages
 echo "--------------------------------"
