@@ -15,6 +15,7 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.clang_format,
 		formatting.taplo,
+		diagnostics.codespell,
 		-- diagnostics.cspell.with({
 		--           disabled_filetypes = {"NvimTree"}
 		--       }),
