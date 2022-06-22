@@ -41,7 +41,7 @@ pip freeze >~/backup/Pipfile
 echo "---------------------------------"
 echo "- Dumping CARGO packages          -"
 echo "---------------------------------"
-cargo install --list | grep -v '    ' | sed 's/ .*://' >>~/Backup/Cargofile
+cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ' >>~/Backup/Cargofile
 
 echo "---------------------------------"
 echo "- Dumping FISH packages          -"
