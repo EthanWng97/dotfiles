@@ -22,7 +22,7 @@ window:
   #   lines: 38
 
   # Make background slightly transparent
-  opacity: 0.95
+  opacity: 0.98
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -37,17 +37,16 @@ cursor:
 font:
   normal:
     family: JetBrainsMono Nerd Font
-    style: Regular
+    style: Medium
   bold:
     family: JetBrainsMono Nerd Font
     style: Bold
   italic:
     family: JetBrainsMono Nerd Font
-    style: Italic
+    style: Medium Italic
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
-    
 
   # Font size
   size: 14
