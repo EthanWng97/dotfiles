@@ -1,12 +1,13 @@
 local M = {}
 
 local opts = { noremap = true, silent = true }
--- local navic = require("nvim-navic")
 
 local status_ok, navic = pcall(require, "nvim-navic")
 if not status_ok then
 	return
 end
+vim.g.navic_silence = true
+
 M.setup = function()
 	vim.diagnostic.config({
 		virtual_text = false,
