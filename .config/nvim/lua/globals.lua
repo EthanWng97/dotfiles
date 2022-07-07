@@ -30,6 +30,7 @@ vim.cmd [[
     filetype plugin on
     set updatetime=50
     let g:cursorhold_updatetime = 50
+    set jumpoptions=view
 ]]
 
 vim.cmd [[
