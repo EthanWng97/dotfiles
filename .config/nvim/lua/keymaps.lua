@@ -43,9 +43,9 @@ keymap("i", "<C-s>", "<esc>:w<cr>", opts)
 keymap("n", "<esc>", ":noh<cr>", opts)
 
 -- comment
-keymap("n", "<C-M-m>", ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
-keymap("v", "<C-M-m>", ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>", opts)
-keymap("i", "<C-M-m>", "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
+keymap("n", "<M-/>", ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
+keymap("v", "<M-/>", ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>", opts)
+keymap("i", "<M-/>", "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
