@@ -19,11 +19,13 @@ catppuccin.setup({
 			enabled = true,
 			colored_indent_levels = true,
 		},
-		underline = {
-			errors = "underline",
-			hints = "underline",
-			warnings = "underline",
-			information = "underline",
+		native_lsp = {
+			underlines = {
+				errors = "undercurl",
+				hints = "undercurl",
+				warnings = "undercurl",
+				information = "undercurl",
+			},
 		},
 	},
 })
