@@ -113,13 +113,14 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-notify")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("kyazdani42/nvim-web-devicons")
-	use("norcalli/nvim-colorizer.lua")
+	-- use("norcalli/nvim-colorizer.lua")
+    use("NvChad/nvim-colorizer.lua")
 	use("Mofiqul/vscode.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
-	use("navarasu/onedark.nvim")
+    use("projekt0n/github-nvim-theme")
 	use("goolord/alpha-nvim")
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 
@@ -127,7 +128,6 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("lewis6991/gitsigns.nvim")
 	use("kyazdani42/nvim-tree.lua")
-	use("simrat39/symbols-outline.nvim")
 	use("numToStr/Comment.nvim")
 	use("luukvbaal/stabilize.nvim")
 	-- use "ggandor/lightspeed.nvim"

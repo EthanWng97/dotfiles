@@ -38,12 +38,18 @@ catppuccin.setup({
 	},
 })
 
-local onedark = require("onedark")
-onedark.setup({
-	style = "darker",
+local status_ok, github = pcall(require, "github-theme")
+if not status_ok then
+	return
+end
+
+github.setup({
+      theme_style = "dark",
+  function_style = "italic",
 })
 
-local colorscheme = "catppuccin"
+
+local colorscheme = "github_*"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
 	vim.notify("colorscheme " .. colorscheme .. " not found!")
