@@ -31,6 +31,7 @@ end
 
 -- Have packer use a popup window
 packer.init({
+    auto_reload_compiled = true,
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
@@ -119,6 +120,7 @@ return packer.startup(function(use)
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
+        run = "CatppuccinCompile",
 	})
     use("projekt0n/github-nvim-theme")
 	use("goolord/alpha-nvim")

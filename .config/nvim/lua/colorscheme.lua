@@ -22,6 +22,11 @@ end
 
 catppuccin.setup({
 	transparent_background = false,
+	compile = {
+		enabled = true,
+		path = vim.fn.stdpath("cache") .. "/catppuccin",
+		suffix = "_compiled",
+	},
 	integrations = {
 		indent_blankline = {
 			enabled = true,
@@ -29,14 +34,16 @@ catppuccin.setup({
 		},
 		native_lsp = {
 			underlines = {
-				errors = "undercurl",
-				hints = "undercurl",
-				warnings = "undercurl",
-				information = "undercurl",
+				errors = { "undercurl" },
+				hints = { "undercurl" },
+				warnings = { "undercurl" },
+				information = { "undercurl" },
 			},
 		},
 	},
 })
+
+vim.g.catppuccin_flavour = "mocha"
 
 local status_ok, github = pcall(require, "github-theme")
 if not status_ok then
@@ -44,12 +51,11 @@ if not status_ok then
 end
 
 github.setup({
-      theme_style = "dark",
-  function_style = "italic",
+	theme_style = "dark",
+	function_style = "italic",
 })
 
-
-local colorscheme = "github_*"
+local colorscheme = "catppuccin"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
 	vim.notify("colorscheme " .. colorscheme .. " not found!")
