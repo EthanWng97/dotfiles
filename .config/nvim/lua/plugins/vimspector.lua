@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""
     " General Setting for vimspector
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -9,8 +9,8 @@ vim.cmd [[
         \ ]
     nmap <leader>d <Plug>VimspectorContinue
     nmap <leader>D <Plug>VimspectorRestart
-    " nmap <A-i> <Plug>VimspectorBalloonEval
-    " xmap <A-i> <Plug>VimspectorBalloonEval
+    nmap <A-i> <Plug>VimspectorBalloonEval
+    xmap <A-i> <Plug>VimspectorBalloonEval
     nmap <leader>i :call AddToWatch()<CR>
 
     func! AddToWatch()
@@ -18,4 +18,4 @@ vim.cmd [[
         call vimspector#AddWatch(word)
     endfunction
     let g:vimspector_base_dir = expand('$HOME/.config/nvim/vimspector-config')
-]]
+]])

@@ -106,7 +106,7 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 
 	-- debug plugins
-	-- use "puremourning/vimspector"
+	use "puremourning/vimspector"
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
 
