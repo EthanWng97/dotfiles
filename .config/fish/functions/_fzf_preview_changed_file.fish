@@ -1,19 +1,27 @@
 # helper for _fzf_search_git_status
-# arg should be a line from git status --short, something like...
+# arg should be a line from git status --short, e.g.
 # MM functions/_fzf_preview_changed_file.fish
+#  D README.md
+# R  LICENSE.md -> LICENSE
 function _fzf_preview_changed_file
     set -l path (string split ' ' $argv)[-1]
-    if string match -r '^\?\?' $argv --quiet
-        echo -e (set_color --underline)=== Untracked ===\n
+    # first letter of short format shows index, second letter shows working tree
+    # https://git-scm.com/docs/git-status/2.35.0#_output
+    set -l index_status (string sub --length 1 $argv)
+    set -l working_tree_status (string sub --start 2 --length 1 $argv)
+
+    if test $index_status = '?'
+        _fzf_report_diff_type Untracked
         _fzf_preview_file $path
     else
-        if string match -r '\S\s\S' $argv --quiet
-            echo -e (set_color --underline red)=== Unstaged ===\n
-            git diff --color=always -- $path
+        if test $index_status != ' '
+            _fzf_report_diff_type Staged
+            git diff --staged --color=always -- $path
         end
-        if string match -r '^\S' $argv --quiet
-            echo -e (set_color --underline green)=== Staged ===\n
-            git diff --color=always --staged -- $path
+
+        if test $working_tree_status != ' '
+            _fzf_report_diff_type Unstaged
+            git diff --color=always -- $path
         end
     end
 end
