@@ -18,6 +18,7 @@ set -x LG_CONFIG_FILE "/Users/navepnow/.config/lazygit/config.yml"
 alias bat="bat --theme \"Visual Studio Dark+\""
 set fish_greeting
 zoxide init fish | source
+thefuck --alias | source
 
 alias nv nvim
 alias lg lazygit
