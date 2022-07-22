@@ -18,8 +18,14 @@ keymap("n", "<space>", ":", opts)
 --   command_mode = "c",
 
 -- Navigate buffers
-keymap("n", "<C-M-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<C-M-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<M-l>", ":bnext<CR>", opts)
+keymap("n", "<M-h>", ":bprevious<CR>", opts)
+keymap("n", "<M-1>", ":LualineBuffersJump 1<CR>", opts)
+keymap("n", "<M-2>", ":LualineBuffersJump 2<CR>", opts)
+keymap("n", "<M-3>", ":LualineBuffersJump 3<CR>", opts)
+keymap("n", "<M-4>", ":LualineBuffersJump 4<CR>", opts)
+keymap("n", "<M-5>", ":LualineBuffersJump 5<CR>", opts)
+
 
 keymap("n", "<C-M-e>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<C-a>", "ggVG<CR>", opts)
@@ -58,7 +64,7 @@ keymap("v", "p", '"_dP', opts)
 keymap("x", "<C-M-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<C-M-k>", ":move '<-2<CR>gv-gv", opts)
 
-keymap("n", "<Tab>", ":BufferLineCycleNext<cr>", opts)
+keymap("n", "<Tab>", ":bnext<cr>", opts)
 
 keymap("n", "<leader>ww", ":set wrap!<CR>", opts)
 

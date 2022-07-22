@@ -1,4 +1,5 @@
 local navic = require("nvim-navic")
+vim.g.lualine_buffer_silence = true
 local function diff_source()
 	local gitsigns = vim.b.gitsigns_status_dict
 	if gitsigns then
@@ -34,6 +35,25 @@ require("lualine").setup({
 		lualine_b = {},
 		lualine_c = { "filename" },
 		lualine_x = { "location" },
+		lualine_y = {},
+		lualine_z = {},
+	},
+	winbar = {
+		lualine_a = { { "buffers", symbols = {
+			alternate_file = "",
+		} } },
+		lualine_b = {},
+		lualine_c = { { navic.get_location, cond = navic.is_available } },
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
+
+	inactive_winbar = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { { navic.get_location, cond = navic.is_available } },
+		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
