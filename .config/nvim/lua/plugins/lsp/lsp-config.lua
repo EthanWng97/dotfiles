@@ -22,6 +22,9 @@ local servers = {
 
 lsp_installer.setup({
 	ensure_installed = servers,
+	ui = {
+		border = "rounded",
+	},
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
