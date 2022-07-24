@@ -50,8 +50,9 @@ require("lualine").setup({
 	},
 
 	inactive_winbar = {
-		lualine_a = {},
-		lualine_b = {},
+		lualine_a = { { "buffers", symbols = {
+			alternate_file = "",
+		} } },
 		lualine_c = { { navic.get_location, cond = navic.is_available } },
 		lualine_x = {},
 		lualine_y = {},
