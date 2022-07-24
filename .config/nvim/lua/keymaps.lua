@@ -20,21 +20,24 @@ keymap("n", "<space>", ":", opts)
 -- Navigate buffers
 keymap("n", "<M-l>", ":bnext<CR>", opts)
 keymap("n", "<M-h>", ":bprevious<CR>", opts)
-keymap("n", "<M-1>", ":LualineBuffersJump 1<CR>", opts)
-keymap("n", "<M-2>", ":LualineBuffersJump 2<CR>", opts)
-keymap("n", "<M-3>", ":LualineBuffersJump 3<CR>", opts)
-keymap("n", "<M-4>", ":LualineBuffersJump 4<CR>", opts)
-keymap("n", "<M-5>", ":LualineBuffersJump 5<CR>", opts)
+keymap("n", "<M-1>", ":silent! LualineBuffersJump 1<CR>", opts)
+keymap("n", "<M-2>", ":silent! LualineBuffersJump 2<CR>", opts)
+keymap("n", "<M-3>", ":silent! LualineBuffersJump 3<CR>", opts)
+keymap("n", "<M-4>", ":silent! LualineBuffersJump 4<CR>", opts)
+keymap("n", "<M-5>", ":silent! LualineBuffersJump 5<CR>", opts)
+keymap("n", "<M-6>", ":silent! LualineBuffersJump 6<CR>", opts)
+keymap("n", "<M-7>", ":silent! LualineBuffersJump 7<CR>", opts)
+keymap("n", "<M-8>", ":silent! LualineBuffersJump 8<CR>", opts)
+keymap("n", "<M-9>", ":silent! LualineBuffersJump $<CR>", opts)
 
-
-keymap("n", "<C-M-e>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<M-e>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<C-a>", "ggVG<CR>", opts)
 
-keymap("n", "<C-M-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<M-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>", opts)
 keymap(
 	"n",
-	"<C-M-p>",
+	"<M-p>",
 	"<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",
 	opts
 )
