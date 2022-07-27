@@ -38,7 +38,7 @@ mas upgrade
 echo "--------------------------------"
 echo "- Updaing Tmux Plugins         -"
 echo "--------------------------------"
-~/.tmux/plugins/tpm/bin/update_plugins all
+~/.config/tmux/plugins/tpm/bin/update_plugins all
 
 # update nvim plugins
 echo "--------------------------------"
