@@ -75,3 +75,5 @@ Google Drive
 go/pkg
 .config/qBittorrent
 .config/thefuck
+.config/tmux/plugins
+.config/tmux/resurrect
