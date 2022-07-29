@@ -49,21 +49,36 @@ dapui.setup({
 	windows = { indent = 1 },
 })
 
-local cpptools = "/Users/navepnow/.local/share/nvim/mason/packages/cpptools/extensions/debugAdapters"
+local cpptools = "/Users/navepnow/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters"
+local codelldb = "/Users/navepnow/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb"
 
 dap.adapters.cppdbg = {
 	id = "cppdbg",
 	type = "executable",
-	command = cpptools + "/bin/OpenDebugAD7",
+	command = cpptools .. "/bin/OpenDebugAD7",
+}
+
+local port = 1300
+dap.adapters.codelldb = {
+	type = "server",
+	port = "13000",
+	executable = {
+		-- CHANGE THIS to your path!
+		command = codelldb,
+		args = { "--port", "13000" },
+
+		-- On windows you may have to uncomment this:
+		-- detached = false,
+	},
 }
 
 dap.configurations.cpp = {
 	{
 		name = "Launch file",
-		type = "cppdbg",
+		type = "codelldb",
 		request = "launch",
-		MIMode = "lldb",
-		miDebuggerPath = cpptools + "/lldb-mi/bin/lldb-mi",
+		-- MIMode = "lldb",
+		-- miDebuggerPath = cpptools .. "/lldb-mi/bin/lldb-mi",
 		cwd = "${workspaceFolder}",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
