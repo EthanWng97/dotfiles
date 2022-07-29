@@ -35,7 +35,7 @@ done
 echo "------------------------------------"
 echo "- Installing TPM packages          -"
 echo "------------------------------------"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 ~/.tmux/plugins/tpm/bin/install_plugins
 
