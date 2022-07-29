@@ -75,10 +75,10 @@ dap.adapters.codelldb = {
 dap.configurations.cpp = {
 	{
 		name = "Launch file",
-		type = "codelldb",
+        type = "cppdbg",
 		request = "launch",
-		-- MIMode = "lldb",
-		-- miDebuggerPath = cpptools .. "/lldb-mi/bin/lldb-mi",
+		MIMode = "lldb",
+		miDebuggerPath = cpptools .. "/lldb-mi/bin/lldb-mi",
 		cwd = "${workspaceFolder}",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
