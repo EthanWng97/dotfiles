@@ -44,6 +44,9 @@ function rga-fzf
 end
 
 bind ` accept-autosuggestion
+bind -M insert ` accept-autosuggestion
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
 # fzf_configure_bindings --dir=\cf
 fzf_configure_bindings --git_status=\cg --git_log=\cl --history=\cr --variables=\cv --directory=\cf --processes=\cp
 set fzf_preview_dir_cmd exa --all --color=always --icons
