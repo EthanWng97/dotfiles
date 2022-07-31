@@ -39,21 +39,18 @@ require("lualine").setup({
 		lualine_z = {},
 	},
 	winbar = {
-		lualine_a = { { "buffers", symbols = {
-			alternate_file = "",
-		} } },
+		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { { navic.get_location, cond = navic.is_available } },
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
 
 	inactive_winbar = {
-		lualine_a = { { "buffers", symbols = {
-			alternate_file = "",
-		} } },
-		lualine_c = { { navic.get_location, cond = navic.is_available } },
+		lualine_a = { "filename" },
+		lualine_b = {},
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
