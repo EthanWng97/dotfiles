@@ -77,3 +77,4 @@ go/pkg
 .config/thefuck
 .config/tmux/plugins
 .config/tmux/resurrect
+.wakatime*
