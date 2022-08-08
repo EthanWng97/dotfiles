@@ -19,9 +19,9 @@ alias tl 'tmux list-sessions'
 alias bat="bat --theme \"Visual Studio Dark+\""
 alias nv nvim
 alias lg lazygit
-alias update '~/shell-scripts/./update.sh'
-alias backup '~/shell-scripts/./backup.sh'
-alias install '~/shell-scripts/./install.sh'
+alias update '~/scripts/./update.sh'
+alias backup '~/scripts/./backup.sh'
+alias install '~/scripts/./install.sh'
 
 abbr ta "tmux attach -t"
 
