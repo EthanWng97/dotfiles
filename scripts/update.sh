@@ -2,7 +2,7 @@
 echo "--------------------------------"
 echo "- Updaing Brew Packages        -"
 echo "--------------------------------"
-brew update && brew upgrade && brew cu -a -y --cleanup && brew cleanup
+brew update && brew upgrade && brew cu -a -y --cleanup && brew cleanup && brew autoremove
 
 # update npm packages
 echo "--------------------------------"
