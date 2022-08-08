@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to Evan's dotfiles 👋</h1>
 💻 neovim, fish, tmux, git, homebrew, neovim - my whole world
-
-![Image](https://user-images.githubusercontent.com/39482599/168496790-cd12b404-9c22-4d21-9b34-a04da5b380b6.png)
-
+<div align="center">
+<img width="720" alt="IMG_1059" src="https://user-images.githubusercontent.com/39482599/183322188-085e4efb-f172-45b7-8456-2c3e8d8e1087.png">
+</div>
 ## Initial Setup and Installation
 
 > all shell commands are based on **GLOBAL INSTALLED PACKAGES**
