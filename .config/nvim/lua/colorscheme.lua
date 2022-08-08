@@ -7,53 +7,47 @@ vim.cmd([[
 ]])
 
 local status_ok, vscode = pcall(require, "vscode")
-if not status_ok then
-	return
+if status_ok then
+	vscode.setup({
+		italic_comments = true,
+	})
 end
-
-vscode.setup({
-	italic_comments = true,
-})
 
 local status_ok, catppuccin = pcall(require, "catppuccin")
-if not status_ok then
-	return
-end
-
-catppuccin.setup({
-	transparent_background = false,
-	compile = {
-		enabled = true,
-		path = vim.fn.stdpath("cache") .. "/catppuccin",
-		suffix = "_compiled",
-	},
-	integrations = {
-		indent_blankline = {
+if status_ok then
+	catppuccin.setup({
+		transparent_background = false,
+		compile = {
 			enabled = true,
-			colored_indent_levels = true,
+			path = vim.fn.stdpath("cache") .. "/catppuccin",
+			suffix = "_compiled",
 		},
-		native_lsp = {
-			underlines = {
-				errors = { "undercurl" },
-				hints = { "undercurl" },
-				warnings = { "undercurl" },
-				information = { "undercurl" },
+		integrations = {
+			indent_blankline = {
+				enabled = true,
+				colored_indent_levels = true,
+			},
+			native_lsp = {
+				underlines = {
+					errors = { "undercurl" },
+					hints = { "undercurl" },
+					warnings = { "undercurl" },
+					information = { "undercurl" },
+				},
 			},
 		},
-	},
-})
+	})
+end
 
 vim.g.catppuccin_flavour = "mocha"
 
 local status_ok, github = pcall(require, "github-theme")
-if not status_ok then
-	return
+if status_ok then
+	github.setup({
+		theme_style = "dark",
+		function_style = "italic",
+	})
 end
-
-github.setup({
-	theme_style = "dark",
-	function_style = "italic",
-})
 
 local colorscheme = "catppuccin"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)

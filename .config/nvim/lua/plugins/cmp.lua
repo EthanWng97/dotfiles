@@ -83,7 +83,6 @@ cmp.setup({
 		{ name = "copilot" },
 		{ name = "path" },
 		{ name = "buffer" },
-		{ name = "nvim_lua" },
 	},
 	window = {
 		documentation = {

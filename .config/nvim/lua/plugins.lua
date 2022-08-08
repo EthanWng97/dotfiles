@@ -31,7 +31,7 @@ end
 
 -- Have packer use a popup window
 packer.init({
-    auto_reload_compiled = true,
+	auto_reload_compiled = true,
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
@@ -44,10 +44,10 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 
 	-- nvimlsp plugins
-    use { "williamboman/mason.nvim" }
-    use { "williamboman/mason-lspconfig.nvim" }
-	use("neovim/nvim-lspconfig") -- Collection of configurations for the built-in LSP client
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	use("neovim/nvim-lspconfig")
+	-- use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("jose-elias-alvarez/null-ls.nvim")
 	use({
@@ -60,7 +60,6 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-nvim-lua")
 	use("onsails/lspkind-nvim")
 	use("saadparwaiz1/cmp_luasnip")
 	use("L3MON4D3/LuaSnip")
@@ -71,7 +70,7 @@ return packer.startup(function(use)
 		event = { "VimEnter" },
 		config = function()
 			vim.defer_fn(function()
-				require('plugins.copilot')
+				require("plugins.copilot")
 			end, 100)
 		end,
 	})
@@ -83,7 +82,7 @@ return packer.startup(function(use)
 	-- treesitter plugins
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-refactor")
-	use("windwp/nvim-ts-autotag")
+	use("nvim-treesitter/nvim-treesitter-context")
 	use({
 		"danymat/neogen",
 		config = function()
@@ -93,11 +92,7 @@ return packer.startup(function(use)
 	})
 
 	-- telescope plugins
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
-	use("nvim-telescope/telescope-vimspector.nvim")
+	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("tami5/sqlite.lua")
 	use("nvim-telescope/telescope-frecency.nvim")
@@ -107,7 +102,7 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 
 	-- debug plugins
-	use "puremourning/vimspector"
+	use("puremourning/vimspector")
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
 
@@ -115,25 +110,20 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-notify")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("kyazdani42/nvim-web-devicons")
-	-- use("norcalli/nvim-colorizer.lua")
-    use("NvChad/nvim-colorizer.lua")
+	use("NvChad/nvim-colorizer.lua")
 	use("Mofiqul/vscode.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
-        run = "CatppuccinCompile",
+		run = "CatppuccinCompile",
 	})
-    use("projekt0n/github-nvim-theme")
-	use("goolord/alpha-nvim")
-	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 
 	-- Utilities
 	use("windwp/nvim-autopairs")
 	use("lewis6991/gitsigns.nvim")
 	use("kyazdani42/nvim-tree.lua")
 	use("numToStr/Comment.nvim")
-	use("luukvbaal/stabilize.nvim")
-	-- use "ggandor/lightspeed.nvim"
+	-- use("luukvbaal/stabilize.nvim")
 	use({
 		"ggandor/leap.nvim",
 		config = function()
@@ -141,9 +131,11 @@ return packer.startup(function(use)
 		end,
 	})
 	use("Shatur/neovim-session-manager")
+	use("rmagatti/auto-session")
+	use("rmagatti/session-lens")
 	use("ahmedkhalf/project.nvim")
 	use("aserowy/tmux.nvim")
-    use("wakatime/vim-wakatime")
+	use("wakatime/vim-wakatime")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
