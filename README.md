@@ -7,30 +7,30 @@
 
 > all shell commands are based on **GLOBAL INSTALLED PACKAGES**
 
-### Backup
+### backup
 
 ```bash
-shell-scripts/backup.sh
+scripts/backup.sh
 ```
 
-### Installation
+### install
 
 ```bash
-shell-scripts/install.sh
+scripts/install.sh
 ```
 
-### Update
+### update
 
 ```bash
-shell-scripts/update.sh
+scripts/update.sh
 ```
 
 ## Local Settings
 
-### Fish Setup
+### Shell Setup
 
 Check out [config.fish](.config/fish/config.fish) with awesome aliaes and functions.
-Currently, I use [starship](https://starship.rs) as my shell prompt, here is my [config](.config/starship/config.toml).
+Currently, I use [starship](https://starship.rs) as my shell prompt, here is my [config.toml](.config/starship/config.toml).
 
 ### Neovim Setup
 
@@ -41,7 +41,7 @@ Currently, I use [starship](https://starship.rs) as my shell prompt, here is my 
 
 ### Tmux Setup
 
-Tmux is configured in [~/.tmux.conf](.tmux.conf).
+Tmux is configured in [tmux.conf](.config/tmux/tmux.conf).
 
 ### Color scheme
 
