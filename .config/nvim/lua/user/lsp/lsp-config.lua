@@ -29,8 +29,8 @@ if not lspconfig_status_ok then
 	return
 end
 
-local on_attach = require("plugins.lsp.lsp-handlers").on_attach
-local capabilities = require("plugins.lsp.lsp-handlers").capabilities
+local on_attach = require("user.lsp.lsp-handlers").on_attach
+local capabilities = require("user.lsp.lsp-handlers").capabilities
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches

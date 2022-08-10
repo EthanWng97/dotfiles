@@ -47,13 +47,10 @@ return packer.startup(function(use)
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
-	-- use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("jose-elias-alvarez/null-ls.nvim")
-	use({
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
-	})
+	use("SmiteshP/nvim-navic")
+
 	--  autocomplete plugins
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
@@ -70,7 +67,7 @@ return packer.startup(function(use)
 		event = { "VimEnter" },
 		config = function()
 			vim.defer_fn(function()
-				require("plugins.copilot")
+				require("user.copilot")
 			end, 100)
 		end,
 	})
@@ -83,13 +80,7 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-refactor")
 	use("nvim-treesitter/nvim-treesitter-context")
-	use({
-		"danymat/neogen",
-		config = function()
-			require("neogen").setup({ snippet_engine = "luasnip" })
-		end,
-		requires = "nvim-treesitter/nvim-treesitter",
-	})
+	use("danymat/neogen")
 
 	-- telescope plugins
 	use("nvim-telescope/telescope.nvim")
@@ -123,19 +114,12 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("kyazdani42/nvim-tree.lua")
 	use("numToStr/Comment.nvim")
-	-- use("luukvbaal/stabilize.nvim")
-	use({
-		"ggandor/leap.nvim",
-		config = function()
-			require("leap").set_default_keymaps()
-		end,
-	})
-	use("Shatur/neovim-session-manager")
 	use("rmagatti/auto-session")
 	use("rmagatti/session-lens")
 	use("ahmedkhalf/project.nvim")
 	use("aserowy/tmux.nvim")
 	use("wakatime/vim-wakatime")
+	use({ "phaazon/hop.nvim", branch = "v2" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
