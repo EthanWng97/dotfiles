@@ -1,6 +1,5 @@
 vim.cmd([[
     """""" UI """"""
-    set termguicolors
     autocmd colorscheme * highlight GitSignsAdd gui=none guifg=#A1C281 guibg=None
     autocmd colorscheme * highlight GitSignsChange gui=none guifg=#74ADEA guibg=None
     autocmd colorscheme * highlight GitSignsDelete gui=none guifg=#FE747A guibg=None
