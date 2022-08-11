@@ -18,6 +18,11 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 -- nvim-cmp setup
 local lspkind = require("lspkind")
+lspkind.init({
+	symbol_map = {
+		Copilot = "",
+	},
+})
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -27,21 +32,6 @@ cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({
 			mode = "symbol_text",
-			-- menu = {
-			-- 	buffer = "[BUFFER]",
-			-- 	nvim_lsp = "[LSP]",
-			-- 	luasnip = "[LUASNIP]",
-			-- cmp_tabnine = "[TN]",
-			-- 	copilot = "[COPILOT]",
-			-- 	path = "[PATH]",
-			-- },
-			before = function(entry, vim_item)
-				if entry.source.name == "copilot" then
-					vim_item.kind = " Copilot"
-					vim_item.kind_hl_group = "CmpItemKindCopilot"
-				end
-				return vim_item
-			end,
 		}),
 	},
 	mapping = cmp.mapping.preset.insert({
