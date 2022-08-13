@@ -17,6 +17,7 @@ vim.opt.autoindent = true
 vim.opt.fillchars:append({ eob = " " })
 vim.opt.signcolumn = "yes"
 vim.opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,resize,winpos,terminal,globals"
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.expandtab = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
@@ -26,7 +27,7 @@ vim.opt.number = true
 vim.opt.jumpoptions = "view"
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
--- vim.opt.cmdheight = 0
+vim.opt.cmdheight = 0
 
 vim.cmd([[
     " general

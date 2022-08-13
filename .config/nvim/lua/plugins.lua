@@ -118,7 +118,6 @@ return packer.startup(function(use)
 	use("rmagatti/session-lens")
 	use("ahmedkhalf/project.nvim")
 	use("aserowy/tmux.nvim")
-	use("wakatime/vim-wakatime")
 	use({ "phaazon/hop.nvim", branch = "v2" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
