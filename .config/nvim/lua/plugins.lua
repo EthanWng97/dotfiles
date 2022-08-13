@@ -85,8 +85,6 @@ return packer.startup(function(use)
 	-- telescope plugins
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("tami5/sqlite.lua")
-	use("nvim-telescope/telescope-frecency.nvim")
 	use("nvim-telescope/telescope-ui-select.nvim")
 
 	-- statusline plugins
