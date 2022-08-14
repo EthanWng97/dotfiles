@@ -18,8 +18,8 @@ keymap("n", "<space>", ":", opts)
 --   command_mode = "c",
 
 -- Navigate buffers
-keymap("n", "<M-l>", ":bnext<CR>", opts)
-keymap("n", "<M-h>", ":bprevious<CR>", opts)
+keymap("n", "<C-M-l>", ":bnext<CR>", opts)
+keymap("n", "<C-M-h>", ":bprevious<CR>", opts)
 keymap("n", "<M-1>", ":LualineBuffersJump! 1<CR>", opts)
 keymap("n", "<M-2>", ":LualineBuffersJump! 2<CR>", opts)
 keymap("n", "<M-3>", ":LualineBuffersJump! 3<CR>", opts)
@@ -30,14 +30,14 @@ keymap("n", "<M-7>", ":LualineBuffersJump! 7<CR>", opts)
 keymap("n", "<M-8>", ":LualineBuffersJump! 8<CR>", opts)
 keymap("n", "<M-9>", ":LualineBuffersJump! $<CR>", opts)
 
-keymap("n", "<M-e>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<C-e>", ":Telescope file_browser<CR>", opts)
 keymap("n", "<C-a>", "ggVG<CR>", opts)
 
 keymap("n", "<C-M-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>", opts)
 keymap(
 	"n",
-	"<M-p>",
+	"<C-M-p>",
 	"<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",
 	opts
 )
@@ -52,9 +52,12 @@ keymap("i", "<C-s>", "<esc>:w<cr>", opts)
 keymap("n", "<esc>", ":noh<cr>", opts)
 
 -- comment
-keymap("n", "<M-/>", ":lua require('Comment.api').toggle_current_linewise()<cr>", opts)
-keymap("v", "<M-/>", ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<cr>", opts)
-keymap("i", "<M-/>", "<Esc>:lua require('Comment.api').toggle_current_linewise()<cr>", opts)
+keymap("n", "<C-/>", ":lua require('Comment.api').toggle.linewise()<cr>", opts)
+keymap("n", "<C-_>", ":lua require('Comment.api').toggle.linewise()<cr>", opts)
+keymap("v", "<C-/>", ":lua require('Comment.api').toggle.linewise()<cr>", opts)
+keymap("v", "<C-_>", ":lua require('Comment.api').toggle.linewise()<cr>", opts)
+keymap("i", "<C-/>", "<Esc>:lua require('Comment.api').toggle.linewise()<cr>", opts)
+keymap("i", "<C-_>", "<Esc>:lua require('Comment.api').toggle.linewise()<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
