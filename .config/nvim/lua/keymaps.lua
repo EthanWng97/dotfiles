@@ -51,14 +51,6 @@ keymap("n", "<C-s>", ":w<cr>", opts)
 keymap("i", "<C-s>", "<esc>:w<cr>", opts)
 keymap("n", "<esc>", ":noh<cr>", opts)
 
--- comment
-keymap("n", "<C-/>", ":lua require('Comment.api').toggle.linewise()<cr>", opts)
-keymap("n", "<C-_>", ":lua require('Comment.api').toggle.linewise()<cr>", opts)
-keymap("v", "<C-/>", ":lua require('Comment.api').toggle.linewise()<cr>", opts)
-keymap("v", "<C-_>", ":lua require('Comment.api').toggle.linewise()<cr>", opts)
-keymap("i", "<C-/>", "<Esc>:lua require('Comment.api').toggle.linewise()<cr>", opts)
-keymap("i", "<C-_>", "<Esc>:lua require('Comment.api').toggle.linewise()<cr>", opts)
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
