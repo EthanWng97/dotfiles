@@ -50,6 +50,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("SmiteshP/nvim-navic")
+    use("lvimuser/lsp-inlayhints.nvim")
 
 	--  autocomplete plugins
 	use("hrsh7th/nvim-cmp")

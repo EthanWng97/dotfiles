@@ -6,3 +6,4 @@ end
 require("user.lsp.lsp-handlers").setup()
 require("user.lsp.lsp-config")
 require("user.lsp.null-ls")
+require("user.lsp.lsp-inlayhints")
