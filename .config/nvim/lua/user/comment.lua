@@ -12,3 +12,10 @@ require("Comment").setup({
 		block = "<C-M-_>",
 	},
 })
+
+local api = require("Comment.api")
+
+vim.keymap.set("n", "<C-/>", "<Plug>(comment_toggle_linewise_current)")
+vim.keymap.set("x", "<C-/>", "<Plug>(comment_toggle_linewise_visual)")
+vim.keymap.set("n", "<C-M-/>", "<Plug>(comment_toggle_blockwise_current)")
+vim.keymap.set("x", "<C-M-/>", "<Plug>(comment_toggle_blockwise_visual)")
