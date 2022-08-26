@@ -1,6 +1,6 @@
--- require('user.vimspector')
+require('user.vimspector')
 require("user.neogen")
-require('user.dap')
+-- require('user.dap')
 require('user.treesitter')
 require('user.indent-blankline')
 require('user.gitsigns')

@@ -94,8 +94,8 @@ return packer.startup(function(use)
 
 	-- debug plugins
 	use("puremourning/vimspector")
-	use("mfussenegger/nvim-dap")
-	use("rcarriga/nvim-dap-ui")
+	-- use("mfussenegger/nvim-dap")
+	-- use("rcarriga/nvim-dap-ui")
 
 	-- UI
 	use("rcarriga/nvim-notify")

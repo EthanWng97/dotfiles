@@ -48,9 +48,12 @@ dapui.setup({
 	},
 	windows = { indent = 1 },
 })
-
+--[[
 local cpptools = "/Users/navepnow/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters"
 local codelldb = "/Users/navepnow/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb"
+]]
+local cpptools = "/Users/navepnow/.config/nvim/vimspector-config/gadgets/macos/vscode-cpptools/debugAdapters"
+local codelldb = "/Users/navepnow/.config/nvim/vimspector-config/gadgets/macos/CodeLLDB/adapter/codelldb"
 
 dap.adapters.cppdbg = {
 	id = "cppdbg",
@@ -75,7 +78,7 @@ dap.adapters.codelldb = {
 dap.configurations.cpp = {
 	{
 		name = "Launch file",
-        type = "cppdbg",
+		type = "cppdbg",
 		request = "launch",
 		MIMode = "lldb",
 		miDebuggerPath = cpptools .. "/lldb-mi/bin/lldb-mi",
