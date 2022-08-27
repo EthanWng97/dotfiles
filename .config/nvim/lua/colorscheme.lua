@@ -19,7 +19,6 @@ if status_ok then
 		compile = {
 			enabled = true,
 			path = vim.fn.stdpath("cache") .. "/catppuccin",
-			suffix = "_compiled",
 		},
 		integrations = {
 			indent_blankline = {
@@ -33,6 +32,15 @@ if status_ok then
 					warnings = { "undercurl" },
 					information = { "undercurl" },
 				},
+			},
+			dap = {
+				enabled = true,
+				enable_ui = true,
+			},
+			hop = true,
+			navic = {
+				enabled = true,
+				custom_bg = "NONE",
 			},
 		},
 	})
