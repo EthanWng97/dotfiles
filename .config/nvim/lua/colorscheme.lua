@@ -21,10 +21,7 @@ if status_ok then
 			path = vim.fn.stdpath("cache") .. "/catppuccin",
 		},
 		integrations = {
-			indent_blankline = {
-				enabled = true,
-				colored_indent_levels = true,
-			},
+			treesitter = true,
 			native_lsp = {
 				underlines = {
 					errors = { "undercurl" },
@@ -33,15 +30,25 @@ if status_ok then
 					information = { "undercurl" },
 				},
 			},
+			cmp = true,
+			gitsigns = true,
+			telescope = true,
+			nvimtree = true,
 			dap = {
 				enabled = true,
 				enable_ui = true,
 			},
 			hop = true,
+			notify = true,
 			navic = {
 				enabled = true,
 				custom_bg = "NONE",
 			},
+			indent_blankline = {
+				enabled = true,
+				colored_indent_levels = true,
+			},
+			treesitter_context = true,
 		},
 	})
 end
