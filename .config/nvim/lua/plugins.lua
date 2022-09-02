@@ -102,7 +102,6 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("NvChad/nvim-colorizer.lua")
-	use("Mofiqul/vscode.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",

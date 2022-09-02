@@ -5,13 +5,6 @@ vim.cmd([[
     autocmd colorscheme * highlight GitSignsDelete gui=none guifg=#FE747A guibg=None
 ]])
 
-local status_ok, vscode = pcall(require, "vscode")
-if status_ok then
-	vscode.setup({
-		italic_comments = true,
-	})
-end
-
 local status_ok, catppuccin = pcall(require, "catppuccin")
 if status_ok then
 	catppuccin.setup({
@@ -54,14 +47,6 @@ if status_ok then
 end
 
 vim.g.catppuccin_flavour = "mocha"
-
-local status_ok, github = pcall(require, "github-theme")
-if status_ok then
-	github.setup({
-		theme_style = "dark",
-		function_style = "italic",
-	})
-end
 
 local colorscheme = "catppuccin"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
