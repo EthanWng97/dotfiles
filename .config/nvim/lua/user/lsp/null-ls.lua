@@ -16,6 +16,7 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.clang_format,
 		formatting.taplo,
+		formatting.black,
 		diagnostics.codespell,
 		code_actions.gitsigns,
 		-- diagnostics.cspell.with({
