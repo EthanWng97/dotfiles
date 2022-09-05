@@ -75,7 +75,3 @@ vim.cmd([[
 vim.cmd([[
     command! -nargs=0 UpdateAll :exe "TSUpdate" | exe "PackerSync"
 ]])
-
-vim.cmd([[
-    command! Format execute 'lua vim.lsp.buf.format({async = false})'
-]])
