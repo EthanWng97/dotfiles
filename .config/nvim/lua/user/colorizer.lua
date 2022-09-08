@@ -12,6 +12,7 @@ require("colorizer").setup({
 		css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
 		-- Available modes for `mode`: foreground, background,  virtualtext
 		mode = "background", -- Set the display mode.
+		tailwind = true,
 		virtualtext = "■",
 	},
 })
