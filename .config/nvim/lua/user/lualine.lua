@@ -25,7 +25,11 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { "branch" },
 		lualine_b = { { "diff", source = diff_source }, "diagnostics" },
-		lualine_c = {},
+		lualine_c = {
+			function()
+				return require("lsp-status").status()
+			end,
+		},
 		lualine_x = { "encoding", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { location },

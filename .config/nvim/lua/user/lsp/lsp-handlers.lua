@@ -7,6 +7,18 @@ if not status_ok then
 	return
 end
 
+local status_ok, lsp_status = pcall(require, "lsp-status")
+if not status_ok then
+	return
+end
+
+lsp_status.register_progress()
+
+lsp_status.config({
+	current_function = false,
+	diagnostics = false,
+})
+
 M.setup = function()
 	vim.diagnostic.config({
 		virtual_text = false,
@@ -87,6 +99,7 @@ M.on_attach = function(client, bufnr)
 		end,
 	})
 	navic.attach(client, bufnr)
+	lsp_status.on_attach(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -98,5 +111,6 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = vim.tbl_extend("keep", M.capabilities or {}, lsp_status.capabilities)
 
 return M

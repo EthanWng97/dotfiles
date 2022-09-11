@@ -76,7 +76,7 @@ end
 local function format_message(message, percentage)
 	return (percentage and percentage .. "%\t" or "") .. (message or "")
 end
-
+--[[
 vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 	local client_id = ctx.client_id
 
@@ -119,9 +119,9 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 
 		notif_data.spinner = nil
 	end
-end
+end ]]
 -- table from lsp severity to vim severity.
-local severity = {
+--[[ local severity = {
 	"error",
 	"warn",
 	"info",
@@ -129,4 +129,4 @@ local severity = {
 }
 vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
 	vim.notify(method.message, severity[params.type])
-end
+end ]]
