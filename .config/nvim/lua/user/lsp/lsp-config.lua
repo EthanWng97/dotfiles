@@ -18,6 +18,7 @@ local servers = {
 	"html",
 	"graphql",
 	"tailwindcss",
+	"jdtls",
 }
 
 mason_lspconfig.setup({
