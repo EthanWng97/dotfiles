@@ -28,14 +28,9 @@ vim.opt.jumpoptions = "view"
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.cmdheight = 0
-
-vim.cmd([[
-    " general
-    " set spelllang=en_us
-    " set spelllang+=cjk
-    " set spell
-    syntax on
-]])
+-- vim.opt.syntax = "on"
+-- vim.opt.spell = true
+-- vim.opt.spelloptions = "camel,noplainbuffer"
 
 vim.cmd([[
 """""" netrw """"""
@@ -53,23 +48,6 @@ vim.cmd([[
     set wildmenu
     set wildmode=longest:full,full
     set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*DS_STORE,*.db
-]])
-
-vim.cmd([[
-    """""" folding """"""
-    set foldmethod=indent       " fold based on indent
-    set foldnestmax=10          " deepest fold is 20 levels
-    set nofoldenable            " don't fold by default
-    set foldlevel=2
-]])
-vim.cmd([[ 
-    """""" tab and indentation """"""
-    " relative line numbers
-    " augroup numbertoggle
-    "   autocmd!
-    "   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-    "   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
-    " augroup END
 ]])
 
 vim.cmd([[
