@@ -46,8 +46,8 @@ require("lualine").setup({
 		lualine_a = { { "buffers", symbols = {
 			alternate_file = "",
 		} } },
-		lualine_b = { { navic.get_location, cond = navic.is_available } },
-		lualine_c = {},
+		lualine_b = {},
+		lualine_c = { { navic.get_location, cond = navic.is_available } },
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
@@ -55,8 +55,8 @@ require("lualine").setup({
 
 	inactive_winbar = {
 		lualine_a = { "filename" },
-		lualine_b = { { navic.get_location, cond = navic.is_available } },
-		lualine_c = {},
+		lualine_b = {},
+		lualine_c = { { navic.get_location, cond = navic.is_available } },
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
