@@ -65,7 +65,10 @@ keymap("n", "<Tab>", ":bnext<cr>", opts)
 keymap("n", "<leader>ww", ":set wrap!<CR>", opts)
 
 keymap("n", "<C-M-a>", ":lua require('neogen').generate()<CR>", opts)
-keymap("n", "<C-M-f>", ":lua vim.lsp.buf.format({async = false})<CR>", opts)
+keymap("n", "<C-M-f>", ':exe "lua vim.lsp.buf.format({async = false})" | exe "w" <CR>', opts)
 
 keymap("n", "<C-w>", ":bd<cr>", opts)
 keymap("i", "<C-w>", "<esc>:bd<cr>", opts)
+
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
