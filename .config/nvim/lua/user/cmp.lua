@@ -83,12 +83,15 @@ cmp.setup({
 	},
 	experimental = { ghost_text = true },
 })
-cmp.setup.cmdline("/", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = "buffer" },
-	},
-})
+
+for _, v in pairs({ "/", "?" }) do
+	cmp.setup.cmdline(v, {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = {
+			{ name = "buffer" },
+		},
+	})
+end
 
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
