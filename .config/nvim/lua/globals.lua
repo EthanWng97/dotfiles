@@ -1,9 +1,3 @@
--- :help options
--- vim.opt.backup = false
--- vim.opt.autoread = true -- reload files if changed externally
--- vim.opt.showcmd = true -- show the command in the status bar
--- vim.opt.hlsearch = true
-
 vim.opt.clipboard = "unnamedplus"
 vim.opt.undofile = true
 vim.opt.pumheight = 10 -- pop up menu height
@@ -27,7 +21,7 @@ vim.opt.number = true
 vim.opt.jumpoptions = "view"
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
--- vim.opt.cmdheight = 0
+vim.opt.cmdheight = 0
 -- vim.opt.syntax = "on"
 -- vim.opt.spell = true
 -- vim.opt.spelloptions = "camel,noplainbuffer"

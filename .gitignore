@@ -80,3 +80,4 @@ go/pkg
 .wakatime*
 
 .config/spotify-player
+.m2/repository
