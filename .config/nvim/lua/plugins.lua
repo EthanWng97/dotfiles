@@ -101,6 +101,7 @@ return packer.startup(function(use)
 
 	-- UI
 	use("rcarriga/nvim-notify")
+	use("MunifTanjim/nui.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("NvChad/nvim-colorizer.lua")
@@ -109,6 +110,7 @@ return packer.startup(function(use)
 		as = "catppuccin",
 		run = "CatppuccinCompile",
 	})
+	use("folke/tokyonight.nvim")
 
 	-- Utilities
 	use("windwp/nvim-autopairs")
@@ -119,6 +121,13 @@ return packer.startup(function(use)
 	use("ahmedkhalf/project.nvim")
 	use("aserowy/tmux.nvim")
 	use({ "phaazon/hop.nvim", branch = "v2" })
+	use({
+		"folke/noice.nvim",
+		event = "VimEnter",
+		config = function()
+			require("noice").setup()
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
