@@ -25,22 +25,8 @@ alias install '~/scripts/./install.sh'
 
 abbr ta "tmux attach -t"
 
-function rga-fzf
-    set -x RG_PREFIX rga --files-with-matches
-    set -l file
-    set file (
-        FZF_DEFAULT_COMMAND="$RG_PREFIX '$argv'" \
-            fzf --sort --preview="[ ! -z {} ] && rga --pretty --context 5 {q} {}" \
-                --phony -q "$argv" \
-                --bind "change:reload:$RG_PREFIX {q}" \
-                --preview-window="70%:wrap"
-    ) &&
-        open "$file"
-end
-
 # command setting
 zoxide init fish | source
-thefuck --alias | source
 starship init fish --print-full-init | source
 
 set fish_cursor_insert line
