@@ -18,12 +18,9 @@ null_ls.setup({
 		formatting.clang_format,
 		formatting.taplo,
 		formatting.black,
-        formatting.fish_indent,
+		formatting.fish_indent,
 		diagnostics.codespell,
-        diagnostics.fish,
+		diagnostics.fish,
 		code_actions.gitsigns,
-		-- diagnostics.cspell.with({
-		--           disabled_filetypes = {"NvimTree"}
-		--       }),
 	},
 })

@@ -115,7 +115,7 @@ return packer.startup(function(use)
 	-- Utilities
 	use("windwp/nvim-autopairs")
 	use("lewis6991/gitsigns.nvim")
-	use("kyazdani42/nvim-tree.lua")
+	-- use("kyazdani42/nvim-tree.lua")
 	use("numToStr/Comment.nvim")
 	use("rmagatti/auto-session")
 	use("ahmedkhalf/project.nvim")
@@ -125,7 +125,11 @@ return packer.startup(function(use)
 		"folke/noice.nvim",
 		event = "VimEnter",
 		config = function()
-			require("noice").setup()
+			require("noice").setup({
+                notify = {
+                    enabled = true,
+                }
+            })
 		end,
 	})
 

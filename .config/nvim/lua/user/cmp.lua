@@ -22,6 +22,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 -- nvim-cmp setup
 local lspkind = require("lspkind")
 lspkind.init({
+	mode = "symbol_text",
 	preset = "codicons",
 	symbol_map = {
 		Copilot = "",
@@ -34,9 +35,7 @@ cmp.setup({
 		end,
 	},
 	formatting = {
-		format = lspkind.cmp_format({
-			mode = "symbol_text",
-		}),
+		format = lspkind.cmp_format(),
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
