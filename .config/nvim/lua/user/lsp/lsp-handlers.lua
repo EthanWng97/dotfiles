@@ -110,7 +110,7 @@ if not status_ok then
 	return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities()
 M.capabilities = vim.tbl_extend("keep", M.capabilities or {}, lsp_status.capabilities)
 
 return M
