@@ -14,7 +14,7 @@ npm update --location=global
 echo "--------------------------------"
 echo "- Updating Pip Packages         -"
 echo "--------------------------------"
-pip3 install -U $(pip3 freeze | awk -F'[=]' '{print $1}')
+pip3 list -o | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print)' | cut -d' ' -f1 | xargs -n1 pip3 install -U
 
 # update Rust packages
 echo "--------------------------------"
