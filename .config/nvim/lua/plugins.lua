@@ -50,7 +50,6 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("SmiteshP/nvim-navic")
-	use("nvim-lua/lsp-status.nvim")
 
 	--  autocomplete plugins
 	use("hrsh7th/nvim-cmp")
@@ -124,11 +123,7 @@ return packer.startup(function(use)
 		"folke/noice.nvim",
 		event = "VimEnter",
 		config = function()
-			require("noice").setup({
-                notify = {
-                    enabled = true,
-                }
-            })
+			require("noice").setup({})
 		end,
 	})
 
