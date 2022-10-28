@@ -8,6 +8,7 @@ vim.cmd([[
 local status_ok, catppuccin = pcall(require, "catppuccin")
 if status_ok then
 	catppuccin.setup({
+		flavour = "mocha",
 		transparent_background = false,
 		compile = {
 			enabled = true,
@@ -46,12 +47,9 @@ if status_ok then
 	})
 end
 
-vim.g.catppuccin_flavour = "mocha"
-
 local status_ok, tokyonight = pcall(require, "tokyonight")
 tokyonight.setup({
-    style = "night",
-
+	style = "night",
 })
 
 local colorscheme = "tokyonight"
