@@ -103,11 +103,11 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("NvChad/nvim-colorizer.lua")
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-		run = "CatppuccinCompile",
-	})
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	as = "catppuccin",
+	-- 	run = "CatppuccinCompile",
+	-- })
 	use("folke/tokyonight.nvim")
 
 	-- Utilities
@@ -123,7 +123,7 @@ return packer.startup(function(use)
 		"folke/noice.nvim",
 		event = "VimEnter",
 		config = function()
-			require("noice").setup({})
+			require("user.noice")
 		end,
 	})
 
