@@ -109,6 +109,7 @@ return packer.startup(function(use)
 	-- 	run = "CatppuccinCompile",
 	-- })
 	use("folke/tokyonight.nvim")
+	use("lunarvim/darkplus.nvim")
 
 	-- Utilities
 	use("windwp/nvim-autopairs")
