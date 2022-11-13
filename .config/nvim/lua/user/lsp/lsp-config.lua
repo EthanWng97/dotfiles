@@ -42,6 +42,15 @@ for _, lsp in pairs(servers) do
 	})
 end
 
+lspconfig["pyright"].setup({
+	settings = {
+		python = {
+			analysis = {
+				typeCheckingMode = "off",
+			},
+		},
+	},
+})
 local capabilities_cpp = capabilities
 capabilities_cpp.offsetEncoding = { "uts-16" }
 lspconfig["clangd"].setup({

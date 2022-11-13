@@ -38,7 +38,6 @@ set -gx EDITOR nvim
 # set -Ux FZF_DEFAULT_OPTS --cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
 set fish_prompt_pwd_dir_length 0
 set BAT_THEME Dracula
-# set -x LS_COLORS (vivid generate dracula)
 set -x STARSHIP_CONFIG "$HOME/.config/starship/config.toml"
 set -x LG_CONFIG_FILE "/Users/navepnow/.config/lazygit/config.yml"
 set fish_greeting

@@ -36,10 +36,10 @@ brew "mas"
 brew "neovim", args: ["HEAD"]
 # Platform built on V8 to build network applications
 brew "node"
+# Development kit for the Java programming language
+brew "openjdk"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Wrapper around ripgrep that adds multiple rich file types
-brew "ripgrep-all"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
 # Safe, concurrent, practical language
@@ -48,8 +48,6 @@ brew "rust"
 brew "starship"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
-# Programmatically correct mistyped console commands
-brew "thefuck"
 # Terminal multiplexer
 brew "tmux"
 # Command-line interface for Vercel
@@ -74,6 +72,7 @@ cask "downie"
 cask "folx"
 # Typeface made for developers
 cask "font-jetbrains-mono"
+# Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Web browser
 cask "google-chrome"
@@ -103,8 +102,8 @@ cask "telegram"
 cask "transmit"
 # Open-source code editor
 cask "visual-studio-code"
-# Free messaging and calling application
-cask "wechat"
+# Video communication and virtual meeting platform
+cask "webex"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Craft", id: 1487937127
@@ -119,4 +118,5 @@ mas "Peek", id: 1554235898
 mas "Pixelmator Pro", id: 1289583905
 mas "Reeder", id: 1529448980
 mas "Tampermonkey", id: 1482490089
-mas "Things", id: 904280696
+mas "WeChat", id: 836500024
+mas "Xcode", id: 497799835
