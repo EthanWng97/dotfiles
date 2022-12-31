@@ -8,7 +8,7 @@ return {
 
 	-- UI
 	{ "MunifTanjim/nui.nvim" },
-	{ "kyazdani42/nvim-web-devicons" },
+	{ "nvim-tree/nvim-web-devicons", config = { default = true } },
 	{ "folke/tokyonight.nvim" },
 	{ "lunarvim/darkplus.nvim", lazy = false },
 
