@@ -82,3 +82,4 @@ go/pkg
 .config/spotify-player
 .m2/repository
 .config/nvim/sessions
+.config/nvim/lazy-lock.json
