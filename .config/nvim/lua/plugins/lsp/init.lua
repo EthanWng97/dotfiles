@@ -5,37 +5,17 @@ local M = {
         "hrsh7th/cmp-nvim-lsp",
         "williamboman/mason-lspconfig.nvim",
     },
-    config = function()
-        require("config.lsp")
-    end,
 }
 
 function M.config()
+    local utils = require("utils")
     local mason_lspconfig = require("mason-lspconfig")
     local lspconfig = require("lspconfig")
     local lsp_utils = require("plugins.lsp.lsp-utils")
     lsp_utils.setup()
 
-    -- Completion kinds
-    local servers = {
-        "clangd",
-        "tsserver",
-        "pyright",
-        "sumneko_lua",
-        "eslint",
-        "bashls",
-        "yamlls",
-        "jsonls",
-        "cssls",
-        "taplo",
-        "html",
-        "graphql",
-        "tailwindcss",
-        "jdtls",
-    }
-
     mason_lspconfig.setup({
-        ensure_installed = servers,
+        ensure_installed = utils.lsp_servers,
     })
 
     mason_lspconfig.setup_handlers({

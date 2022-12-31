@@ -2,30 +2,9 @@ local M = {
 	"williamboman/mason.nvim",
 }
 
-M.tools = {
-	"bash-language-server",
-	"black",
-	"clang-format",
-	"clangd",
-	"codelldb",
-	"codespell",
-	"css-lsp",
-	"eslint-lsp",
-	"graphql-language-service-cli",
-	"html-lsp",
-	"jdtls",
-	"json-lsp",
-	"lua-language-server",
-	"markdownlint",
-	"prettier",
-	"pyright",
-	"shfmt",
-	"stylua",
-	"tailwindcss-language-server",
-	"taplo",
-	"typescript-language-server",
-	"yaml-language-server",
-}
+local utils = require("utils")
+
+M.tools = utils.mason_packages
 
 function M.check()
 	local mr = require("mason-registry")
