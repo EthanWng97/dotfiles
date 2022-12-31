@@ -61,6 +61,7 @@ function M.config()
             local capabilities_cpp = lsp_utils.capabilities
             capabilities_cpp.offsetEncoding = { "uts-16" }
             lspconfig.clangd.setup({
+                on_attach = lsp_utils.on_attach,
                 capabilities = capabilities_cpp,
             })
         end,
