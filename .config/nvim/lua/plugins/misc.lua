@@ -18,7 +18,7 @@ return {
 		event = "BufReadPre",
 		keys = {
 			{
-				"ls",
+				"<leader>ls",
 				function()
 					require("persistence").load()
 				end,
