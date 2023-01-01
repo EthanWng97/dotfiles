@@ -1,5 +1,6 @@
 local M = {
 	"aserowy/tmux.nvim",
+	enabled = false,
 	event = "VeryLazy",
 }
 
