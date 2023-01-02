@@ -11,11 +11,9 @@ fzf_configure_bindings --git_status=\cg --git_log=\cl --history=\cr --variables=
 
 
 # alias and abbr setting
-alias ls exa
-alias ll "exa -l -g --icons"
-alias la "ll -a"
-alias tn "tmux new -s"
-alias tl 'tmux list-sessions'
+alias ls "exa --color=always --icons --group-directories-first"
+alias la 'exa --color=always --icons --group-directories-first --all'
+alias ll 'exa --color=always --icons --group-directories-first --all --long'
 alias bat="bat --theme \"Visual Studio Dark+\""
 alias nv nvim
 alias lg lazygit
@@ -24,6 +22,9 @@ alias backup '~/scripts/./backup.sh'
 alias install '~/scripts/./install.sh'
 
 abbr ta "tmux attach -t"
+abbr tn "tmux new -s"
+abbr tl "tmux ls"
+abbr tk "tmux kill-session -t"
 
 # command setting
 zoxide init fish | source

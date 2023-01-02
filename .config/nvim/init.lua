@@ -1,6 +1,10 @@
-require('plugins')
-require('autocmd')
-require('globals')
-require('keymaps')
-require('colorscheme')
-require('user')
+require("config.options")
+require("config.lazy")
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+        require("config.autocmds")
+        require("config.keymaps")
+    end,
+})
