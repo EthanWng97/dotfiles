@@ -20,7 +20,11 @@ function M.config()
 			formatting.fish_indent,
 			diagnostics.codespell,
 			diagnostics.fish,
+			diagnostics.trail_space,
+			diagnostics.semgrep,
+			diagnostics.cspell,
 			code_actions.gitsigns,
+			code_actions.cspell,
 		},
 	})
 end
