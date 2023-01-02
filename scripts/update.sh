@@ -40,8 +40,8 @@ echo "- Updating Tmux Plugins         -"
 echo "--------------------------------"
 ~/.config/tmux/plugins/tpm/bin/update_plugins all
 
-# update nvim plugins
-echo "--------------------------------"
-echo "- Updating Neovim Plugins       -"
-echo "--------------------------------"
-nvim -c 'UpdateAll'
+# # update nvim plugins
+# echo "--------------------------------"
+# echo "- Updating Neovim Plugins       -"
+# echo "--------------------------------"
+# nvim -c 'UpdateAll'

@@ -4,12 +4,11 @@ local M = {
 
 local utils = require("utils")
 
-M.tools = utils.mason_packages
-
 function M.check()
 	local mr = require("mason-registry")
-	for _, tool in ipairs(M.tools) do
-		local p = mr.get_package(tool)
+	local packages = utils.mason_packages
+	for _, package in ipairs(packages) do
+		local p = mr.get_package(package)
 		if not p:is_installed() then
 			p:install()
 		end
