@@ -5,7 +5,7 @@ function M.config()
     local colors = require("utils").colors
     tokyonight.setup({
         style = "night",
-        hide_inactive_statusline = true,
+        -- hide_inactive_statusline = true,
         on_highlights = function(hl, c)
             hl.GitSignsAdd = {
                 fg = colors.GitAdd,
