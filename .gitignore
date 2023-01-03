@@ -54,7 +54,7 @@ Pictures
 .config/configstore/update-notifier-npm-check-updates.json
 .config/github-copilot
 .tmux/resurrect
-.config/nvim/vimspector-config/gadgets
+.config/nvim/vimspector/gadgets
 Google Drive
 .config/configstore/nodemon.json
 .tldrc
