@@ -14,7 +14,7 @@ fzf_configure_bindings --git_status=\cg --git_log=\cl --history=\cr --variables=
 alias ls "exa --color=always --icons --group-directories-first"
 alias la 'exa --color=always --icons --group-directories-first --all'
 alias ll 'exa --color=always --icons --group-directories-first --all --long'
-alias bat="bat --theme \"Visual Studio Dark+\""
+# alias bat="bat --theme \"Visual Studio Dark+\""
 alias nv nvim
 alias lg lazygit
 alias update '~/scripts/./update.sh'
@@ -41,4 +41,5 @@ set fish_prompt_pwd_dir_length 0
 set BAT_THEME Dracula
 set -x STARSHIP_CONFIG "$HOME/.config/starship/config.toml"
 set -x LG_CONFIG_FILE "/Users/navepnow/.config/lazygit/config.yml"
+set -Ux BAT_THEME Dracula
 set fish_greeting
