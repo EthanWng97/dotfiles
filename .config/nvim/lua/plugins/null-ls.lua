@@ -21,7 +21,11 @@ function M.config()
             diagnostics.codespell,
             diagnostics.fish,
             diagnostics.trail_space,
-            diagnostics.cspell,
+            diagnostics.cspell.with({
+                diagnostics_postprocess = function(diagnostic)
+                    diagnostic.severity = vim.diagnostic.severity["WARN"]
+                end,
+            }),
             code_actions.gitsigns,
             code_actions.cspell,
         },
