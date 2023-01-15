@@ -1,12 +1,9 @@
 local M = {
-    "zbirenbaum/copilot.lua",
-    event = "VeryLazy",
+	"zbirenbaum/copilot.lua",
+	event = "VeryLazy",
+	opts = {
+		ft_disable = { "markdown", "terraform", "cpp" },
+	},
 }
-
-function M.config()
-    require("copilot").setup({
-        ft_disable = { "markdown", "terraform", "cpp" },
-    })
-end
 
 return M
