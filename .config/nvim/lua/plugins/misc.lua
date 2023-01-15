@@ -8,7 +8,7 @@ return {
 
     -- UI
     { "MunifTanjim/nui.nvim" },
-    { "nvim-tree/nvim-web-devicons", config = { default = true } },
+    { "nvim-tree/nvim-web-devicons", opts = { default = true } },
     { "folke/tokyonight.nvim" },
     { "lunarvim/darkplus.nvim", lazy = false },
 
@@ -24,6 +24,6 @@ return {
                 end,
             },
         },
-        config = { options = { "buffers,curdir,folds,help,tabpages,terminal,globals" } },
+        opts = { options = { "buffers,curdir,folds,help,tabpages,terminal,globals" } },
     },
 }
