@@ -1,12 +1,11 @@
 local M = {}
 
-M.signs = {}
-
-M.colors = {
+M.git_colors = {
     GitAdd = "#A1C281",
     GitChange = "#74ADEA",
     GitDelete = "#FE747A",
 }
+M.lsp_signs = { Error = "✖ ", Warn = "! ", Hint = " ", Info = " " }
 
 M.mason_packages = {
     "bash-language-server",
@@ -60,6 +59,16 @@ function M.toggle_diagnostics()
     else
         vim.diagnostic.hide()
     end
+end
+
+function M.on_attach(on_attach)
+    vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+            local buffer = args.buf
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            on_attach(client, buffer)
+        end,
+    })
 end
 
 return M

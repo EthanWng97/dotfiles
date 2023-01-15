@@ -42,16 +42,12 @@ local M = {
             "<Plug>(comment_toggle_blockwise_visual)",
         },
     },
-}
-
-function M.config()
-    local comment = require("Comment")
-    comment.setup({
+    opts = {
         mappings = {
             basic = false,
             extra = false,
         },
-    })
-end
+    },
+}
 
 return M

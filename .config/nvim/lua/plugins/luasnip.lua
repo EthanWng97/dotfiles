@@ -6,10 +6,7 @@ local M = {
             require("luasnip.loaders.from_vscode").lazy_load()
         end,
     },
+    opts = {},
 }
-
-function M.config()
-    require("luasnip").setup({})
-end
 
 return M

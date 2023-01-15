@@ -6,25 +6,24 @@ local M = {
         "nvim-treesitter/nvim-treesitter-refactor",
         "nvim-treesitter/nvim-treesitter-context",
     },
-}
-
-function M.config()
-    local status_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
-    if not status_ok then
-        return
-    end
-    treesitter_configs.setup({
+    opts = {
         highlight = {
             enable = true,
-            disable = {},
+            disable = function(lang, buf)
+                local max_filesize = 100 * 1024 -- 100 KB
+                local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+                if ok and stats and stats.size > max_filesize then
+                    return true
+                end
+            end,
             additional_vim_regex_highlighting = false,
         },
         autopairs = { enable = true },
         autotag = { enable = true },
-        indent = { enable = true, disable = {} },
+        indent = { enable = true },
         ensure_installed = "all",
         sync_install = true,
-        ignore_install = { "phpdoc" }, -- List of parsers to ignore installation
+        ignore_install = {}, -- List of parsers to ignore installation
         refactor = {
             highlight_definitions = {
                 enable = true,
@@ -33,17 +32,11 @@ function M.config()
             },
             highlight_current_scope = { enable = false },
         },
-        playground = {
-            enable = true,
-        },
-    })
-
-    local status_ok, treesitter_context = pcall(require, "nvim-treesitter.configs")
-    if not status_ok then
-        return
-    end
-
-    treesitter_context.setup({})
-end
+    },
+    config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+        require("treesitter-context").setup({})
+    end,
+}
 
 return M

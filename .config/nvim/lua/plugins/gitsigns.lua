@@ -1,11 +1,7 @@
 local M = {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
-}
-
-function M.config()
-    local signs = require("utils").signs
-    require("gitsigns").setup({
+    opts = {
         current_line_blame = true,
         current_line_blame_opts = {
             virt_text = true,
@@ -33,7 +29,7 @@ function M.config()
             col = 1,
         },
         yadm = { enable = false },
-    })
-end
+    },
+}
 
 return M

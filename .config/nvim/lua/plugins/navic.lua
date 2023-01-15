@@ -1,13 +1,14 @@
 local M = {
     "SmiteshP/nvim-navic",
-}
-
-function M.config()
-    vim.g.navic_silence = true
-    require("nvim-navic").setup({
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
+    init = function()
+        vim.g.navic_silence = true
+        require("utils").on_attach(function(client, buffer)
+            if client.server_capabilities.documentSymbolProvider then
+                require("nvim-navic").attach(client, buffer)
+            end
+        end)
+    end,
+    opts = {
         icons = {
             File = " ",
             Module = " ",
@@ -37,7 +38,7 @@ function M.config()
             TypeParameter = " ",
         },
         highlight = true,
-    })
-end
+    },
+}
 
 return M

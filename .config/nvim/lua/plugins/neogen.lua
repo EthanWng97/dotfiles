@@ -8,10 +8,9 @@ local M = {
             end,
         },
     },
+    opts = {
+        snippet_engine = "luasnip",
+    },
 }
-
-function M.config()
-    require("neogen").setup({ snippet_engine = "luasnip" })
-end
 
 return M
