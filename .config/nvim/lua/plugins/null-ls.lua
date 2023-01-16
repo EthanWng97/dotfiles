@@ -18,7 +18,6 @@ local M = {
                 formatting.taplo,
                 formatting.black,
                 formatting.fish_indent,
-                diagnostics.codespell,
                 diagnostics.fish,
                 diagnostics.trail_space,
                 diagnostics.cspell.with({

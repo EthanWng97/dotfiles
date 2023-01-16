@@ -13,7 +13,6 @@ M.mason_packages = {
     "clang-format",
     "clangd",
     "codelldb",
-    "codespell",
     "cspell",
     "css-lsp",
     "eslint-lsp",
