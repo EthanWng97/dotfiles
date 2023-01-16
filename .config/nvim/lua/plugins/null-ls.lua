@@ -10,6 +10,7 @@ local M = {
         return {
             debug = true,
             sources = {
+                completion.luasnip,
                 -- formatter
                 formatting.shfmt,
                 formatting.stylua,

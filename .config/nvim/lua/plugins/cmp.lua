@@ -7,7 +7,7 @@ local M = {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-path",
         "onsails/lspkind-nvim",
-        "saadparwaiz1/cmp_luasnip",
+        -- "saadparwaiz1/cmp_luasnip",
         {
             "zbirenbaum/copilot-cmp",
             config = function()
@@ -79,7 +79,7 @@ local M = {
             sources = {
                 { name = "nvim_lsp" },
                 { name = "nvim_lsp_signature_help" },
-                { name = "luasnip" },
+                -- { name = "luasnip" },
                 { name = "copilot" },
                 { name = "path" },
                 { name = "buffer" },
