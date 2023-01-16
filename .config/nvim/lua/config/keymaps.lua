@@ -1,61 +1,62 @@
-local opts = { noremap = true, silent = true }
 local utils = require("utils")
 
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+-- Remap command key
+vim.keymap.set("n", "<leader><leader>", ":")
 
-keymap("n", "<leader><leader>", ":", opts)
-
--- Modes normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
--- better up/down
+-- Better up/down
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Navigate buffers
-keymap("n", "<C-M-l>", ":bnext<CR>", opts)
-keymap("n", "<C-M-h>", ":bprevious<CR>", opts)
-keymap("n", "<Tab>", ":bnext<cr>", opts)
+vim.keymap.set("n", "<C-M-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<C-M-h>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
-keymap("n", "<C-a>", "ggVG<CR>", opts)
+-- Select all
+vim.keymap.set("n", "<C-a>", "ggVG<cr>", { desc = "Select all" })
 
--- save file
-vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+-- Same file
+vim.keymap.set({ "i", "v", "n" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
-keymap("n", "<esc>", ":noh<cr>", opts)
+-- Clear search results
+vim.keymap.set("n", "<esc>", "<cmd>noh<cr>")
 
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- Better indenting
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
--- paste without replace clipboard
-keymap("v", "p", '"_dP', opts)
+-- Paste without replace clipboard
+vim.keymap.set("v", "p", '"_dP')
 
--- Move Lines keymap("n", "<C-M-j>", ":m .+1<cr>==", opts)
-keymap("x", "<C-M-j>", ":m '>+1<cr>gv=gv", opts)
-keymap("i", "<C-M-j>", "<Esc>:m .+1<cr>==gi", opts)
-keymap("n", "<C-M-k>", ":m .-2<cr>==", opts)
-keymap("x", "<C-M-k>", ":m '<-2<cr>gv=gv", opts)
-keymap("i", "<C-M-k>", "<Esc>:m .-2<cr>==gi", opts)
+-- Move Lines
+vim.keymap.set("n", "<C-M-j>", ":m .+1<cr>==", { desc = "Move down" })
+vim.keymap.set("v", "<C-M-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+vim.keymap.set("i", "<C-M-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move down" })
+vim.keymap.set("n", "<C-M-k>", ":m .-2<cr>==", { desc = "Move up" })
+vim.keymap.set("v", "<C-M-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+vim.keymap.set("i", "<C-M-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
 
-keymap("n", "<C-M-f>", ':exe "lua vim.lsp.buf.format({async = false})" | exe "w" <CR>', opts)
-keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+-- CLose buffer
+vim.keymap.set({ "i", "v", "n" }, "<C-w>", "<cmd>bd<cr><esc>", { desc = "Close buffer" })
+vim.keymap.set({ "i", "v", "n" }, "<C-M-w>", "<cmd>bd!<cr><esc>", { desc = "Close buffer" })
 
--- close buffer
-vim.keymap.set({ "i", "v", "n", "s" }, "<C-w>", "<cmd>bd<cr><esc>", { desc = "Close Buffer" })
-vim.keymap.set({ "i", "v", "n", "s" }, "<C-M-w>", "<cmd>bd!<cr><esc>", { desc = "Close Buffer" })
+-- Exit neovim
+vim.keymap.set({ "i", "v", "n" }, "<C-q>", "<cmd>q<cr>", { desc = "Exit Vim" })
+vim.keymap.set({ "i", "v", "n" }, "<C-M-q>", "<cmd>qa!<cr>", { desc = "Exit Vim" })
 
--- exit neovim
-vim.keymap.set({ "i", "v", "n", "s" }, "<C-q>", "<cmd>q<cr>", { desc = "Exit Vim" })
-vim.keymap.set({ "i", "v", "n", "s" }, "<C-M-q>", "<cmd>qa!<cr>", { desc = "Exit Vim" })
+-- Better move
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
-keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "<C-u>", "<C-u>zz", opts)
+-- Lsp formatting
+vim.keymap.set("n", "<C-M-f>", function()
+	vim.lsp.buf.format({ async = false })
+end, { desc = "Lsp formatting" })
+
+-- Open quickfix list
+vim.keymap.set("n", "<leader>q", function()
+	vim.diagnostic.setloclist()
+end, { desc = "Open quickfix list" })
 
 -- toggle options
 vim.keymap.set("n", "<leader>tw", function()
