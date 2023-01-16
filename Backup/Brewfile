@@ -6,6 +6,8 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
 # Cross-platform make
 brew "cmake"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -24,6 +26,8 @@ brew "fzf"
 brew "gh"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Blazing fast terminal-ui for git written in rust
+brew "gitui"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Tools and libraries to manipulate images in many formats
@@ -90,6 +94,8 @@ cask "keka"
 cask "movist-pro"
 # Converts and edits video, audio or image files
 cask "permute"
+# QuickLook generator for Markdown files
+cask "qlmarkdown"
 # HTTP client that helps testing and describing APIs
 cask "rapidapi"
 # Control your tools with a few keystrokes
@@ -98,6 +104,8 @@ cask "raycast"
 cask "slack"
 # Sound and audio controller
 cask "soundsource"
+# Quicklook extension for source files
+cask "syntax-highlight"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # VPN and WiFi proxy
@@ -117,10 +125,8 @@ mas "Keynote", id: 409183694
 mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Peek", id: 1554235898
 mas "Pixelmator Pro", id: 1289583905
 mas "Tampermonkey", id: 1482490089
 mas "TestFlight", id: 899247664
-mas "Things", id: 904280696
 mas "WeChat", id: 836500024
 mas "Xcode", id: 497799835
