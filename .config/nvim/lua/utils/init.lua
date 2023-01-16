@@ -51,15 +51,6 @@ M.lsp_servers = {
 
 M.diagnostics_active = true
 
-function M.toggle_diagnostics()
-    M.diagnostics_active = not M.diagnostics_active
-    if M.diagnostics_active then
-        vim.diagnostic.show()
-    else
-        vim.diagnostic.hide()
-    end
-end
-
 function M.on_attach(on_attach)
     vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
@@ -100,6 +91,17 @@ function M.toggle(option, silent, values)
         else
             require("utils").warn("Disabled " .. option, { title = "Option" })
         end
+    end
+end
+
+function M.toggle_diagnostics()
+    M.diagnostics_active = not M.diagnostics_active
+    if M.diagnostics_active then
+        vim.diagnostic.show()
+        require("utils").info("Enabled Diagnostics", { title = "Lsp" })
+    else
+        vim.diagnostic.hide()
+        require("utils").warn("Disabled Diagnostics", { title = "Lsp" })
     end
 end
 
