@@ -51,6 +51,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Lsp formatting
 vim.keymap.set("n", "<C-M-f>", function()
 	vim.lsp.buf.format({ async = false })
+	vim.api.nvim_command("write")
 end, { desc = "Lsp formatting" })
 
 -- Open quickfix list
