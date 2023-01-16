@@ -29,11 +29,18 @@ vim.opt.list = true
 vim.opt.splitkeep = "screen"
 -- vim.opt.syntax = "on"
 vim.opt.spelloptions = "camel,noplainbuffer"
-vim.opt.foldlevel = 20
+vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = true
-vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff:/]]
+vim.opt.fillchars = {
+    foldopen = "",
+    foldclose = "",
+    fold = " ",
+    foldsep = " ",
+    diff = "/",
+    eob = " ",
+}
 
 -- command completion
 vim.opt.wildmode = "longest:full:full"
