@@ -12,7 +12,6 @@ vim.opt.smartindent = true -- smart indent
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
 vim.opt.sidescrolloff = 5 -- how many lines to scroll when using the scrollbar
 vim.opt.autoindent = true
-vim.opt.fillchars:append({ eob = " " })
 vim.opt.signcolumn = "yes"
 vim.opt.sessionoptions = "buffers,curdir,folds,help,tabpages,terminal,globals"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -33,7 +32,8 @@ vim.opt.spelloptions = "camel,noplainbuffer"
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = false
+vim.opt.foldenable = true
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff:/]]
 
 -- command completion
 vim.opt.wildmode = "longest:full:full"
