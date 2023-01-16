@@ -29,11 +29,12 @@ vim.opt.cmdheight = 0
 vim.opt.list = true
 vim.opt.splitkeep = "screen"
 -- vim.opt.syntax = "on"
--- vim.opt.spell = true
--- vim.opt.spelloptions = "camel,noplainbuffer"
+vim.opt.spelloptions = "camel,noplainbuffer"
+vim.opt.foldlevel = 20
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
 
 -- command completion
 vim.opt.wildmode = "longest:full:full"
 vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*DS_STORE,*.db"
-
-vim.api.nvim_create_user_command("UpdateAllPlugins", 'exe "TSUpdate" | exe "Lazy update"', {})

@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+local utils = require("utils")
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -12,17 +13,23 @@ keymap("n", "<leader><leader>", ":", opts)
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- better up/down
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
 -- Navigate buffers
 keymap("n", "<C-M-l>", ":bnext<CR>", opts)
 keymap("n", "<C-M-h>", ":bprevious<CR>", opts)
+keymap("n", "<Tab>", ":bnext<cr>", opts)
 
 keymap("n", "<C-a>", "ggVG<CR>", opts)
 
 keymap("n", "<C-q>", ":q<cr>", opts)
 keymap("n", "<C-M-q>", ":qa!<cr>", opts)
 
-keymap("n", "<C-s>", ":w<cr>", opts)
-keymap("i", "<C-s>", "<esc>:w<cr>", opts)
+-- save file
+vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
 keymap("n", "<esc>", ":noh<cr>", opts)
 
 -- Visual --
@@ -33,10 +40,12 @@ keymap("v", ">", ">gv", opts)
 -- paste without replace clipboard
 keymap("v", "p", '"_dP', opts)
 
-keymap("x", "<C-M-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<C-M-k>", ":move '<-2<CR>gv-gv", opts)
-
-keymap("n", "<Tab>", ":bnext<cr>", opts)
+-- Move Lines keymap("n", "<C-M-j>", ":m .+1<cr>==", opts)
+keymap("x", "<C-M-j>", ":m '>+1<cr>gv=gv", opts)
+keymap("i", "<C-M-j>", "<Esc>:m .+1<cr>==gi", opts)
+keymap("n", "<C-M-k>", ":m .-2<cr>==", opts)
+keymap("x", "<C-M-k>", ":m '<-2<cr>gv=gv", opts)
+keymap("i", "<C-M-k>", "<Esc>:m .-2<cr>==gi", opts)
 
 keymap("n", "<leader>ww", ":set wrap!<CR>", opts)
 
@@ -48,3 +57,15 @@ keymap("i", "<C-w>", "<esc>:bd<cr>", opts)
 
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- toggle options
+vim.keymap.set("n", "<leader>tw", function()
+    utils.toggle("wrap")
+end, { desc = "Toggle Word Wrap" })
+vim.keymap.set("n", "<leader>ts", function()
+    utils.toggle("spell")
+end, { desc = "Toggle Spelling" })
+vim.keymap.set("n", "<leader>tl", function()
+    utils.toggle("relativenumber")
+end, { desc = "Toggle Line Numbers" })
+-- vim.keymap.set("n", "<leader>td", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
