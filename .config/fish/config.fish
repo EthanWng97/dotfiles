@@ -17,9 +17,6 @@ alias ll 'exa --color=always --icons --group-directories-first --all --long'
 # alias bat="bat --theme \"Visual Studio Dark+\""
 alias nv nvim
 alias lg lazygit
-alias update '~/scripts/./update.sh'
-alias backup '~/scripts/./backup.sh'
-alias install '~/scripts/./install.sh'
 
 abbr ta "tmux attach -t"
 abbr tn "tmux new -s"
