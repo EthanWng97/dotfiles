@@ -7,6 +7,35 @@ M.git_colors = {
 }
 M.lsp_signs = { Error = "✖ ", Warn = "! ", Hint = " ", Info = " " }
 
+M.cmp_kinds = {
+    Text = "  ",
+    Method = "  ",
+    Function = "  ",
+    Constructor = "  ",
+    Field = "  ",
+    Variable = "  ",
+    Class = "  ",
+    Interface = "  ",
+    Module = "  ",
+    Property = "  ",
+    Unit = "  ",
+    Value = "  ",
+    Enum = "  ",
+    Keyword = "  ",
+    Snippet = "  ",
+    Color = "  ",
+    File = "  ",
+    Reference = "  ",
+    Folder = "  ",
+    EnumMember = "  ",
+    Constant = "  ",
+    Struct = "  ",
+    Event = "  ",
+    Operator = "  ",
+    TypeParameter = "  ",
+    Copilot = "  ",
+}
+
 M.mason_packages = {
     "bash-language-server",
     "black",

@@ -6,7 +6,6 @@ local M = {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-path",
-        "onsails/lspkind-nvim",
         -- "saadparwaiz1/cmp_luasnip",
         {
             "zbirenbaum/copilot-cmp",
@@ -17,6 +16,7 @@ local M = {
     },
     opts = function()
         local cmp = require("cmp")
+        local cmp_kinds = require("utils").cmp_kinds
 
         local has_words_before = function()
             if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
@@ -26,16 +26,8 @@ local M = {
             return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
         end
 
-        local lspkind = require("lspkind")
         local luasnip = require("luasnip")
 
-        lspkind.init({
-            mode = "symbol_text",
-            preset = "codicons",
-            symbol_map = {
-                Copilot = "",
-            },
-        })
         return {
             snippet = {
                 expand = function(args)
@@ -43,7 +35,19 @@ local M = {
                 end,
             },
             formatting = {
-                format = lspkind.cmp_format(),
+                format = function(entry, vim_item)
+                    if vim.tbl_contains({ "path" }, entry.source.name) then
+                        local icon, hl_group = require("nvim-web-devicons").get_icon(entry:get_completion_item().label)
+                        if icon then
+                            vim_item.kind = icon
+                            vim_item.kind_hl_group = hl_group
+                            return vim_item
+                        end
+                    end
+                    vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
+
+                    return vim_item
+                end,
             },
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
