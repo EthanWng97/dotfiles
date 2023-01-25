@@ -26,6 +26,8 @@ local M = {
 
             ["pyright"] = function()
                 lspconfig.pyright.setup({
+                    on_attach = lsp_utils.on_attach,
+                    capabilities = lsp_utils.capabilities,
                     settings = {
                         python = {
                             analysis = {
