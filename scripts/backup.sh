@@ -36,7 +36,7 @@ npm list --global --parseable --depth=0 | sed '1d' | awk '{gsub(/\/.*\//,"",$1);
 echo "---------------------------------"
 echo "- Dumping PIP packages          -"
 echo "---------------------------------"
-pip freeze >~/Backup/Pipfile
+pip3 freeze >~/Backup/Pipfile
 
 echo "---------------------------------"
 echo "- Dumping CARGO packages        -"

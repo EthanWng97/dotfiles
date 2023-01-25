@@ -8,8 +8,6 @@ tap "homebrew/core"
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
-# Cross-platform make
-brew "cmake"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Modern replacement for 'ls'
@@ -66,6 +64,8 @@ brew "zoxide"
 cask "baidunetdisk"
 # E-books management software
 cask "calibre"
+# Tool to remove unnecessary files and folders from disk Chinese edition
+cask "cleanmymac-zh"
 # API documentation browser and code snippet manager
 cask "dash"
 # All-in-one toolbox for developers
