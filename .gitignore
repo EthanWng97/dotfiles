@@ -83,3 +83,4 @@ go/pkg
 .m2/repository
 .config/nvim/sessions
 .config/nvim/lazy-lock.json
+.jupyter
