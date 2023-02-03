@@ -14,6 +14,7 @@ fzf_configure_bindings --git_status=\cg --git_log=\cl --history=\cr --variables=
 alias ls "exa --color=always --icons --group-directories-first"
 alias la 'exa --color=always --icons --group-directories-first --all'
 alias ll 'exa --color=always --icons --group-directories-first --all --long'
+alias lt 'exa --tree --color=always --icons --group-directories-first --all'
 # alias bat="bat --theme \"Visual Studio Dark+\""
 alias nv nvim
 alias lg lazygit
