@@ -54,11 +54,6 @@ vim.keymap.set("n", "<C-M-f>", function()
 	vim.api.nvim_command("write")
 end, { desc = "Lsp formatting" })
 
--- Open quickfix list
-vim.keymap.set("n", "<leader>q", function()
-	vim.diagnostic.setloclist()
-end, { desc = "Open quickfix list" })
-
 -- toggle options
 vim.keymap.set("n", "<leader>tw", function()
 	utils.toggle("wrap")
@@ -70,3 +65,4 @@ vim.keymap.set("n", "<leader>tl", function()
 	utils.toggle("relativenumber")
 end, { desc = "Toggle Line Numbers" })
 vim.keymap.set("n", "<leader>td", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+vim.keymap.set("n", "<leader>q", utils.toggle_quickfix, { desc = "Toggle Quickfix Window" })

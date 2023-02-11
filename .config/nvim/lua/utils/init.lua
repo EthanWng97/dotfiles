@@ -59,6 +59,7 @@ M.mason_packages = {
     "taplo",
     "typescript-language-server",
     "yaml-language-server",
+    "gopls",
 }
 
 M.lsp_servers = {
@@ -76,9 +77,8 @@ M.lsp_servers = {
     "graphql",
     "tailwindcss",
     "jdtls",
+    "gopls",
 }
-
-M.diagnostics_active = true
 
 function M.on_attach(on_attach)
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -123,6 +123,7 @@ function M.toggle(option, silent, values)
     end
 end
 
+M.diagnostics_active = true
 function M.toggle_diagnostics()
     M.diagnostics_active = not M.diagnostics_active
     if M.diagnostics_active then
@@ -131,6 +132,16 @@ function M.toggle_diagnostics()
     else
         vim.diagnostic.hide()
         require("utils").warn("Disabled Diagnostics", { title = "Lsp" })
+    end
+end
+
+M.quickfix_active = false
+function M.toggle_quickfix()
+    M.quickfix_active = not M.quickfix_active
+    if M.quickfix_active then
+        vim.diagnostic.setloclist()
+    else
+        vim.cmd([[ lclose ]])
     end
 end
 
