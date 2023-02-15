@@ -5,26 +5,19 @@
 import:
   - ~/.config/alacritty/dracula.yml
 env:
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 
 window:
-  # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
-  # Remove buttons
   decorations: buttonless
-  # Open in full screen
-  startup_mode: windowed
-  # Dimensions if not SimpleFullscreen
-  # dimensions:
-  #   columns: 140
-  #   lines: 38
-
-  # Make background slightly transparent
-  opacity: 0.98
+  startup_mode: Windowed
+  opacity: 0.95
+  # Make `Option` key behave as `Alt` (macOS only):
+  #   - OnlyLeft
+  #   - OnlyRight
+  #   - Both
+  #   - None (default)
+  option_as_alt: OnlyLeft
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -32,104 +25,30 @@ scrolling:
   history: 10000
   multiplier: 5
 
-cursor:
-  # Block Underline or Beam
-  style: Block
-
 font:
   normal:
     family: JetBrainsMono Nerd Font
-    style: Medium
+    style: Light
   bold:
     family: JetBrainsMono Nerd Font
     style: Bold
   italic:
     family: JetBrainsMono Nerd Font
-    style: Medium Italic
+    style: Light Italic
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
 
-  # Font size
   size: 14
 
-  # Better font rendering for mac
-  use_thin_strokes: true
+  offset:
+    y: 3
 
-draw_bold_text_with_bright_colors: true
-
-# colors:
-#   primary:
-#     background: "#282a36"
-#     foreground: "#f8f8f2"
-#     bright_foreground: "#ffffff"
-#   cursor:
-#     text: CellBackground
-#     cursor: CellForeground
-#   vi_mode_cursor:
-#     text: CellBackground
-#     cursor: CellForeground
-#   search:
-#     matches:
-#       foreground: "#44475a"
-#       background: "#50fa7b"
-#     focused_match:
-#       foreground: "#44475a"
-#       background: "#ffb86c"
-#     footer_bar:
-#       background: "#282a36"
-#       foreground: "#f8f8f2"
-#   hints:
-#     start:
-#       foreground: "#282a36"
-#       background: "#f1fa8c"
-#     end:
-#       foreground: "#f1fa8c"
-#       background: "#282a36"
-#   line_indicator:
-#     foreground: None
-#     background: None
-#   selection:
-#     text: CellForeground
-#     background: "#44475a"
-#   normal:
-#     black: "#21222c"
-#     red: "#ff5555"
-#     green: "#50fa7b"
-#     yellow: "#f1fa8c"
-#     blue: "#bd93f9"
-#     magenta: "#ff79c6"
-#     cyan: "#8be9fd"
-#     white: "#f8f8f2"
-#   bright:
-#     black: "#6272a4"
-#     red: "#ff6e6e"
-#     green: "#69ff94"
-#     yellow: "#ffffa5"
-#     blue: "#d6acff"
-#     magenta: "#ff92df"
-#     cyan: "#a4ffff"
-#     white: "#ffffff"
-
-bell:
-  animation: EaseOutExpo
-  duration: 0
+# draw_bold_text_with_bright_colors: true
 
 selection:
-  # This string contains all characters that are used as separators for
-  # "semantic words" in Alacritty.
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
 
-  # When true, selected text will be copied to the primary clipboard
-  save_to_clipboard: false
-
-# Login shell with arguments
-# shell:
-#   program: /bin/zsh
-#   args:
-#     - --login
-
-# Enable clickable URLs
 mouse:
   hints:
     launcher:
@@ -137,8 +56,6 @@ mouse:
     modifiers: Command
 
 # Startup directory, unset or None for home directory
-working_directory: None
-
 key_bindings:
   - {
       key: Comma,
@@ -154,9 +71,6 @@ key_bindings:
   - { key: Right, mods: Alt, chars: "\x1bf" } # one word right
   - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
   - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
-  - { key: Key0, mods: Command, action: ResetFontSize }
-  - { key: Equals, mods: Command, action: IncreaseFontSize }
-  - { key: Minus, mods: Command, action: DecreaseFontSize }
-  - { key: H, mods: Command, action: Hide }
-  - { key: Q, mods: Command, action: Quit }
-  - { key: N, mods: Command, action: CreateNewWindow }
+  # nvim settings
+  - { key: Slash, mods: Control, chars: "\x1f" }
+  - { key: Slash, mods: Control|Alt, chars: "\x1b\x1f" }

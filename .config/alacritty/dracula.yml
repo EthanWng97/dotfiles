@@ -1,17 +1,11 @@
-# Dracula theme for Alacritty
-# https://draculatheme.com/alacritty
-#
-# Color palette
-# https://spec.draculatheme.com
-#
-# Template
-# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+# Dracula Pro - Van Helsing
+# https://draculatheme.com/pro
 
 colors:
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
-    bright_foreground: '#ffffff'
+    background: "#0B0D0F"
+    foreground: "#F8F8F2"
+    bright_foreground: "#FFFFFF"
   cursor:
     text: CellBackground
     cursor: CellForeground
@@ -20,42 +14,42 @@ colors:
     cursor: CellForeground
   search:
     matches:
-      foreground: '#44475a'
-      background: '#50fa7b'
+      foreground: "#414D58"
+      background: "#8AFF80"
     focused_match:
-      foreground: '#44475a'
-      background: '#ffb86c'
+      foreground: "#414D58"
+      background: "#FFCA80"
   footer_bar:
-    background: '#282a36'
-    foreground: '#f8f8f2'
+    background: "#0B0D0F"
+    foreground: "#F8F8F2"
   hints:
     start:
-      foreground: '#282a36'
-      background: '#f1fa8c'
+      foreground: "#0B0D0F"
+      background: "#FFFF80"
     end:
-      foreground: '#f1fa8c'
-      background: '#282a36'
+      foreground: "#FFFF80"
+      background: "#0B0D0F"
   line_indicator:
     foreground: None
     background: None
   selection:
     text: CellForeground
-    background: '#44475a'
+    background: "#414D58"
   normal:
-    black: '#21222c'
-    red: '#ff5555'
-    green: '#50fa7b'
-    yellow: '#f1fa8c'
-    blue: '#bd93f9'
-    magenta: '#ff79c6'
-    cyan: '#8be9fd'
-    white: '#f8f8f2'
+    black: "#708CA9"
+    red: "#FF9580"
+    green: "#8AFF80"
+    yellow: "#FFFF80"
+    blue: "#9580FF"
+    magenta: "#FF80BF"
+    cyan: "#80FFEA"
+    white: "#F8F8F2"
   bright:
-    black: '#6272a4'
-    red: '#ff6e6e'
-    green: '#69ff94'
-    yellow: '#ffffa5'
-    blue: '#d6acff'
-    magenta: '#ff92df'
-    cyan: '#a4ffff'
-    white: '#ffffff'
+    black: "#708CA9"
+    red: "#FFAA99"
+    green: "#A2FF99"
+    yellow: "#FFFF99"
+    blue: "#AA99FF"
+    magenta: "#FF99CC"
+    cyan: "#99FFEE"
+    white: "#FFFFFF"
