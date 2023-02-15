@@ -1,7 +1,7 @@
 import:
   - ~/.config/alacritty/dracula.yml
 env:
-  TERM: xterm-256color
+  TERM: screen-256color
 
 window:
   dimensions:
