@@ -1,29 +1,20 @@
-#
-# modified 2021-06-28
-#
-
 import:
   - ~/.config/alacritty/dracula.yml
 env:
   TERM: xterm-256color
 
 window:
-  dynamic_padding: true
+  dimensions:
+    columns: 150
+    lines: 40
+  padding:
+    x: 0
+    y: 0
+  dynamic_padding: false
   decorations: buttonless
   startup_mode: Windowed
   opacity: 0.95
-  # Make `Option` key behave as `Alt` (macOS only):
-  #   - OnlyLeft
-  #   - OnlyRight
-  #   - Both
-  #   - None (default)
   option_as_alt: OnlyLeft
-
-scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
-  history: 10000
-  multiplier: 5
 
 font:
   normal:
@@ -71,6 +62,7 @@ key_bindings:
   - { key: Right, mods: Alt, chars: "\x1bf" } # one word right
   - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
   - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
+  - { key: N, mods: Command, action: CreateNewWindow }
   # nvim settings
   - { key: Slash, mods: Control, chars: "\x1f" }
   - { key: Slash, mods: Control|Alt, chars: "\x1b\x1f" }
