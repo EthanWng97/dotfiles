@@ -5,6 +5,22 @@ local M = {
         "hrsh7th/cmp-nvim-lsp",
         "williamboman/mason-lspconfig.nvim",
     },
+    opts = {
+        setup = {
+            clangd = function(_, opts)
+                opts.capabilities.offsetEncoding = { "utf-16" }
+            end,
+            pyright = function(_, opts)
+                opts.settings = {
+                    python = {
+                        analysis = {
+                            typeCheckingMode = "off",
+                        },
+                    },
+                }
+            end,
+        },
+    },
     config = function(_, opts)
         local utils = require("utils")
         local mason_lspconfig = require("mason-lspconfig")
@@ -23,28 +39,27 @@ local M = {
                     capabilities = lsp_utils.capabilities,
                 })
             end,
-
-            ["pyright"] = function()
-                lspconfig.pyright.setup({
-                    on_attach = lsp_utils.on_attach,
-                    capabilities = lsp_utils.capabilities,
-                    settings = {
-                        python = {
-                            analysis = {
-                                typeCheckingMode = "off",
-                            },
-                        },
-                    },
-                })
-            end,
-            ["clangd"] = function()
-                local capabilities_cpp = lsp_utils.capabilities
-                capabilities_cpp.offsetEncoding = { "uts-16" }
-                lspconfig.clangd.setup({
-                    on_attach = lsp_utils.on_attach,
-                    capabilities = capabilities_cpp,
-                })
-            end,
+            -- ["pyright"] = function()
+            --     lspconfig.pyright.setup({
+            --         on_attach = lsp_utils.on_attach,
+            --         capabilities = lsp_utils.capabilities,
+            --         settings = {
+            --             python = {
+            --                 analysis = {
+            --                     typeCheckingMode = "off",
+            --                 },
+            --             },
+            --         },
+            --     })
+            -- end,
+            -- ["clangd"] = function()
+            --     local capabilities_cpp = lsp_utils.capabilities
+            --     capabilities_cpp.offsetEncoding = { "uts-16" }
+            --     lspconfig.clangd.setup({
+            --         on_attach = lsp_utils.on_attach,
+            --         capabilities = capabilities_cpp,
+            --     })
+            -- end,
         })
     end,
 }
