@@ -5,7 +5,9 @@ end
 # general setting
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 bind ` accept-autosuggestion
+bind \co 'open .'
 bind -M insert ` accept-autosuggestion
 fzf_configure_bindings --git_status=\cg --git_log=\cl --history=\cr --variables=\cv --directory=\cf --processes=\cp
 
