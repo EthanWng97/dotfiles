@@ -41,6 +41,7 @@ vim.opt.fillchars = {
 	diff = "/",
 	eob = " ",
 }
+vim.opt.mousemoveevent = true
 
 -- command completion
 vim.opt.wildmode = "longest:full:full"

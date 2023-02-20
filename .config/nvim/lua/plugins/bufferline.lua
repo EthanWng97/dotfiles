@@ -4,6 +4,11 @@ local M = {
 	opts = {
 		options = {
 			diagnostics = "nvim_lsp",
+			hover = {
+				enabled = true,
+				delay = 0,
+				reveal = { "close" },
+			},
 		},
 	},
 }
