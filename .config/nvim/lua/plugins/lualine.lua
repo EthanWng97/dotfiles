@@ -4,6 +4,7 @@ local M = {
 	event = "VeryLazy",
 	opts = function()
 		local navic = require("nvim-navic")
+		local colors = require("tokyonight.colors").setup()
 		local function diff_source()
 			local gitsigns = vim.b.gitsigns_status_dict
 			if gitsigns then
@@ -16,12 +17,13 @@ local M = {
 		end
 
 		local location = { "location", padding = 0 }
+		local filename = { "filename", path = 1, shorting_target = 80, color = { bg = colors.bg } }
 		return {
 			options = {
 				icons_enabled = true,
 				theme = "auto",
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				section_separators = "",
+				component_separators = "",
 				disabled_filetypes = { "alpha", "dashboard" },
 				always_divide_middle = true,
 				globalstatus = true,
@@ -56,20 +58,23 @@ local M = {
 				lualine_z = { location },
 			},
 			winbar = {
-				lualine_a = { { "buffers", symbols = {
-					alternate_file = "",
-				} } },
+				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { { navic.get_location, cond = navic.is_available } },
+				lualine_c = {
+					filename,
+					{ navic.get_location, cond = navic.is_available },
+				},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {},
 			},
-
 			inactive_winbar = {
-				lualine_a = { "filename" },
+				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { { navic.get_location, cond = navic.is_available } },
+				lualine_c = {
+					filename,
+					{ navic.get_location, cond = navic.is_available },
+				},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {},
