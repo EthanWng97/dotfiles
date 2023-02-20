@@ -3,7 +3,8 @@ local M = {
 	event = "VeryLazy",
 	opts = {
 		setopt = true,
-		order = "FNsS",
+		order = "NSFs",
+		foldfunc = "builtin",
 	},
 }
 return M
