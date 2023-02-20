@@ -4,7 +4,6 @@ local M = {
     event = "BufReadPost",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-refactor",
-        "nvim-treesitter/nvim-treesitter-context",
     },
     opts = {
         highlight = {
@@ -35,7 +34,6 @@ local M = {
     },
     config = function(_, opts)
         require("nvim-treesitter.configs").setup(opts)
-        require("treesitter-context").setup({})
     end,
 }
 

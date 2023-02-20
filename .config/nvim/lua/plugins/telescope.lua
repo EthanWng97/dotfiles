@@ -4,11 +4,9 @@ local M = {
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-telescope/telescope-ui-select.nvim" },
-		{ "nvim-telescope/telescope-file-browser.nvim" },
 	},
 	keys = {
 
-		{ "<C-e>", ":Telescope file_browser<CR>" },
 		{ "<C-M-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
 		{ "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>" },
 		{
@@ -47,12 +45,6 @@ local M = {
 						-- even more opts
 					}),
 				},
-				file_browser = {
-					grouped = true,
-					hidden = true,
-					hijack_netrw = true,
-					respect_gitignore = false,
-				},
 			},
 		}
 	end,
@@ -61,7 +53,6 @@ local M = {
 		telescope.setup(opts)
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
-		telescope.load_extension("file_browser")
 	end,
 }
 
