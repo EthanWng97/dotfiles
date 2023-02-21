@@ -54,6 +54,9 @@ vim.keymap.set("n", "<C-M-f>", function()
 	vim.api.nvim_command("write")
 end, { desc = "Lsp formatting" })
 
+-- Clear search results
+vim.keymap.set("n", "<leader>f", "za")
+
 -- toggle options
 vim.keymap.set("n", "<leader>tw", function()
 	utils.toggle("wrap")

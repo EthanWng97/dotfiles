@@ -1,6 +1,9 @@
 local M = {
 	"akinsho/bufferline.nvim",
 	event = "VeryLazy",
+	keys = {
+		{ "<leader>p", "<cmd>BufferLineTogglePin<cr>" },
+	},
 	opts = {
 		options = {
 			diagnostics = "nvim_lsp",
