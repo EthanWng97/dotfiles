@@ -47,7 +47,6 @@ M.mason_packages = {
     "eslint-lsp",
     "graphql-language-service-cli",
     "html-lsp",
-    "jdtls",
     "json-lsp",
     "lua-language-server",
     "markdownlint",
@@ -76,7 +75,6 @@ M.lsp_servers = {
     "html",
     "graphql",
     "tailwindcss",
-    "jdtls",
     "gopls",
 }
 

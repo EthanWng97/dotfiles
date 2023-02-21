@@ -16,6 +16,6 @@ return {
                 end,
             },
         },
-        opts = { options = { "buffers,curdir,folds,help,tabpages,terminal,globals" } },
+        opts = { options = { "buffers", "curdir", "folds", "help", "tabpages", "terminal", "globals" } },
     },
 }
