@@ -16,7 +16,7 @@ local M = {
     },
     opts = function()
         local cmp = require("cmp")
-        local cmp_kinds = require("utils").cmp_kinds
+        local lsp_kinds = require("utils").lsp_kinds
 
         local has_words_before = function()
             if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
@@ -44,7 +44,7 @@ local M = {
                             return vim_item
                         end
                     end
-                    vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
+                    vim_item.kind = (lsp_kinds[vim_item.kind] or "") .. " " .. vim_item.kind
 
                     return vim_item
                 end,
@@ -52,7 +52,7 @@ local M = {
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
                 ["<C-n>"] = cmp.mapping.select_next_item(),
-                ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-d>"] = cmp.mapping.scroll_docs( -4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.close(),
@@ -73,8 +73,8 @@ local M = {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
+                    elseif luasnip.jumpable( -1) then
+                        luasnip.jump( -1)
                     else
                         fallback()
                     end
