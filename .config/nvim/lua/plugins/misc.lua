@@ -1,21 +1,32 @@
--- All plugins are lazy-loaded by default
 return {
     { "nvim-lua/plenary.nvim" },
     { "MunifTanjim/nui.nvim" },
     { "nvim-tree/nvim-web-devicons", opts = { default = true } },
 
     -- Utilities
+    -- {
+    -- 	"folke/persistence.nvim",
+    -- 	lazy = false,
+    -- 	keys = {
+    -- 		{
+    -- 			"<leader>ls",
+    -- 			function()
+    -- 				require("persistence").load()
+    -- 			end,
+    -- 		},
+    -- 	},
+    -- 	opts = { options = { "buffers", "curdir", "folds", "help", "tabpages", "terminal", "globals" } },
+    -- },
     {
-        "folke/persistence.nvim",
-        event = "BufReadPre",
-        keys = {
-            {
-                "<leader>ls",
-                function()
-                    require("persistence").load()
-                end,
-            },
+        "rmagatti/auto-session",
+        lazy = false,
+        opts = {
+            auto_session_suppress_dirs = { "~/Downloads" },
         },
-        opts = { options = { "buffers", "curdir", "folds", "help", "tabpages", "terminal", "globals" } },
+    },
+    {
+        "jackMort/ChatGPT.nvim",
+        cmd = { "ChatGPT", "ChatGPTActAs" },
+        config = true,
     },
 }
