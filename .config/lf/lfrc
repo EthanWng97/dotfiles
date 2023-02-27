@@ -1,0 +1,14 @@
+set icons
+set shell fish
+
+set hidden
+
+cmd z %{{
+	set result "$(zoxide query --exclude $PWD $@)"
+	lf -remote "send $id cd $result"
+}}
+
+cmd zi ${{
+	set result "$(zoxide query -i)"
+	lf -remote "send $id cd $result"
+}}
