@@ -8,7 +8,6 @@ local M = {
 	keys = {
 
 		{ "<C-M-o>", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
-		{ "<C-p>", "<cmd>lua require('telescope.builtin').commands()<cr>" },
 		{
 			"<C-M-p>",
 			"<cmd>lua require('telescope.builtin').builtin(require('telescope.themes').get_dropdown({}))<cr>",

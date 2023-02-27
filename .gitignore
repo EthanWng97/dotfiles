@@ -84,3 +84,4 @@ go/pkg
 .config/nvim/sessions
 .config/nvim/lazy-lock.json
 .jupyter
+.config/fish/private.fish

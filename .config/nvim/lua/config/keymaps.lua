@@ -2,6 +2,7 @@ local utils = require("utils")
 
 -- Remap command key
 vim.keymap.set("n", "<leader><leader>", ":")
+vim.keymap.set("n", "<C-p>", ":")
 
 -- Better up/down
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
