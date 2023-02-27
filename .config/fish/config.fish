@@ -8,7 +8,6 @@ fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 bind ` accept-autosuggestion
 bind \co 'open .'
-bind \ce 'xplr'
 bind -M insert ` accept-autosuggestion
 fzf_configure_bindings --git_status=\cg --git_log=\cl --history=\cr --variables=\cv --directory=\cf --processes=\cp
 
@@ -30,6 +29,7 @@ abbr tk "tmux kill-session -t"
 # command setting
 zoxide init fish | source
 starship init fish --print-full-init | source
+enable_transience
 
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
@@ -44,3 +44,5 @@ set -x STARSHIP_CONFIG "$HOME/.config/starship/config.toml"
 set -x LG_CONFIG_FILE "/Users/navepnow/.config/lazygit/config.yml"
 set -Ux BAT_THEME Dracula
 set fish_greeting
+
+source ~/.config/fish/private.fish
