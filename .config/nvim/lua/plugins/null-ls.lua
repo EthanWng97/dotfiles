@@ -10,8 +10,6 @@ local M = {
         return {
             debug = true,
             sources = {
-                completion.luasnip,
-                -- formatter
                 formatting.shfmt,
                 formatting.stylua,
                 formatting.prettier,
@@ -26,6 +24,7 @@ local M = {
                         diagnostic.severity = vim.diagnostic.severity["WARN"]
                     end,
                 }),
+                diagnostics.editorconfig_checker,
                 code_actions.gitsigns,
                 code_actions.cspell,
             },
