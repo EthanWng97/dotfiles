@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 # general setting
+fish_config theme choose "Dracula"
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
