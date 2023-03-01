@@ -1,5 +1,5 @@
 <h1 align="center">Welcome to Evan's dotfiles 👋</h1>
-💻 neovim, fish, tmux, git, homebrew, neovim - my whole world
+💻 alacritty, neovim, fish, tmux, git, homebrew - my whole world
 <div align="center">
 <img width="720" alt="IMG_1059" src="https://user-images.githubusercontent.com/39482599/210192026-b445af4f-9279-4bd0-b0b3-3a34bb5786d4.png">
 </div>
@@ -11,26 +11,26 @@
 ### backup
 
 ```bash
-scripts/backup.sh
+make backup
 ```
 
 ### install
 
 ```bash
-scripts/install.sh
+make install
 ```
 
 ### update
 
 ```bash
-scripts/update.sh
+make update
 ```
 
 ## Local Settings
 
 ### Shell Setup
 
-Check out [config.fish](.config/fish/config.fish) with awesome aliaes and functions.
+Check out [config.fish](.config/fish/config.fish) with awesome alias and functions.
 Currently, I use [starship](https://starship.rs) as my shell prompt, here is my [config.toml](.config/starship/config.toml).
 
 ### Neovim Setup

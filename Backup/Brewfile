@@ -8,12 +8,16 @@ tap "homebrew/core"
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Text-based UI library
+brew "ncurses"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Plugin manager for the Fish shell
@@ -32,6 +36,8 @@ brew "go"
 brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Terminal file manager
+brew "lf"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -40,6 +46,8 @@ brew "neovim", args: ["HEAD"]
 brew "node"
 # Development kit for the Java programming language
 brew "openjdk"
+# Painless compression and decompression for your terminal
+brew "ouch"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
@@ -58,8 +66,12 @@ brew "vercel-cli"
 brew "vivid"
 # Internet file retriever
 brew "wget"
+# Hackable, minimal, fast TUI file explorer
+brew "xplr"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# GPU-accelerated terminal emulator
+cask "alacritty"
 # Cloud storage service
 cask "baidunetdisk"
 # E-books management software
@@ -102,8 +114,6 @@ cask "rapidapi"
 cask "raycast"
 # Team communication and collaboration software
 cask "slack"
-# Sound and audio controller
-cask "soundsource"
 # Quicklook extension for source files
 cask "syntax-highlight"
 # Messaging app with a focus on speed and security
@@ -128,5 +138,6 @@ mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Tampermonkey", id: 1482490089
 mas "TestFlight", id: 899247664
+mas "Things", id: 904280696
 mas "WeChat", id: 836500024
 mas "Xcode", id: 497799835

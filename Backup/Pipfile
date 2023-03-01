@@ -1,6 +1,6 @@
 altgraph==0.17.3
 future==0.18.3
-greenlet==2.0.1
+greenlet==2.0.2
 macholib==1.16.2
 msgpack==1.0.4
 neovim==0.3.1
