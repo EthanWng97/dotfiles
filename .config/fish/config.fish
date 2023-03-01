@@ -14,6 +14,8 @@ set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_prompt_pwd_dir_length 0
 set fish_greeting
+set -x XDG_CONFIG_HOME "$HOME/.config"
+set -x EDITOR nvim
 
 
 # alias, abbr and keymap settings
@@ -47,11 +49,5 @@ set fzf_preview_dir_cmd exa --all --color=always --icons
 set fzf_fd_opts --hidden --no-ignore
 set -x FZF_DEFAULT_OPTS --cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
 
-# lazygit
-set -x LG_CONFIG_FILE "/Users/navepnow/.config/lazygit/config.yml"
-
 # bat
 set -x BAT_THEME Dracula
-
-# neovim
-set -gx EDITOR nvim

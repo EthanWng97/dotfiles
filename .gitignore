@@ -85,3 +85,4 @@ go/pkg
 .config/nvim/lazy-lock.json
 .jupyter
 .config/fish/private.fish
+.config/lazygit/state.yml
