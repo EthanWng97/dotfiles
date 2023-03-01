@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Evan's dotfiles 👋</h1>
 💻 alacritty, neovim, fish, tmux, git, homebrew - my whole world
 <div align="center">
-<img width="720" alt="IMG_1059" src="https://user-images.githubusercontent.com/39482599/210192026-b445af4f-9279-4bd0-b0b3-3a34bb5786d4.png">
+<img width="720" alt="IMG_1059" src="https://user-images.githubusercontent.com/39482599/222035732-e245becc-dd67-4d42-8c8c-28a2592d4d13.png">
 </div>
 
 ## Initial Setup and Installation
