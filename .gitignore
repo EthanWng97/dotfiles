@@ -86,3 +86,4 @@ go/pkg
 .jupyter
 .config/fish/private.fish
 .config/lazygit/state.yml
+.aicommits
