@@ -16,24 +16,25 @@ set fish_prompt_pwd_dir_length 0
 set fish_greeting
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -x EDITOR nvim
+set -x LS_COLORS "$(vivid generate dracula)"
+bind ` accept-autosuggestion
+bind \co 'open .'
+bind -M insert ` accept-autosuggestion
+alias nv nvim
+alias lg lazygit
 
 
-# alias, abbr and keymap settings
+# exa
 alias ls "exa --color=always --icons --group-directories-first"
 alias la 'exa --color=always --icons --group-directories-first --all'
 alias ll 'exa --color=always --icons --group-directories-first --all --long'
 alias lt 'exa --tree --color=always --icons --group-directories-first --all'
-alias nv nvim
-alias lg lazygit
 
+# tmux
 abbr ta "tmux attach -t"
 abbr tn "tmux new -s"
 abbr tl "tmux ls"
 abbr tk "tmux kill-session -t"
-
-bind ` accept-autosuggestion
-bind \co 'open .'
-bind -M insert ` accept-autosuggestion
 
 # zoxide
 zoxide init fish | source
@@ -51,3 +52,6 @@ set -x FZF_DEFAULT_OPTS --cycle --layout=reverse --border --height=90% --preview
 
 # bat
 set -x BAT_THEME Dracula
+
+# tealdeer
+set -x TEALDEER_CONFIG_DIR "$HOME/.config/tealdeer/config.toml"
