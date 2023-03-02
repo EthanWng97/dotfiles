@@ -5,27 +5,24 @@ env:
 
 window:
   dimensions:
-    columns: 150
-    lines: 40
-  padding:
-    x: 0
-    y: 0
-  dynamic_padding: false
+    columns: 100
+    lines: 35
+  dynamic_padding: true
   decorations: buttonless
   startup_mode: Windowed
-  opacity: 0.95
+  opacity: 0.98
   option_as_alt: OnlyLeft
 
 font:
   normal:
     family: JetBrainsMono Nerd Font
-    style: Light
+    style: Regular
   bold:
     family: JetBrainsMono Nerd Font
     style: Bold
   italic:
     family: JetBrainsMono Nerd Font
-    style: Light Italic
+    style: Regular Italic
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
@@ -33,18 +30,12 @@ font:
   size: 14
 
   offset:
-    y: 3
+    y: 2
 
-# draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: true
 
 selection:
   save_to_clipboard: true
-
-mouse:
-  hints:
-    launcher:
-      program: open
-    modifiers: Command
 
 # Startup directory, unset or None for home directory
 key_bindings:
