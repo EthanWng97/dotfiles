@@ -54,4 +54,4 @@ set -x FZF_DEFAULT_OPTS --cycle --layout=reverse --border --height=90% --preview
 set -x BAT_THEME Dracula
 
 # tealdeer
-set -x TEALDEER_CONFIG_DIR "$HOME/.config/tealdeer/config.toml"
+set -x TEALDEER_CONFIG_DIR "$HOME/.config/tealdeer"
