@@ -29,15 +29,10 @@ M.setup = function()
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 	end
-end
-
-M.on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	local bufopts = { noremap = true, silent = true }
 	vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "<leader>gd", "<cmd>Telescope lsp_definitions<cr>", bufopts)
 	vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>", bufopts)
@@ -54,11 +49,10 @@ M.on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 	-- show diagnostics in hover window
 	vim.api.nvim_create_autocmd("CursorHold", {
-		buffer = bufnr,
 		callback = function()
 			local opts = {
 				focusable = false,
-				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
 				border = "rounded",
 				source = "always",
 				prefix = " ",
@@ -67,6 +61,11 @@ M.on_attach = function(client, bufnr)
 			vim.diagnostic.open_float(nil, opts)
 		end,
 	})
+end
+
+M.on_attach = function(client, bufnr)
+	-- Enable completion triggered by <c-x><c-o>
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
 return M
