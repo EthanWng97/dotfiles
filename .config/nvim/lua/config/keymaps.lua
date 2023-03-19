@@ -49,12 +49,6 @@ vim.keymap.set({ "i", "v", "n" }, "<C-M-q>", "<cmd>qa!<cr>", { desc = "Exit Vim"
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Lsp formatting
-vim.keymap.set("n", "<C-M-f>", function()
-	vim.lsp.buf.format({ async = false })
-	vim.api.nvim_command("write")
-end, { desc = "Lsp formatting" })
-
 -- Clear search results
 vim.keymap.set("n", "<leader>f", "za")
 
