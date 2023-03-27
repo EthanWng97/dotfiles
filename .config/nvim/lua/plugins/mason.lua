@@ -1,5 +1,6 @@
 local M = {
 	"williamboman/mason.nvim",
+	build = ":MasonUpdate",
 	opts = {
 		pip = {
 			upgrade_pip = true,
