@@ -46,7 +46,7 @@ local M = {
 				},
 				lualine_x = { "encoding", "filetype" },
 				lualine_y = { "progress" },
-				lualine_z = { location },
+				lualine_z = { location, "selectioncount" },
 			},
 			inactive_sections = {
 				lualine_a = {},
@@ -78,6 +78,7 @@ local M = {
 				lualine_y = {},
 				lualine_z = {},
 			},
+			extensions = { "lazy" },
 		}
 	end,
 }
