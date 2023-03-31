@@ -16,7 +16,7 @@ local M = {
 		end
 
 		local location = { "location", padding = 0 }
-		local filename = { "filename", path = 1, shorting_target = 80, color = { bg = colors.bg } }
+		local filename = { "filename", path = 4, color = { bg = colors.bg } }
 		return {
 			options = {
 				icons_enabled = true,
