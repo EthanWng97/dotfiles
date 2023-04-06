@@ -64,3 +64,8 @@ vim.keymap.set("n", "<leader>tl", function()
 end, { desc = "Toggle Line Numbers" })
 vim.keymap.set("n", "<leader>td", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
 vim.keymap.set("n", "<leader>q", utils.toggle_quickfix, { desc = "Toggle Quickfix Window" })
+
+vim.keymap.set("n", "<C-M-f>", function()
+	vim.lsp.buf.format({ async = false })
+	vim.api.nvim_command("write")
+end, { desc = "Lsp formatting" })

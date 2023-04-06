@@ -34,12 +34,6 @@ M.setup = function()
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true }
 
-	-- Lsp formatting
-	vim.keymap.set("n", "<C-M-f>", function()
-		vim.lsp.buf.format({ async = false })
-		vim.api.nvim_command("write")
-	end, { desc = "Lsp formatting" })
-
 	vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "<leader>gd", "<cmd>Telescope lsp_definitions<cr>", bufopts)
 	vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>", bufopts)
