@@ -12,13 +12,12 @@ local M = {
 					text = { builtin.lnumfunc },
 					click = "v:lua.ScLa",
 				},
-				-- { text = { "%s" }, click = "v:lua.ScSa" },
 				{
-					sign = { name = { ".*" }, maxwidth = 1, colwidth = 1, auto = true },
+					sign = { name = { ".*" }, colwidth = 1 },
 					click = "v:lua.ScSa",
 				},
 				{
-					text = { builtin.foldfunc, " " },
+					text = { " ", builtin.foldfunc, " " },
 					condition = { true, builtin.not_empty },
 					click = "v:lua.ScFa",
 				},
