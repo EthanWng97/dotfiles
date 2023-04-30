@@ -11,7 +11,6 @@ local M = {
             debug = true,
             sources = {
                 formatting.shfmt,
-                formatting.stylua,
                 formatting.prettier,
                 formatting.clang_format,
                 formatting.taplo,

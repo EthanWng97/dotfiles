@@ -62,7 +62,6 @@ M.mason_packages = {
     "prettier",
     "pyright",
     "shfmt",
-    "stylua",
     "tailwindcss-language-server",
     "taplo",
     "typescript-language-server",

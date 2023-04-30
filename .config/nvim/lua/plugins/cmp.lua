@@ -8,8 +8,11 @@ local M = {
         "hrsh7th/cmp-path",
         {
             "zbirenbaum/copilot-cmp",
-            config = function()
-                require("copilot_cmp").setup()
+            dependencies = "copilot.lua",
+            opts = {},
+            config = function(_, opts)
+                local copilot_cmp = require("copilot_cmp")
+                copilot_cmp.setup(opts)
             end,
         },
     },
@@ -51,7 +54,7 @@ local M = {
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
                 ["<C-n>"] = cmp.mapping.select_next_item(),
-                ["<C-d>"] = cmp.mapping.scroll_docs( -4),
+                ["<C-d>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.close(),
@@ -72,8 +75,8 @@ local M = {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable( -1) then
-                        luasnip.jump( -1)
+                    elseif luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
                     else
                         fallback()
                     end
@@ -89,9 +92,11 @@ local M = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
             },
-            experimental = { ghost_text = {
-                hl_group = "LspCodeLens",
-            } },
+            experimental = {
+                ghost_text = {
+                    hl_group = "LspCodeLens",
+                },
+            },
         }
     end,
     config = function(_, opts)
