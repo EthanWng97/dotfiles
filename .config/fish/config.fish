@@ -12,7 +12,7 @@ fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
-set fish_prompt_pwd_dir_length 0
+# set fish_prompt_pwd_dir_length 0
 set fish_greeting
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -x EDITOR nvim
