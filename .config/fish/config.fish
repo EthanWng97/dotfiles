@@ -24,11 +24,11 @@ alias nv nvim
 alias lg lazygit
 
 
-# exa
-alias ls "exa --color=always --icons --group-directories-first"
-alias la 'exa --color=always --icons --group-directories-first --all'
-alias ll 'exa --color=always --icons --group-directories-first --all --long'
-alias lt 'exa --tree --color=always --icons --group-directories-first --all'
+# eza
+alias ls "eza --color=always --icons --group-directories-first"
+alias la 'eza --color=always --icons --group-directories-first --all'
+alias ll 'eza --color=always --icons --group-directories-first --all --long'
+alias lt 'eza --tree --color=always --icons --group-directories-first --all'
 
 # tmux
 abbr ta "tmux attach -t"
