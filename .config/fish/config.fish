@@ -9,7 +9,6 @@ source ~/.config/fish/private.fish
 fish_config theme choose Dracula
 fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/bin
-fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 # set fish_prompt_pwd_dir_length 0
@@ -41,7 +40,7 @@ zoxide init fish | source
 
 #starship
 set -x STARSHIP_CONFIG "$HOME/.config/starship/config.toml"
-starship init fish --print-full-init | source
+starship init fish | source
 enable_transience
 
 # fzf
