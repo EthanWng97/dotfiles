@@ -86,7 +86,6 @@ dynamic_padding = true
 opacity = 0.98
 option_as_alt = "OnlyLeft"
 startup_mode = "Windowed"
-level = "AlwaysOnTop"
 
 [window.dimensions]
 columns = 100
