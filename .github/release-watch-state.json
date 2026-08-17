@@ -2,13 +2,13 @@
   "lf": "r42",
   "kitty": "v0.48.2",
   "helix": "25.07.1",
-  "xplr": "v1.1.0",
+  "xplr": "v1.1.1",
   "ghostty": "v1.3.1",
   "zellij": "v0.44.3",
   "tealdeer": "v1.8.1",
   "alacritty": "v0.17.0",
   "starship": "v1.26.0",
   "fish": "4.8.1",
-  "lazygit": "v0.64.0",
+  "lazygit": "v0.64.1",
   "tmux": "3.7b"
 }
